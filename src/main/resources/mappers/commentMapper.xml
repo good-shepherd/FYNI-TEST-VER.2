@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyni.mapper.commentMapper">
+	<insert id="commentCreate">
+	insert into comment (comment_ID, comment_Content, comment_Up, comment_Down, comment_WrittenWhen, event_ID, user_ID) 
+	values(
+	#{comment_ID},
+	#{comment_Content},
+	#{comment_Up},
+	#{comment_Down},
+	#{comment_WrittenWhen},
+	#{event_ID},
+	#{user_ID})
+	</insert>
+
+	<select id="commentEventOwn" resultType="com.fyni.domain.CommentDTO">
+	<![CDATA[
+	select *
+	from comment
+	where event_ID = #{event_ID}
+	order by comment_WrittenWhen desc
+	]]>
+	</select>
+
+	<update id="commentUpdate">
+	update comment 
+	set 
+	comment_ID=#{comment_ID},
+	comment_Content=#{comment_Content},
+	comment_Up=#{comment_Up},
+	comment_Down=#{comment_Down},
+	comment_WrittenWhen=#{comment_WrittenWhen},
+	event_ID=#{event_ID},
+	user_ID=#{user_ID}
+	where comment_ID = #{comment_ID}
+	</update>
+
+	<delete id="commentDelete">
+	delete from comment
+	where comment_ID = #{comment_ID}
+	</delete>
+
+	<select id="commentUserOwn" resultType="com.fyni.domain.CommentDTO">
+	<![CDATA[
+	select *
+	from comment
+	where user_ID = #{user_ID}
+	order by comment_WrittenWhen desc
+	]]>
+	</select>
+
+</mapper>

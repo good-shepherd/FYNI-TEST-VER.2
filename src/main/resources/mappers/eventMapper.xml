@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyni.mapper.eventMapper">
+	<insert id="eventCreate">
+		insert into
+		event(event_ID,
+		event_Title,event_Content,event_Up,event_Down,
+		event_When,
+		event_Picture,category_ID,location_ID,
+		user_ID, event_Hit)
+		values(#{event_ID},#{event_Title},#{event_Content},
+		#{event_When},#{event_Picture},#{category_ID},#{location_ID},
+		#{user_ID})
+	</insert>
+	<update id="eventUpdate">
+		update event set
+		event_Title = #{event_Title},
+		event_Content = #{event_Content},
+		event_Up = #{event_Up},
+		event_Down = #{event_Down},
+		event_When = #{event_When},
+		event_Picture = #{event_Picture},
+		category_ID = #{catetory_ID},
+		location_ID = #{location_ID},
+		user_ID = #{user_ID},
+		event_Hit =
+		#{event_Hit}
+		where event_ID = #{event_ID}
+	</update>
+	<select id="eventRead" resultType="com.fyni.domain.EventDTO">
+		select * from event where
+		event_ID = #{event_ID}
+	</select>
+	<select id="eventReadAll" resultType="com.fyni.domain.EventDTO">>
+		select * from event
+	</select>
+	<select id="eventUserOwn" resultType="com.fyni.domain.EventDTO">>
+		select * from event where user_ID = #{user_ID}
+	</select>
+	<select id="eventSearchResult" resultType="com.fyni.domain.EventDTO">
+		<![CDATA[
+		select * from event
+		where event_ID = 
+			(select event_ID
+	  		 from event, event_category
+			 where event_category.category_name = #{category_name})
+		]]>
+	</select>
+	
+<!-- 	<select id="eventInCircle"> -->
+<!-- 		select -->
+<!-- 		*,(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lon) -->
+<!-- 		-radians(#{lon}))+sin(radians(#{lat}))*sin(radians(lat)))) -->
+<!-- 		as distance -->
+<!-- 		from event -->
+<!-- 		having distance &lt;= #{distance} -->
+<!-- 		order by distance -->
+<!-- 		limit -->
+<!-- 		0,300 -->
+<!-- 	</select> -->
+	<delete id="eventDelete">
+		delete from event where event_ID = #{event_ID}
+	</delete>
+	<update id="eventUpDown">
+		update event set
+		event_Up = #{event_Up},
+		event_Down =
+		#{event_Down}
+	</update>
+	<update id="eventHit">
+		update event
+		set event_Hit = event_Hit + 1
+		where event_ID = #{event_ID}
+	</update>
+</mapper>

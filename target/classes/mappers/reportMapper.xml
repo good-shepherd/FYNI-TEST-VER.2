@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyni.mapper.reportMapper">
+<insert id="eventReportCreate">
+	insert into event_Report(event_ID,user_ID,report_Content,report_Category)
+	values(#{event_ID},#{user_ID},#{report_Content},#{report_Category})
+</insert>
+<insert id="commentReportCreate">
+	insert into comment_Report(event_ID,comment_ID, report_Content,report_Category )
+	values(#{event_ID}, #{comment_ID}, #{report_Content},#{report_Category})
+</insert>
+<select id="eventReportReadByEvent">
+	select * from event_Report where event_ID = #{event_ID}
+</select>
+<select id="eventReportReadByUser">
+	select * from event_Report where user_ID = #{user_ID}
+</select>
+<select id="commentReportReadByEvent">
+	select * from comment_Report where event_ID = #{event_ID}
+</select>
+<select id="commentReportReadByComment">
+	select * from comment_Report where comment_ID = #{comment_ID}
+</select>
+
+</mapper>  

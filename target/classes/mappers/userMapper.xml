@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyni.mapper.userMapper">
+	<insert id="userCreate">
+		insert into user (user_ID, user_PWD, user_Nickname,
+		location_ID, user_EXP,
+		user_Profile, user_Date)
+		values(
+		#{user_ID},
+		#{user_PWD},
+		#{user_Nickname},
+		#{location_ID},
+		#{user_EXP},
+		#{user_Profile},
+		#{user_Date})
+	</insert>
+
+	<select id="userRead" resultType="com.fyni.domain.UserDTO">
+		select user_ID, user_PWD, user_Nickname, location_ID, user_EXP,
+		user_Profile, user_Date
+		from user
+		where user_ID = #{user_ID}
+	</select>
+
+	<select id="userSignIn" resultType="string">
+		select user_ID
+		from user
+		where user_ID = #{user_ID} and #{user_PWD}
+	</select>
+
+	<update id="userUpdate">
+		update user
+		set user_ID=#{user_ID},
+		user_PWD=#{user_PWD},
+		user_Nickname=#{user_Nickname},
+		location_ID=#{location_ID},
+		user_EXP=#{user_EXP},
+		user_Profile=#{user_Profile},
+		user_Date=#{user_Date}
+		where user_ID = #{user_ID}
+	</update>
+
+	<delete id="userDelete">
+		delete from user
+		where user_ID = #{user_ID}
+	</delete>
+
+	<select id="userReadAll" resultType="com.fyni.domain.UserDTO">
+	<![CDATA[
+	select user_ID, user_PWD, user_Nickname, location_ID, user_EXP, user_Profile, user_Date
+	from user
+	order by user_ID desc, user_Date desc
+	]]>
+	</select>
+
+</mapper>
