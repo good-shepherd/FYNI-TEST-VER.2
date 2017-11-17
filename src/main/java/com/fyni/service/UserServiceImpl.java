@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.fyni.domain.LoginDTO;
 import com.fyni.domain.UserDTO;
 import com.fyni.persistence.UserDAO;
 
@@ -41,8 +42,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String userSignIn(String User_ID, String User_PWD) {
-		return dao.userSignIn(User_ID, User_PWD);
+	public LoginDTO userSignIn(String user_ID, String user_PWD) {
+		return dao.userSignIn(user_ID, user_PWD);
 	}
 
 }

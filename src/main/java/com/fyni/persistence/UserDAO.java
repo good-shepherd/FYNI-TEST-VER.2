@@ -2,6 +2,7 @@ package com.fyni.persistence;
 
 import java.util.List;
 
+import com.fyni.domain.LoginDTO;
 import com.fyni.domain.UserDTO;
 
 public interface UserDAO {
@@ -16,5 +17,5 @@ public interface UserDAO {
 
 	public List<UserDTO> userReadAll();
 
-	public String userSignIn(String User_ID, String User_PWD);
+	public LoginDTO userSignIn(String User_ID, String User_PWD);
 }
