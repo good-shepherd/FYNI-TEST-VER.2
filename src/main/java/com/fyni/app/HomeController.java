@@ -38,7 +38,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/search/{searchTerm}", method = RequestMethod.POST)
+	@RequestMapping(value = "/search/{searchTerm}", method = RequestMethod.GET)
 	public ModelAndView search(@PathVariable("searchTerm") String pSearchTerm) {
 		ModelAndView mav = new ModelAndView("search");
 		mav.addObject("searchTerm", pSearchTerm);
