@@ -17,21 +17,21 @@ import com.fyni.persistence.UserDAO;
 public class UserController {
 	@Autowired
 	DataSource ds;
-	
+
 	@Autowired
 	UserDAO userDao;
-	
-	@RequestMapping(value="login.do", method=RequestMethod.POST)	
+
+	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String logForm(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
-			HttpSession session){
+			HttpSession session) {
 		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
 		LoginDTO login = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
 		System.out.println(login);
-		if(login == null) {
-			System.out.println("·Î±×ÀÎ ½ÇÆÐ");
+		if (login == null) {
+			System.out.println("Â·ÃŽÂ±Ã—Ã€ÃŽ Â½Ã‡Ã†Ã�");
 			return "fail";
-		}else {
+		} else {
 			session.setAttribute("user_ID", user_ID);
 			return user_ID;
 		}
