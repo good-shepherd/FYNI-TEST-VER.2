@@ -178,6 +178,10 @@ p {
 			</div>
 		</div>
 	</div>
+	
+	<div class = "container-fluid bg-3>">
+			
+	</div>
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center">
 		<p>
