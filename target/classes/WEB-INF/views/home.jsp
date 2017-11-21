@@ -9,6 +9,8 @@
 	rel="stylesheet">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript"
+		src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NpUtXPkJkj1DI50B8uA9"></script>
 <title>Insert title here</title>
 <script>
 $(document).ready(function(){
@@ -88,7 +90,7 @@ $(document).ready(function(){
 			<div class="input-group col-sm-6 col-sm-offset-3">
 				<input type="text" class="search-query form-control"
 					placeholder="Search" /> <span class="input-group-btn">
-					<button class="btn btn-danger" type="button">
+					<button class="btn btn-danger" type="button" id="searchbtn">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
@@ -104,7 +106,7 @@ $(document).ready(function(){
 			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
 			aliquip ex ea commodo consequat.</p>
-		<a href="#" class="btn btn-default btn-lg" id="searchbtn"> <span
+		<a href="#" class="btn btn-default btn-lg" > <span
 			class="glyphicon glyphicon-search"></span> Search
 		</a>
 	</div>
