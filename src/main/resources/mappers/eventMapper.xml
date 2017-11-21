@@ -39,7 +39,7 @@
 		where event_ID = 
 			(select event_ID
 	  		 from event, event_category
-			 where event_category.category_name = "사건")
+			 where event_category.category_name = #{category_name})
 	</select>
 	<select id="eventUserOwn" resultType="com.fyni.domain.EventDTO">
 		select * from event where user_ID = #{user_ID}
