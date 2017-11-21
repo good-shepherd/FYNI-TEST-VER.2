@@ -34,6 +34,16 @@ $(document).ready(function(){
 				}
 			}
 		});
+	}); //로그인버튼 클릭시
+	
+	$('#searchbtn').on('click',function(){
+		$.ajax({
+			url : "search.do",
+			success : function(a,b,c){
+					alert("aaaa");
+					$('#searchBody').html(a);
+			}
+		});
 	});
 });
 </script>
@@ -94,7 +104,7 @@ $(document).ready(function(){
 			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
 			aliquip ex ea commodo consequat.</p>
-		<a href="#" class="btn btn-default btn-lg"> <span
+		<a href="#" class="btn btn-default btn-lg" id="searchbtn"> <span
 			class="glyphicon glyphicon-search"></span> Search
 		</a>
 	</div>
