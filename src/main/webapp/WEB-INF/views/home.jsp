@@ -9,6 +9,8 @@
 	rel="stylesheet">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript"
+		src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NpUtXPkJkj1DI50B8uA9"></script>
 <title>Insert title here</title>
 <script>
 $(document).ready(function(){
