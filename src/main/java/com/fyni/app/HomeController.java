@@ -21,9 +21,6 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@Autowired
-	private EventServiceImpl service;
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -38,11 +35,4 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/search/{searchTerm}", method = RequestMethod.GET)
-	public ModelAndView search(@PathVariable("searchTerm") String pSearchTerm) {
-		ModelAndView mav = new ModelAndView("search");
-		mav.addObject("searchTerm", pSearchTerm);
-		// mav.addObject("searchResult", service.검색기능메소드 들어가야함(pSearchTerm));
-		return mav;
-	}
 }
