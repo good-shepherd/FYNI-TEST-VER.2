@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
@@ -22,12 +21,15 @@ public class EventController {
 	private EventServiceImpl service;
 
 	@RequestMapping(value = "listAll.do", method = RequestMethod.GET)
-	public List<EventDTO> searchAll(ModelAndView mav) throws Exception {
+	public List<EventDTO> searchAll() throws Exception {
 		List<EventDTO> list = service.eventReadAll();
-		mav.addObject(list);
-		mav.setViewName("list");
 		System.out.println(list);
-		System.out.println(mav);
 		return list;
 	}
+	
+	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
+	public void eventCreate(EventDTO dto) throws Exception {
+		int result = service.eventCreate(dto);
+	}
+	
 }
