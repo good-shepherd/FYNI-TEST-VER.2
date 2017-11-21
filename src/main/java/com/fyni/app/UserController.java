@@ -36,4 +36,10 @@ public class UserController {
 			return user_ID;
 		}
 	}
+	
+	@RequestMapping("search.do")
+	public String searchBody() {
+		System.out.println("you have reached here");
+		return "searchListWithMap";
+	}
 }
