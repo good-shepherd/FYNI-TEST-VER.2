@@ -69,7 +69,8 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
-
+	
+	<div id="searchBody">
 	<!-- First Container -->
 	<div class="container-fluid bg-1 text-center">
 		<div class="h1">Things to do in your area</div>
@@ -97,7 +98,7 @@ $(document).ready(function(){
 			class="glyphicon glyphicon-search"></span> Search
 		</a>
 	</div>
-
+	
 	<!-- Third Container (Grid) -->
 	<div class="container-fluid bg-3 text-center">
 		<h3 class="margin">Where To Find Me?</h3>
@@ -117,7 +118,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
-
+	</div>
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center">
 		<p>FYNI.</p>
