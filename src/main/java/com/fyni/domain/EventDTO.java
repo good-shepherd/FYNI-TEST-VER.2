@@ -17,6 +17,19 @@ public class EventDTO {
 	private String user_ID;
 	private int event_Hit;
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("EventDTO [event_ID=").append(event_ID).append(", event_Title=").append(event_Title)
+				.append(", event_Content=").append(event_Content).append(", event_Up=").append(event_Up)
+				.append(", event_Down=").append(event_Down).append(", event_When=").append(event_When)
+				.append(", event_WrittenWhen=").append(event_WrittenWhen).append(", event_Picture=")
+				.append(event_Picture).append(", category_ID=").append(category_ID).append(", location_ID=")
+				.append(location_ID).append(", user_ID=").append(user_ID).append(", event_Hit=").append(event_Hit)
+				.append("]");
+		return builder.toString();
+	}
+
 	public int getEvent_ID() {
 		return event_ID;
 	}

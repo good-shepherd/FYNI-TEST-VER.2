@@ -34,20 +34,15 @@
 		select * from event where
 		event_ID = #{event_ID}
 	</select>
-	<select id="eventReadAll" resultType="com.fyni.domain.EventDTO">>
-		select * from event
-	</select>
-	<select id="eventUserOwn" resultType="com.fyni.domain.EventDTO">>
-		select * from event where user_ID = #{user_ID}
-	</select>
-	<select id="eventSearchResult" resultType="com.fyni.domain.EventDTO">
-		<![CDATA[
+	<select id="eventReadAll" resultType="com.fyni.domain.EventDTO">
 		select * from event
 		where event_ID = 
 			(select event_ID
 	  		 from event, event_category
-			 where event_category.category_name = #{category_name})
-		]]>
+			 where event_category.category_name = "사건")
+	</select>
+	<select id="eventUserOwn" resultType="com.fyni.domain.EventDTO">
+		select * from event where user_ID = #{user_ID}
 	</select>
 	
 <!-- 	<select id="eventInCircle"> -->
