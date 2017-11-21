@@ -5,6 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
 <script>
 	$.getJSON("listAll.do", function(data) {
 		var str = "";
@@ -15,8 +18,6 @@
 		$("#resultList").html(str);
 	});
 </script>
-</head>
-<body>
 	<ul id="resultList">
 	</ul>
 </body>

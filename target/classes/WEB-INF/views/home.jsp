@@ -41,13 +41,24 @@ $(document).ready(function(){
 	$('#searchbtn').on('click',function(){
 		$.ajax({
 			url : "listAll.do",
-			success : function(a,b,c){
-					alert("aaaa");
-					$('#searchBody').html(a);
+			success : function(data){
+					//alert("aaaa");
+					//$.getJSON("listAll.do", function(data) {
+						var str = "";
+						$(data).each(function() {
+							str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
+								+ this.event_ID + ": " + this.event_Title + "</li>";
+						});
+						$("#resultList").html(str);
+					
+					/* $('#searchBody').html(a); */
 			}
 		});
 	});
 });
+
+
+
 </script>
 </head>
 <body>
@@ -83,6 +94,8 @@ $(document).ready(function(){
 	</nav>
 	
 	<div id="searchBody">
+	<ul id="resultList">
+	</ul>
 	<!-- First Container -->
 	<div class="container-fluid bg-1 text-center">
 		<div class="h1">Things to do in your area</div>
