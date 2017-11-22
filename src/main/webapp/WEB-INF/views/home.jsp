@@ -42,6 +42,8 @@ $(document).ready(function(){
 			}
 		});
 	}); //로그인버튼 클릭시
+	
+	
 	 $('#eventWritebtn').on('click', function () {
 		$.ajax({
 			url : "eventCreate.do",
@@ -61,25 +63,29 @@ $(document).ready(function(){
 	}); 
 		
 	
+	 var searchAction = function (){
+			var category_name = $('#searchMain').val();		
+			$.ajax({
+				url : "eventReadByCategory.do",
+				data : {"category_name": category_name},
+				success : function(data){
+						// alert(data.toString());
+							var str = "";
+							$(data).each(function() {
+								str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
+									+ this.event_ID + ": " + this.event_Title + "</li>";
+							});
+							$("#resultList").html(str);
+				}
+			});
+		}
 	
-	$('#searchbtn').on('click',function(){
-		var category_name = $('#searchMain').val();		
-		$.ajax({
-			url : "eventReadByCategory.do",
-			data : {"category_name": category_name},
-			success : function(data){
-					// alert(data.toString());
-						var str = "";
-						$(data).each(function() {
-							str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
-								+ this.event_ID + ": " + this.event_Title + "</li>";
-						});
-						$("#resultList").html(str);
-					
-					/* $('#searchBody').html(a); */
-			}
-		});
-	});
+	
+	$('#searchbtn').on('click', searchAction);
+	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
+        
+            
+	
 });
 
 </script>
