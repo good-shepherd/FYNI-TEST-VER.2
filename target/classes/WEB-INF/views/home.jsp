@@ -15,21 +15,26 @@
 <script>
 $(document).ready(function(){
 	$('#loginbtn').click(function(){
-		var userID = $('#user_ID').val();
+		var userID = $('#user_ID_Modal').val();
 		var userPWD = $('#user_PWD').val();
+
 		$.ajax({
-			url : '', //나중에 값 줄것
+			url : 'login.do',
 			type : 'POST',
 			data : {
 				'user_ID' : userID,
 				'user_PWD' : userPWD
 			},
 			success : function(a,b,c){
+				alert(userID);
+				alert(userPWD);
 				if(a == 'fail'){
 					alert("login failed!");
 					$('user_ID').val("");
 					$('user_PWD').val("");
 				}else{
+					alert(a);
+					$('#user_ID').val(a);
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
@@ -86,6 +91,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+	<input type="hidden" id="user_ID" name="user_ID">
 	<!-- Navbar -->
 	<nav class="navbar navbar-default">
 		<div class="container">
@@ -156,8 +162,8 @@ $(document).ready(function(){
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<label>ID</label> <input type="text"> <br> <label>PASSWORD</label>
-					<input type="password">
+					<label>ID</label> <input type="text" id="user_ID_Modal"> <br>
+					 <label>PASSWORD</label><input type="password" id="user_PWD">
 				</div>
 
 				<!-- Modal footer -->
