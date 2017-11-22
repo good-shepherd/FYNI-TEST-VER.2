@@ -57,11 +57,12 @@ $(document).ready(function(){
 	
 	
 	$('#searchbtn').on('click',function(){
+		var category_name = $('#searchMain').val();		
 		$.ajax({
-			url : "listAll.do",
+			url : "eventReadByCategory.do",
+			data : {"category_name": category_name},
 			success : function(data){
-					//alert($('#searchMain'));
-					//$.getJSON("listAll.do", function(data) {
+					// alert(data.toString());
 						var str = "";
 						$(data).each(function() {
 							str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
@@ -111,8 +112,6 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
-<<<<<<< HEAD
-	
 	<div id="searchBody" class="bg-1">
 	<ul id="resultList">
 	</ul>
@@ -127,24 +126,6 @@ $(document).ready(function(){
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
-=======
-
-	<div id="searchBody">
-		<ul id="resultList">
-		</ul>
-		<!-- First Container -->
-		<div class="container-fluid bg-1 text-center">
-			<div class="h1">Things to do in your area</div>
-			<div id="custom-search-input">
-				<div class="input-group col-sm-6 col-sm-offset-3">
-					<input type="text" class="search-query form-control"
-						placeholder="Search" /> <span class="input-group-btn">
-						<button class="btn btn-danger" type="button" id="searchbtn">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
->>>>>>> 27ff056494414ccd3e7c923e9259c35a1409fdd9
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
