@@ -16,5 +16,5 @@ public interface UserService {
 
 	public List<UserDTO> userReadAll();
 
-	public LoginDTO userSignIn(String User_ID, String User_PWD);
+	public String userSignIn(String User_ID, String User_PWD);
 }

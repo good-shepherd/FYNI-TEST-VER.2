@@ -26,9 +26,9 @@ public class UserController {
 	public String logForm(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
 			HttpSession session) {
 		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
-		LoginDTO login = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
-		System.out.println(login);
-		if (login == null) {
+		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
+		System.out.println(loginInfo);
+		if (loginInfo == null) {
 			System.out.println("Â·ÃŽÂ±Ã—Ã€ÃŽ Â½Ã‡Ã†Ã�");
 			return "fail";
 		} else {

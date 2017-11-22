@@ -48,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public LoginDTO userSignIn(String user_ID, String user_PWD) {
+	public String userSignIn(String user_ID, String user_PWD) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_ID",user_ID);
 		map.put("user_PWD", user_PWD);

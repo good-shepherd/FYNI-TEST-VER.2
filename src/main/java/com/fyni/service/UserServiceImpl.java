@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public LoginDTO userSignIn(String user_ID, String user_PWD) {
+	public String userSignIn(String user_ID, String user_PWD) {
 		return dao.userSignIn(user_ID, user_PWD);
 	}
 
