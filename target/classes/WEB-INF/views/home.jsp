@@ -35,7 +35,8 @@ $(document).ready(function(){
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
-					$('#eventWriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li>')
+					$('#eventWriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li><li><a href="#">Events</a></li>'
+							+'<li><a href="#">Talk</a></li>');
 					$("#showUserID").html('<li><a href="#" id="userinfo">유저아이디</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
@@ -101,14 +102,12 @@ $(document).ready(function(){
 				<a class="navbar-brand" href="#">FYNI</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-left">
+				<ul class="nav navbar-nav navbar-left" id = "eventwriting">
 					 <!-- 로그인 후 event write 활성화하는 곳-->
 					 <!-- c:if는 처음에 로그인 안 되어 있으면(새로고침했을때) 아예 event write를 안띄움-->
 					<c:if test="${user_ID != null }"> 
-					<div id = "eventwriting">
 					<li><a id="wane" href="#" data-toggle="modal"
 						data-target="#eventModal">Write an Event</a></li>
-					</div>
 					</c:if>
 					<!-- event write -->
 					<li><a href="#">Events</a></li>
