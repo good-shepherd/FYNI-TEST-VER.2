@@ -38,8 +38,6 @@ $(document).ready(function(){
 		});
 	}); //로그인버튼 클릭시
 	
-	
-	
 	 $('#eventWritebtn').on('click', function () {
 		$.ajax({
 			url : "eventCreate.do",
