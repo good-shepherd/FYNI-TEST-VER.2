@@ -58,11 +58,12 @@ $(document).ready(function(){
 	
 	
 	$('#searchbtn').on('click',function(){
+		var category_name = $('#searchMain').val();		
 		$.ajax({
-			url : "listAll.do",
+			url : "eventReadByCategory.do",
+			data : {"category_name": category_name},
 			success : function(data){
-					//alert($('#searchMain'));
-					//$.getJSON("listAll.do", function(data) {
+					// alert(data.toString());
 						var str = "";
 						$(data).each(function() {
 							str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
@@ -112,7 +113,10 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 1df1b708316a02126c34f6a37aa8680c1003e8b5
 	<div id="searchBody" class="bg-1">
 	<ul id="resultList">
 	</ul>
@@ -127,7 +131,10 @@ $(document).ready(function(){
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
+<<<<<<< HEAD
 				</div>
+=======
+>>>>>>> 1df1b708316a02126c34f6a37aa8680c1003e8b5
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>

@@ -34,6 +34,12 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
+	public List<EventDTO> eventReadByCategory(String category_name) {
+		System.out.println(category_name);
+		return session.selectList(namespace + ".eventReadByCategory", category_name);
+	}
+
+	@Override
 	public List<EventDTO> eventReadAll() {
 		return session.selectList(namespace + ".eventReadAll");
 	}

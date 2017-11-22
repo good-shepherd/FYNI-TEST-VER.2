@@ -8,6 +8,7 @@ public interface EventService {
 	public int eventCreate(EventDTO event) throws Exception;
 	public int eventUpdate(EventDTO event) throws Exception;
 	public EventDTO eventRead(int event_ID) throws Exception;
+	public List<EventDTO> eventReadByCategory(String category_name) throws Exception;
 	public List<EventDTO> eventReadAll() throws Exception;
 	public List<EventDTO> eventUserOwn(String user_ID) throws Exception;
 	public List<EventDTO> eventInCircle(String lon, String lat) throws Exception;

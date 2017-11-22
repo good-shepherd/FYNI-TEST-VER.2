@@ -72,6 +72,7 @@ p {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+	
 }
 
 #custom-search-input button {
@@ -88,6 +89,7 @@ p {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	color: #D9230F;
+	z-index: 99;
 }
 
 .search-query:focus+button {

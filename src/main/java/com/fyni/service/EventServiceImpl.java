@@ -29,6 +29,11 @@ public class EventServiceImpl implements EventService {
 	public EventDTO eventRead(int event_ID) throws Exception {
 		return dao.eventRead(event_ID);
 	}
+	
+	@Override
+	public List<EventDTO> eventReadByCategory(String category_name) throws Exception {
+		return dao.eventReadByCategory(category_name);
+	}
 
 	@Override
 	public List<EventDTO> eventReadAll() throws Exception {
@@ -59,5 +64,6 @@ public class EventServiceImpl implements EventService {
 	public int eventHit(int event_ID) throws Exception {
 		return dao.eventHit(event_ID);
 	}
+
 
 }
