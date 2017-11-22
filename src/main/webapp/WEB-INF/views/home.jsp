@@ -37,6 +37,8 @@ $(document).ready(function(){
 			}
 		});
 	}); //로그인버튼 클릭시
+	
+	
 	 $('#eventWritebtn').on('click', function () {
 		$.ajax({
 			url : "eventCreate.do",
@@ -56,25 +58,29 @@ $(document).ready(function(){
 	}); 
 		
 	
+	 var searchAction = function (){
+			var category_name = $('#searchMain').val();		
+			$.ajax({
+				url : "eventReadByCategory.do",
+				data : {"category_name": category_name},
+				success : function(data){
+						// alert(data.toString());
+							var str = "";
+							$(data).each(function() {
+								str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
+									+ this.event_ID + ": " + this.event_Title + "</li>";
+							});
+							$("#resultList").html(str);
+				}
+			});
+		}
 	
-	$('#searchbtn').on('click',function(){
-		var category_name = $('#searchMain').val();		
-		$.ajax({
-			url : "eventReadByCategory.do",
-			data : {"category_name": category_name},
-			success : function(data){
-					// alert(data.toString());
-						var str = "";
-						$(data).each(function() {
-							str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
-								+ this.event_ID + ": " + this.event_Title + "</li>";
-						});
-						$("#resultList").html(str);
-					
-					/* $('#searchBody').html(a); */
-			}
-		});
-	});
+	
+	$('#searchbtn').on('click', searchAction);
+	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
+        
+            
+	
 });
 
 </script>
@@ -113,10 +119,6 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 1df1b708316a02126c34f6a37aa8680c1003e8b5
 	<div id="searchBody" class="bg-1">
 	<ul id="resultList">
 	</ul>
@@ -131,10 +133,7 @@ $(document).ready(function(){
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
-<<<<<<< HEAD
 				</div>
-=======
->>>>>>> 1df1b708316a02126c34f6a37aa8680c1003e8b5
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
