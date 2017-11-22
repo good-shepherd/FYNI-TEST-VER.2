@@ -35,13 +35,14 @@ $(document).ready(function(){
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
-					$("#aaaaa").html('<li><a href="#" id="userinfo">유저아이디</a></li><li><a href="#">Sign Up</a></li>');
+					$('#eventWriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li>')
+					$("#showUserID").html('<li><a href="#" id="userinfo">유저아이디</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
 		});
 	}); //로그인버튼 클릭시
 	
-	
+	//
 	 $('#eventWritebtn').on('click', function () {
 		$.ajax({
 			url : "eventCreate.do",
@@ -54,6 +55,7 @@ $(document).ready(function(){
 				if(a == "fail"){
 					alert("생성에 실패했습니다.")	;
 				}else if(a == "success"){
+					$('#eventModal').modal('hide');
 					alert("이벤트가 생성되었습니다.");
 				}
 			}
@@ -78,12 +80,9 @@ $(document).ready(function(){
 			});
 		}
 	
-	
 	$('#searchbtn').on('click', searchAction);
 	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
         
-            
-	
 });
 
 </script>
@@ -103,22 +102,32 @@ $(document).ready(function(){
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
-					<c:if test="${user_ID != null }">
+					 <!-- 로그인 후 event write 활성화하는 곳-->
+					 <!-- c:if는 처음에 로그인 안 되어 있으면(새로고침했을때) 아예 event write를 안띄움-->
+					<c:if test="${user_ID != null }"> 
+					<div id = "eventwriting">
 					<li><a id="wane" href="#" data-toggle="modal"
 						data-target="#eventModal">Write an Event</a></li>
+					</div>
 					</c:if>
+					<!-- event write -->
 					<li><a href="#">Events</a></li>
 					<li><a href="#">Talk</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right" id="aaaaa">
+				<ul class="nav navbar-nav navbar-right" id ="showUserID">
+				
+					<!-- 새로고침이나 처음 홈페이지 진입을 위해 login을 띄우거나 userid를 띄우거나를 결정 -->
+					<!-- ajax를 통해 로그인 성공 시 user_ID를 띄워 -->
 					<c:if test="${user_ID == null }">
 						<li><a href="#" id="login" data-toggle="modal"
 							data-target="#myModal">Log In</a></li>
 					</c:if>
+					
 					<c:if test="${user_ID != null }">
-						<li><a href="#" id="userinfo">유저아이디</a></li>
+						<li><a href="#" id="userinfo">${user_ID }</a></li>
 					</c:if>
 					<li><a href="#">Sign Up</a></li>
+					<!-- 여기까지 ajax -->
 				</ul>
 			</div>
 		</div>
