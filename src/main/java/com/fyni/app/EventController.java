@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
@@ -36,7 +37,9 @@ public class EventController {
 
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String eventCreate(EventDTO dto) throws Exception {
+	public String eventCreate(EventDTO dto, String title, String content, MultipartFile file) throws Exception {
+		dto.setEvent_Content(content);
+		dto.setEvent_Title(title);
 		int result = service.eventCreate(dto);
 		if (result < 1) {
 			return "fail";
