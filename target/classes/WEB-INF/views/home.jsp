@@ -58,7 +58,7 @@ $(document).ready(function(){
 		$.ajax({
 			url : "listAll.do",
 			success : function(data){
-					//alert("aaaa");
+					//alert($('#searchMain'));
 					//$.getJSON("listAll.do", function(data) {
 						var str = "";
 						$(data).each(function() {
@@ -109,6 +109,23 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
+<<<<<<< HEAD
+	
+	<div id="searchBody" class="bg-1">
+	<ul id="resultList">
+	</ul>
+	<!-- First Container -->
+	<div class="container-fluid text-center">
+		<div class="h1">Things to do in your area</div>
+		<div id="custom-search-input">
+			<div class="input-group col-sm-6 col-sm-offset-3">
+				<input id="searchMain" type="text" class="search-query form-control"
+					placeholder="Search" /> <span class="input-group-btn">
+					<button class="btn btn-danger" type="button" id="searchbtn">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+=======
 
 	<div id="searchBody">
 		<ul id="resultList">
@@ -125,12 +142,13 @@ $(document).ready(function(){
 						</button>
 					</span>
 				</div>
+>>>>>>> 27ff056494414ccd3e7c923e9259c35a1409fdd9
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
 	</div>
 	<!-- Footer -->
-	<footer class="container-fluid bg-4 text-center">
+	<footer class="container-fluid bg-4 text-center navbar-fixed-bottom">
 		<p>FYNI.</p>
 	</footer>
 
