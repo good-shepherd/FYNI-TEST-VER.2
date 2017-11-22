@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript"
-		src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NpUtXPkJkj1DI50B8uA9"></script>
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NpUtXPkJkj1DI50B8uA9"></script>
 <title>Insert title here</title>
 <script>
 $(document).ready(function(){
@@ -18,7 +18,7 @@ $(document).ready(function(){
 		var userID = $('#user_ID').val();
 		var userPWD = $('#user_PWD').val();
 		$.ajax({
-			url : '',
+			url : '', //나중에 값 줄것
 			type : 'POST',
 			data : {
 				'user_ID' : userID,
@@ -40,18 +40,19 @@ $(document).ready(function(){
 	
 	
 	
-	/* $('#wane').on('click', function () {
+	 $('#eventWritebtn').on('click', function () {
 		$.ajax({
 			url : "eventCreate.do",
-			success : function (){
-				$("#searchBody").html()
+			type : 'POST',
+			success : function (a,b,c){
+				if(a == "fail"){
+					alert("생성에 실패했습니다.")	;
+				}else if(a == "success"){
+					alert("이벤트가 생성되었습니다.");
+				}
 			}
-		
-			})
-		
-	
-		
-	}); */
+			});
+	}); 
 		
 	
 	
@@ -92,7 +93,8 @@ $(document).ready(function(){
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
-					<li><a id="wane" href="#">Write an Event</a></li>
+					<li><a id="wane" href="#" data-toggle="modal"
+						data-target="#eventModal">Write an Event</a></li>
 					<li><a href="#">Events</a></li>
 					<li><a href="#">Talk</a></li>
 				</ul>
@@ -109,6 +111,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</nav>
+<<<<<<< HEAD
 	
 	<div id="searchBody" class="bg-1">
 	<ul id="resultList">
@@ -124,10 +127,27 @@ $(document).ready(function(){
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
+=======
+
+	<div id="searchBody">
+		<ul id="resultList">
+		</ul>
+		<!-- First Container -->
+		<div class="container-fluid bg-1 text-center">
+			<div class="h1">Things to do in your area</div>
+			<div id="custom-search-input">
+				<div class="input-group col-sm-6 col-sm-offset-3">
+					<input type="text" class="search-query form-control"
+						placeholder="Search" /> <span class="input-group-btn">
+						<button class="btn btn-danger" type="button" id="searchbtn">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+>>>>>>> 27ff056494414ccd3e7c923e9259c35a1409fdd9
 			</div>
+			<h3>Category List Category List Category List Category List</h3>
 		</div>
-		<h3>Category List Category List Category List Category List</h3>
-	</div>
 	</div>
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center navbar-fixed-bottom">
@@ -141,14 +161,14 @@ $(document).ready(function(){
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title">LOG IN</h4>
+					<h4 class="modal-title" style="display: inline">LOG IN</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<label>ID</label> <input type="text"> <br>
-					<label>PASSWORD</label> <input type="password">
+					<label>ID</label> <input type="text"> <br> <label>PASSWORD</label>
+					<input type="password">
 				</div>
 
 				<!-- Modal footer -->
@@ -162,6 +182,33 @@ $(document).ready(function(){
 	</div>
 	<!-- modal modal modal modal -->
 
+	<!-- 임시 이벤트 작성 폼 -->
+	<div class="modal fade" id="eventModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title text-primary h1" style="display: inline">Event</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<label for="title">Title</label> <input type="text" id="title">
+					<br> <label for="content">Content</label> <input type="text"
+						id="c"> <br> <label for="picture">Picture
+						Upload</label> <input type="file" id="picture"> <br>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal" id="eventWritebtn">Write an event</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
