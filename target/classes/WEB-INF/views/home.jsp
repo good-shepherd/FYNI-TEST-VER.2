@@ -26,18 +26,16 @@ $(document).ready(function(){
 				'user_PWD' : userPWD
 			},
 			success : function(a,b,c){
-				alert(userID);
-				alert(userPWD);
 				if(a == 'fail'){
 					alert("login failed!");
 					$('user_ID').val("");
 					$('user_PWD').val("");
 				}else{
-					alert(a);
 					$('#user_ID').val(a);
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
+					$("#aaaaa").html('<li><a href="#" id="userinfo">유저아이디</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
 		});
@@ -112,7 +110,7 @@ $(document).ready(function(){
 					<li><a href="#">Events</a></li>
 					<li><a href="#">Talk</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right" id="aaaaa">
 					<c:if test="${user_ID == null }">
 						<li><a href="#" id="login" data-toggle="modal"
 							data-target="#myModal">Log In</a></li>
