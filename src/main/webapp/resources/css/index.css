@@ -100,3 +100,7 @@ p {
 .invis {
 	display : none;
 }
+
+.modal-text-color {
+	color : red;
+}

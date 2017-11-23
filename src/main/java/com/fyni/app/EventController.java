@@ -36,7 +36,6 @@ public class EventController {
 	}
 
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
-	@ResponseBody
 	public String eventCreate(EventDTO dto, String title, String content, MultipartFile file) throws Exception {
 		dto.setEvent_Content(content);
 		dto.setEvent_Title(title);

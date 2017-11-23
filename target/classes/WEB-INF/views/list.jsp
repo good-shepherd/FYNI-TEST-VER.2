@@ -8,16 +8,7 @@
 
 </head>
 <body>
-<script>
-	$.getJSON("listAll.do", function(data) {
-		var str = "";
-		$(data).each(function() {
-			str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
-				+ this.event_ID + ": " + this.event_Title + "</li>";
-		});
-		$("#resultList").html(str);
-	});
-</script>
+
 	<ul id="resultList">
 	</ul>
 </body>
