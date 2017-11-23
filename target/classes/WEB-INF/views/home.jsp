@@ -82,13 +82,24 @@ var map = new naver.maps.Map('main_map',
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
-		<div class="row">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 bg-success">
+					<ul id="resultList" class="modal-text-color"></ul>
+				</div>
+				<div id="main_map" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- <div class="row">
 			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 bg-success" style="height:500px">
 			<ul id="resultList" class="modal-text-color">
 			</ul>
 			</div>
 			<div id="main_map" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="height:500px"></div>
-		</div>
+		</div> -->
 	
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center navbar-bottom">
