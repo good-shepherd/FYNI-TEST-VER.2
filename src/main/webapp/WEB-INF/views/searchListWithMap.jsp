@@ -9,13 +9,5 @@
 </head>
 <body>
 
-	<div id="map" style="width: 500px; height: 500px;"></div>
-	<script>
-		var map = new naver.maps.Map('map',
-			{
-				center : new naver.maps.LatLng(37.3595704, 127.105399),
-				zoom : 10
-			});
-	</script>
 </body>
 </html>

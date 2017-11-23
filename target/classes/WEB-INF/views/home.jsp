@@ -13,6 +13,16 @@
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NpUtXPkJkj1DI50B8uA9"></script>
 <title>Insert title here</title>
 <script type="text/javascript" src="js/login.js"></script>
+<script>
+$(document).ready(function(){
+var map = new naver.maps.Map('main_map',
+	{
+		center : new naver.maps.LatLng(37.3595704, 127.105399),
+		zoom : 10
+	});
+});
+	
+</script>
 </head>
 <body>
 	<input type="hidden" id="user_ID" name="user_ID">
@@ -75,9 +85,14 @@
 			</div>
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
+		<div class="row">
+			<div class="col-xs-8 col-sm-8 	col-md-8 col-lg-8 col-xl-8 bg-success" style="height:500px"></div>
+			<div id="main_map" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="height:500px"></div>
+		</div>
 	</div>
+	
 	<!-- Footer -->
-	<footer class="container-fluid bg-4 text-center navbar-fixed-bottom">
+	<footer class="container-fluid bg-4 text-center navbar-bottom">
 		<p>FYNI.</p>
 	</footer>
 

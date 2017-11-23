@@ -7,7 +7,10 @@ $(document).ready(function(){
 	$('#loginbtn').click(function(){
 		var userID = $('#user_ID_Modal').val();
 		var userPWD = $('#user_PWD').val();
-		$('user_ID_Modal').attr('autofocus','autofocus');
+		$('#user_ID_Modal').attr({
+			autofocus : "autofocus"
+		}
+		);
 		$.ajax({
 			url : 'login.do',
 			type : 'POST',
