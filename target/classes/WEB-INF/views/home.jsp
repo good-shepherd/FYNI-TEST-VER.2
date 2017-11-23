@@ -69,16 +69,16 @@ var map = new naver.maps.Map('main_map',
 		</div>
 	</nav>
 	<!-- First Container -->
-	<div class="container-fluid text-center bg-1">
+	<div class="container-fluid text-center bg-1" id="first_container">
 		<div class="h1">Things to do in your area</div>
-		<div id="custom-search-input">
-			<div class="input-group col-sm-6 col-sm-offset-3">
-				<input id="searchMain" type="text" class="search-query form-control"
-					placeholder="Search" /> <span class="input-group-btn">
-					<button class="btn btn-danger" type="button" id="searchbtn">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
+			<div id="custom-search-input">
+				<div class="input-group col-sm-6 col-sm-offset-3">
+					<input id="searchMain" type="text" class="search-query form-control"
+						placeholder="Search" /> <span class="input-group-btn">
+						<button class="btn btn-danger" type="button" id="searchbtn">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
 				</div>
 			</div>
 			<h3>Category List Category List Category List Category List</h3>

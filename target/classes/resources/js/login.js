@@ -90,7 +90,9 @@ $(document).ready(function(){
 			 }
 		 });
 	 }
-	
+	$('#searchbtn').on('click',function(){
+		$('#first_container').remove();
+	});
 	$('#searchbtn').on('click', searchAction);
 	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
         
