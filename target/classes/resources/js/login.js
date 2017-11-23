@@ -70,6 +70,23 @@ $(document).ready(function(){
 				}
 			});
 		}
+	 
+	 var searchAction1 = function (){
+		 var category_name = $('#searchMain').val();		
+		 $.ajax({
+			 url : "eventReadByCategory.do",
+			 data : {"category_name": category_name},
+			 success : function(data){
+				 // alert(data.toString());
+				 var str = "";
+				 $(data).each(function() {
+					 str += "<li class='container'><div class='row'><div class='col-md-8'>" + this.event_Title + "</div><div class='col-md-4'>"
+					 + this.location_ID + "</div><div class='col-xs-12'>" + "코멘트들~~~~~" + "</div></div></li>";
+				 });
+				 $("#resultList").html(str);
+			 }
+		 });
+	 }
 	
 	$('#searchbtn').on('click', searchAction);
 	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});

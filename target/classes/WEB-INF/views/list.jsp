@@ -8,8 +8,30 @@
 
 </head>
 <body>
+<ul class="row"><li class="container"><div class="row"><div class="col-md-8">타이틀 리뷰횟수?? 카테고리 별점???</div>
+        <div class="col-md-4">주소~~~~~~~~~~~~~~~</div><div class="col-xs-12">최신코멘트~~~~~~~~~~~~</div></div></li>
 
-	<ul id="resultList">
-	</ul>
+
+
+
+
+
+</ul>
+<section class="row">
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
 </body>
 </html>
