@@ -81,7 +81,7 @@
 		<p>FYNI.</p>
 	</footer>
 
-	<!-- modal modal modal modal -->
+	<!-- Login modal-->
 	<div class="modal fade" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -93,8 +93,8 @@
 				</div>
 
 				<!-- Modal body -->
-				<div class="modal-body">
-					<label>ID</label> <input type="text" id="user_ID_Modal"> <br>
+				<div class="modal-body modal-text-color">
+					<label for="user_ID_Modal">ID</label> <input type="text" id="user_ID_Modal"> <br>
 					 <label>PASSWORD</label><input type="password" id="user_PWD">
 				</div>
 
