@@ -57,7 +57,7 @@ $(document).ready(function(){
 	}); 
 		
 	
-	 var searchAction = function (){
+	 /*var searchAction = function (){
 			var category_name = $('#searchMain').val();		
 			$.ajax({
 				url : "eventReadByCategory.do",
@@ -72,9 +72,9 @@ $(document).ready(function(){
 							$("#resultList").html(str);
 				}
 			});
-		}
+		}*/
 	 
-	 var searchAction1 = function (){
+	 var searchAction = function (){
 		 var category_name = $('#searchMain').val();		
 		 $.ajax({
 			 url : "eventReadByCategory.do",

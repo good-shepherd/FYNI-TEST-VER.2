@@ -67,11 +67,8 @@ var map = new naver.maps.Map('main_map',
 			</div>
 		</div>
 	</nav>
-	<div id="searchBody" class="bg-1">
-	<ul id="resultList">
-	</ul>
 	<!-- First Container -->
-	<div class="container-fluid text-center">
+	<div class="container-fluid text-center bg-1">
 		<div class="h1">Things to do in your area</div>
 		<div id="custom-search-input">
 			<div class="input-group col-sm-6 col-sm-offset-3">
@@ -86,10 +83,12 @@ var map = new naver.maps.Map('main_map',
 			<h3>Category List Category List Category List Category List</h3>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-sm-8 	col-md-8 col-lg-8 col-xl-8 bg-success" style="height:500px"></div>
+			<div class="col-xs-8 col-sm-8 	col-md-8 col-lg-8 col-xl-8 bg-success" style="height:500px">
+			<ul id="resultList">
+			</ul>
+			</div>
 			<div id="main_map" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="height:500px"></div>
 		</div>
-	</div>
 	
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center navbar-bottom">
