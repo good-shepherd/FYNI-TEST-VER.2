@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$('#loginbtn').click(function(){
 		var userID = $('#user_ID_Modal').val();
 		var userPWD = $('#user_PWD').val();
-
+		$('user_ID_Modal').attr('autofocus','autofocus');
 		$.ajax({
 			url : 'login.do',
 			type : 'POST',
@@ -27,7 +27,7 @@ $(document).ready(function(){
 					$('#userinfo').removeClass('invis');
 					$('#eventwriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li><li><a href="#">Events</a></li>'
 							+'<li><a href="#">Talk</a></li>');
-					$("#showUserID").html('<li><a href="#" id="userinfo">${user_ID}</a></li><li><a href="#">Sign Up</a></li>');
+					$("#showUserID").html('<li><a href="#" id="userinfo">' + userID + '</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
 		});
