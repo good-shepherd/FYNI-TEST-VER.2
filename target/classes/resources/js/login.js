@@ -83,7 +83,7 @@ $(document).ready(function(){
 				 // alert(data.toString());
 				 var str = "";
 				 $(data).each(function() {
-					 str += "<li class='container'><div class='row'><div class='col-md-8' >" + this.event_Title.trim() + "</div><div class='col-md-4'>"
+					 str += "<li class='container-fluid'><div class='row'><div class='col-md-8' >" + this.event_Title.trim() + "</div><div class='col-md-4'>"
 					 + this.location_ID + "</div><div class='col-xs-12'>" + "코멘트들~~~~~" + "</div></div></li>";
 				 });
 				 $("#resultList").html(str);
