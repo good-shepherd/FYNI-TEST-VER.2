@@ -35,9 +35,9 @@ $(document).ready(function(){
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
-					$('#eventWriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li><li><a href="#">Events</a></li>'
+					$('#eventwriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li><li><a href="#">Events</a></li>'
 							+'<li><a href="#">Talk</a></li>');
-					$("#showUserID").html('<li><a href="#" id="userinfo">유저아이디</a></li><li><a href="#">Sign Up</a></li>');
+					$("#showUserID").html('<li><a href="#" id="userinfo">${user_ID}</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
 		});
@@ -198,10 +198,13 @@ $(document).ready(function(){
 				<div class="modal-body">
 					<form id = "eventf" enctype="multipart/form-data">
 						<input type="hidden" value="${user_ID }">
+						<!-- 드롭다운같은걸로다가 카테고리 선택하는거 추가하기 -->
 						<label for="title">Title</label> 
 						<input type="text" name = "title"> <br> 
 						<label for="content">Content</label> 
-						<textarea class="form-control" name = "content" id = "content" rows="3"></textarea><br> 
+						<textarea class="form-control" name = "content" id = "content" rows="3"></textarea><br>
+						<label for="when">Duration</label>
+						<input type="datetime" name="when"id="when">
 						<label for="picture">Picture	Upload</label> 
 						<input type="file" name="picture"> <br>
 					</form>
