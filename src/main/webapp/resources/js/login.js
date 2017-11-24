@@ -115,7 +115,6 @@ $(document).ready(function(){
 				 });*/
 				 $("#resultList").html(data);
 				 $('#afterSearchbar').html(temp);
-				 $('#first_container').remove();
 				 
 			 }
 		 });
