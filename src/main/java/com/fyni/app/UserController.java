@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fyni.domain.LoginDTO;
+import com.fyni.domain.UserDTO;
 import com.fyni.persistence.UserDAO;
 
 @Controller
@@ -43,8 +43,12 @@ public class UserController {
 	
 	@RequestMapping("signup.do")
 	@ResponseBody
-	public String signUp(String user_ID) {
-		
-		return null;
+	public String signUp(UserDTO user) {
+		int count = userDao.userCreate(user);
+		if(count < 1) {
+			return "fail";
+		}else {
+			return "success";
+		}
 	}
 }
