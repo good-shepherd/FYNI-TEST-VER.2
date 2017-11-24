@@ -43,12 +43,13 @@ var map = new naver.maps.Map('main_map',
 					 <!-- 로그인 후 event write 활성화하는 곳-->
 					 <!-- c:if는 처음에 로그인 안 되어 있으면(새로고침했을때) 아예 event write를 안띄움-->
 					<c:if test="${user_ID != null }"> 
-					<li><a id="wane" href="#" data-toggle="modal"
+					<li class="nav-item"><a id="wane" href="#" data-toggle="modal"
 						data-target="#eventModal">Write an Event</a></li>
 					</c:if>
 					<!-- event write -->
-					<li><a href="#">Events</a></li>
-					<li><a href="#">Talk</a></li>
+					<li class="nav-item"><a href="#">Events</a></li>
+					<li class="nav-item"><a href="#">Talk</a></li>
+					<li id="afterSearchbar" class="nav-item"></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id ="showUserID">
 				
@@ -92,8 +93,6 @@ var map = new naver.maps.Map('main_map',
 				</div>
 			</div>
 		</div>
-		
-		
 		<!-- <div class="row">
 			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 bg-success" style="height:500px">
 			<ul id="resultList" class="modal-text-color">
@@ -101,7 +100,6 @@ var map = new naver.maps.Map('main_map',
 			</div>
 			<div id="main_map" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="height:500px"></div>
 		</div> -->
-	
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center navbar-bottom">
 		<p>FYNI.</p>
@@ -147,7 +145,7 @@ var map = new naver.maps.Map('main_map',
 				</div>
 
 				<!-- Modal body -->
-				<div class="modal-body">
+				<div class="modal-body modal-text-color">
 					<form id = "eventf" enctype="multipart/form-data">
 						<input type="hidden" value="${user_ID }">
 						<!-- 드롭다운같은걸로다가 카테고리 선택하는거 추가하기 -->

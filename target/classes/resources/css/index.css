@@ -19,6 +19,8 @@ p {
 	background-size: cover;
 	/* background-color: #1abc9c; Green */
 	color: #ffffff;
+	max-width : 100%;
+	height:auto;
 }
 
 .bg-2 {

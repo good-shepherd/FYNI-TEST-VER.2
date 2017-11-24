@@ -28,9 +28,13 @@ $(document).ready(function(){
 					$('#myModal').modal('hide');
 					$('#login').addClass('invis');
 					$('#userinfo').removeClass('invis');
-					$('#eventwriting').html('<li><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li><li><a href="#">Events</a></li>'
-							+'<li><a href="#">Talk</a></li>');
-					$("#showUserID").html('<li><a href="#" id="userinfo">' + userID + '</a></li><li><a href="#">Sign Up</a></li>');
+					$('#eventwriting').html(
+							'<li class="nav-item"><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li>'+
+							'<li class="nav-item"><a href="#">Events</a></li>' +
+							'<li class="nav-item"><a href="#">Talk</a></li>' + 
+							'<li id="afterSearchbar" class="nav-item"></li>');
+					$("#showUserID").html('<li><a href="#" id="userinfo">' + userID + 
+										  '</a></li><li><a href="#">Sign Up</a></li>');
 				}
 			}
 		});
@@ -73,9 +77,32 @@ $(document).ready(function(){
 				}
 			});
 		}*/
+	 var searchNavAction = function (){
+		 var category_name = $('#searchNav').val();
+		 $.ajax({
+			 url : "eventReadByCategory.do",
+			 data : {"category_name": category_name},
+			 success : function(data){
+//				  alert(data.toString());
+//				 var str = "";
+//				 $(data).each(function() {
+//					 str += 
+//						 "<li class='container-fluid'>" +
+//						 	"<div class='row'>" +
+//						 		"<div class='col-md-8' >" + this.event_Title.trim() + "</div>" +
+//						 	"<div class='col-md-4'>" + this.location_ID + "</div>" +
+//						 	"<div class='col-xs-12'>" + "코멘트들~~~~~" + "</div>" +
+//						 	"</div>" +
+//						 "</li>";
+//				 });
+				 $("#resultList").html(data);
+			 }
+		 });
+	 }
 	 
 	 var searchAction = function (){
-		 var category_name = $('#searchMain').val();		
+		 var category_name = $('#searchMain').val();
+		 var temp = '<input id="searchNav" type="text" class="search-query form-control" placeholder="Search" />'
 		 $.ajax({
 			 url : "eventReadByCategory.do",
 			 data : {"category_name": category_name},
@@ -87,13 +114,14 @@ $(document).ready(function(){
 					 + this.location_ID + "</div><div class='col-xs-12'>" + "코멘트들~~~~~" + "</div></div></li>";
 				 });*/
 				 $("#resultList").html(data);
+				 $('#afterSearchbar').html(temp);
+				 $('#first_container').remove();
+				 
 			 }
 		 });
 	 }
-	$('#searchbtn').on('click',function(){
-		$('#first_container').remove();
-	});
 	$('#searchbtn').on('click', searchAction);
+	$('#searchNav').on('click', searchNavAction);
 	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
         
 });
