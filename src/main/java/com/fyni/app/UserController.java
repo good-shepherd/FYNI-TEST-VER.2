@@ -29,17 +29,22 @@ public class UserController {
 		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
 		System.out.println(loginInfo);
 		if (loginInfo == null) {
-			System.out.println("Â·ÃŽÂ±Ã—Ã€ÃŽ Â½Ã‡Ã†Ã�");
 			return "fail";
 		} else {
 			session.setAttribute("user_ID", user_ID);
 			return user_ID;
 		}
 	}
-	
 	@RequestMapping("search.do")
 	public String searchBody() {
 		System.out.println("you have reached here");
 		return "searchListWithMap";
+	}
+	
+	@RequestMapping("signup.do")
+	@ResponseBody
+	public String signUp(String user_ID) {
+		
+		return null;
 	}
 }
