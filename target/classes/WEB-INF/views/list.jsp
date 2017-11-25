@@ -17,96 +17,84 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/login.js"></script>
 <script>
-$(document).ready(function(){
-var map = new naver.maps.Map('main_map',
-	{
-		center : new naver.maps.LatLng(37.3595704, 127.105399),
-		zoom : 10
+	$(document).ready(function() {
+		var map = new naver.maps.Map('main_map', {
+			center : new naver.maps.LatLng(37.3595704, 127.105399),
+			zoom : 10
+		});
 	});
-});
-	
 </script>
 </head>
 <body>
+	<nav id="top-navbar" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-8">
-					<ul id="resultList" class="modal-text-color">
-					<c:forEach var="i" items="${list}" begin="1" end="10">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#topFixedNavbar1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span><span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">FYNI</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Write an Event</a></li>
+					<li><a href="#">Talk</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
 					<li>
-					${i.event_Title }					
+						<form class="navbar-form" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn glyphicon-search"></button>
+						</form>
 					</li>
-					 </c:forEach>
-					</ul>
-				</div>
-				<div id="main_map" class="col-md-4">
-				</div>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Sign Up</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<div class="row">
+		<div id="search-result-list" class="col-sm-8">
+			<div id="resultList" class="list-group">
+			<c:forEach var="i" items="${list}" begin="1" end="10">
+				<a id="list-individual-item" href="#" class="list-group-item">
+					<div class="row">
+						<div class="col-sm-8">
+							<h4 class="list-group-item-heading">${i.event_Title }</h4>
+							<p class="list-group-item-text">${i.event_Content }	</p>
+						</div>
+						<div class="col-sm-4">${i.location_ID }</div>
+					</div>
+				</a> 
+				</c:forEach>
 			</div>
 		</div>
-	
-	<!-- Login modal-->
-	<div class="modal fade" id="myModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" style="display: inline">LOG IN</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-
-				<!-- Modal body -->
-				<div class="modal-body modal-text-color">
-					<label for="user_ID_Modal">ID</label> <input type="text" id="user_ID_Modal"> <br>
-					 <label>PASSWORD</label><input type="password" id="user_PWD">
-				</div>
-
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal" id="loginbtn">LOG IN</button>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- modal modal modal modal -->
-
-	<!-- 임시 이벤트 작성 폼 -->
-	<div class="modal fade" id="eventModal">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title text-primary h1" style="display: inline">Event</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-
-				<!-- Modal body -->
-				<div class="modal-body modal-text-color">
-					<form id = "eventf" enctype="multipart/form-data">
-						<input type="hidden" value="${user_ID }">
-						<!-- 드롭다운같은걸로다가 카테고리 선택하는거 추가하기 -->
-						<label for="title">Title</label> 
-						<input type="text" name = "title"> <br> 
-						<label for="content">Content</label> 
-						<textarea class="form-control" name = "content" id = "content" rows="3"></textarea><br>
-						<label for="when">Duration</label>
-						<input type="datetime" name="when"id="when">
-						<label for="picture">Picture	Upload</label> 
-						<input type="file" name="picture"> <br>
-					</form>
-				</div>
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal" id="eventWritebtn">Write an event</button>
-				</div>
-
-			</div>
+		<div id="search-result-map" class="col-sm-4">
+			<img src="images/placeholdermap.jpg" class="img-responsive"
+				alt="Placeholder image">
 		</div>
 	</div>
 
+
+	<nav id="bottom-navbar"
+		class="navbar navbar-inverse navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="nav navbar-nav">
+				<p>FYNI</p>
+			</div>
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 </body>
 </html>
