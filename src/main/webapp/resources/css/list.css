@@ -62,22 +62,10 @@ body {
   max-width:1000px; 
 }
 
-.bg, .bg-filter {
-  position: absolute;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+.pagination>li>a, .pagination>li>span {
+	color: #5a5050;
 }
-.bg-filter {
-  z-index: -99;
-  opacity: 0.2;
-  background: -webkit-linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
-  background: -moz-linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
-  background: -o-linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
-  background: linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
+
+.container {
+	width: 970px !important;
 }
