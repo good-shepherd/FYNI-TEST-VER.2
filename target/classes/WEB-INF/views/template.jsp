@@ -13,10 +13,6 @@
 	rel="stylesheet">	
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-
-
-
-
 <title>JSPTemplate</title>
 </head>
 <body>
@@ -25,7 +21,6 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           <a class="navbar-brand" href="#">FYNI</a></div>        
-       
           <ul class="nav navbar-nav">
             <li><a href="#">Write an Event</a></li>
             <li><a href="#">Talk</a></li>
@@ -37,10 +32,7 @@
              
       </div>      
 </nav>
-
 <div id="search-result" class="container">
-
-
 </div>
 
 <nav id="bottom-navbar" class="navbar navbar-inverse">
