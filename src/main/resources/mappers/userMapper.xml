@@ -6,16 +6,13 @@
 <mapper namespace="com.fyni.mapper.userMapper">
 	<insert id="userCreate">
 		insert into user (user_ID, user_PWD, user_Nickname,
-		location_ID, user_EXP,
-		user_Profile, user_Date)
+		location_ID,user_Profile)
 		values(
 		#{user_ID},
 		#{user_PWD},
 		#{user_Nickname},
 		#{location_ID},
-		#{user_EXP},
-		#{user_Profile},
-		#{user_Date})
+		#{user_Profile})
 	</insert>
 
 	<select id="userRead" resultType="com.fyni.domain.UserDTO">

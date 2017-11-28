@@ -16,10 +16,7 @@
   <script type="text/javascript" src="js/index.js"></script>
   <title>Landing Page</title>
   </head>
-	
-	
   <body>
-	 
    <nav id="top-navbar" class="navbar">
       <div class="container-fluid">        
         <div class="navbar-header">

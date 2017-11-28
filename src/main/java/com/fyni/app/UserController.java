@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,17 +23,17 @@ public class UserController {
 	UserDAO userDao;
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	@ResponseBody
 	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
-			HttpSession session) {
+			HttpSession session, Model model) {
 		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
 		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
 		System.out.println(loginInfo);
 		if (loginInfo == null) {
-			return "fail";
+			model.addAttribute("msg", "failed");
+			return "login";
 		} else {
 			session.setAttribute("user_ID", user_ID);
-			return user_ID;
+			return "home";
 		}
 	}
 	@RequestMapping("search.do")
@@ -42,13 +43,13 @@ public class UserController {
 	}
 	
 	@RequestMapping("signup.do")
-	@ResponseBody
 	public String signUp(UserDTO user) {
+		user.setLocation_ID(1);
 		int count = userDao.userCreate(user);
 		if(count < 1) {
-			return "fail";
+			return "signup";
 		}else {
-			return "success";
+			return "home";
 		}
 	}
 	

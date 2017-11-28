@@ -18,15 +18,15 @@ var loginform =
     '<hr class="hr-or">'+
     '<span class="span-or">or</span>'+
   '</div>'+
-'  <form role="form" id="f" name="f">'+
+'  <form role="form" id="f"  name="f" method="post" action="login.do">'+
     '<div class="form-group">'+
       '<label for="inputUsernameEmail">Email</label>'+
-      '<input type="text" class="form-control" name="user_ID">'+
+      '<input type="text" class="form-control" id="inputUsernameEmail" name="user_ID">'+
     '</div>'+
     '<div class="form-group">'+
       '<a class="pull-right" href="#">Forgot password?</a>'+
       '<label for="inputPassword">Password</label>'+
-      ' <input type="password" class="form-control" name="user_PWD">'+
+      ' <input type="password" class="form-control" id="inputPassword" name="user_PWD">'+
     '</div>'+
     '<div class="checkbox pull-right"> '+
       '<label> '+
@@ -64,25 +64,25 @@ var signupform =
 	'name="user_ID">'+
 	'</div>'+
 	'<div class="form-group">'+
-	'<label for="inputPassword">Password</label>'+
+	'<label for="signup-user-pwd">Password</label>'+
 	'<input type="password" class="form-control" id="signup-user-pwd"'+
 	'name="user_PWD">'+
 	'</div>'+
 	'<div class="form-group">'+
-	'<label for="inputPassword">Nickname</label>'+
-	'<input type="password" class="form-control" id="signup-user-nickname"'+
-	'name="user_PWD">'+
+	'<label for="signup-user-nickname">Nickname</label>'+
+	' <input type="text" class="form-control" id="signup-user-nickname"'+
+	'name=""user_Nickname"">'+
 	'</div>'+
 	'<div class="form-group">'+
 	' <label for="inputPassword">Default Location</label><small> optional</small>'+
 	'<input type="text" style="border-radius:3px" id="signup-user-address"'+
 	'name="user_Address" disabled>'+
-	'<button class="btn-primary pull-right" style="border-radius:3px">Find address</button>'+
+	'<button class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn">Find address</button>'+
 	'</div>'+
 	'<div class="checkbox pull-right">'+
 	'<label><input type ="checkbox">프로필 공개</label>' + 
 	'</div>'+ 
-	'<button type="button" class="btn btn-primary"> '+
+	'<button type="button" class="btn btn-primary" id="signupbtn">'+
 	'Sign Up ' + 
 	'  </button>' + 
 	'</form> '+
@@ -104,6 +104,11 @@ function cnglogin(){
 
 $(document).ready(function(){
 	$('#loginbtn').on('click',function(){
+		$('#f').submit();
+	});
+	
+	$('#signupbtn').on('click',function(){
+		$('#f').serialize();
 		$('#f').submit();
 	});
 });
