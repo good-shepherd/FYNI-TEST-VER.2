@@ -13,11 +13,8 @@
 	rel="stylesheet">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-
-
-
-<title>JSPTemplate</title>
+<script src="js/search.js"></script>
+<title>Search Events ${category_name }</title>
 </head>
 <body>
 	<nav id="top-navbar" class="navbar">
