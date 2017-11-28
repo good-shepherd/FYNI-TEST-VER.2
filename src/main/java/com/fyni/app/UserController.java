@@ -21,20 +21,20 @@ public class UserController {
 	@Autowired
 	UserDAO userDao;
 	
-//	@RequestMapping(value = "login", method = RequestMethod.POST)
-//	@ResponseBody
-//	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
-//			HttpSession session) {
-//		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
-//		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
-//		System.out.println(loginInfo);
-//		if (loginInfo == null) {
-//			return "fail";
-//		} else {
-//			session.setAttribute("user_ID", user_ID);
-//			return user_ID;
-//		}
-//	}
+	@RequestMapping(value = "login.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
+			HttpSession session) {
+		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
+		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
+		System.out.println(loginInfo);
+		if (loginInfo == null) {
+			return "fail";
+		} else {
+			session.setAttribute("user_ID", user_ID);
+			return user_ID;
+		}
+	}
 	@RequestMapping("search.do")
 	public String searchBody() {
 		System.out.println("you have reached here");

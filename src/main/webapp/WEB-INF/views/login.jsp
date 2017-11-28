@@ -50,24 +50,23 @@
         <hr class="hr-or">
         <span class="span-or">or</span>
       </div>
-
-      <form role="form">
+      <form role="form" id="f" name="f" method="post" action="login.do">
         <div class="form-group">
           <label for="inputUsernameEmail">Email</label>
-          <input type="text" class="form-control" id="inputUsernameEmail">
+          <input type="text" class="form-control" name="user_ID">
         </div>
         <div class="form-group">
           <a class="pull-right" href="#">Forgot password?</a>
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword">
+          <input type="password" class="form-control" name="user_PWD">
         </div>
         <div class="checkbox pull-right">
           <label>
             <input type="checkbox">
             Remember me </label>
         </div>
-        <button type="submit" class="btn btn-primary">
-          Log In
+        <button type="button" class="btn btn-primary" id="loginbtn">
+          	Log In
         </button>
       </form>
     </div>
