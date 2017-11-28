@@ -29,12 +29,6 @@ public class EventController {
 		return list;
 	}
 
-	/*@RequestMapping(value = "eventReadByCategory.do", method = RequestMethod.GET)
-	public List<EventDTO> eventReadByCategory(String category_name) throws Exception {
-		List<EventDTO> list = service.eventReadByCategory(category_name);
-		return list;
-	}*/
-	
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public String eventCreate(EventDTO dto, String title, String content, MultipartFile file) throws Exception {
 		dto.setEvent_Content(content);

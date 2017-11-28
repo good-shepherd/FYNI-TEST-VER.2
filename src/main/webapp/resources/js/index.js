@@ -100,27 +100,38 @@ $(document).ready(function(){
 		 });
 	 }
 	 
-	 var searchAction = function (){
-		 var category_name = $('#searchMain').val();
+	 /*var searchAction = function (){
+		 var category_name = $('#main-search-input').val();
 		 var temp = '<input id="searchNav" type="text" class="search-query form-control" placeholder="Search" />'
 		 $.ajax({
 			 url : "eventReadByCategory.do",
 			 data : {"category_name": category_name},
 			 success : function(data){
 				 // alert(data.toString());
-				 /*var str = "";
+				 var str = "";
 				 $(data).each(function() {
 					 str += "<li class='container-fluid'><div class='row'><div class='col-md-8' >" + this.event_Title.trim() + "</div><div class='col-md-4'>"
 					 + this.location_ID + "</div><div class='col-xs-12'>" + "코멘트들~~~~~" + "</div></div></li>";
-				 });*/
-				 $("#resultList").html(data);
-				 $('#afterSearchbar').html(temp);
+				 });
+				 //location.href = 'template.jsp';
+				 $("#search-result").html(data);
+				 //$('#afterSearchbar').html(temp);
 				 
 			 }
 		 });
-	 }
-	$('#searchbtn').on('click', searchAction);
+	 }*/
+	 
+	 
+	var searchAction = function () {
+		var category_name = $('#main-search-input').val();
+		var searchurl = "search?category_name=" + category_name;
+		location.href = searchurl;
+		
+	}
+	 
+	$('#main-search-button').on('click', searchAction);
 	$('#searchNav').on('click', searchNavAction);
-	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
+	$('#main-search-input').keypress(function(e){if(e.which == 13){$('#main-search-button').click();}});
+	
         
 });

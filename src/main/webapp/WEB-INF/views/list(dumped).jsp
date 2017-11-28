@@ -67,16 +67,16 @@
 	<div class="row">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
-			<c:forEach var="i" items="${list}" begin="1" end="10">
-				<a id="list-individual-item" href="#" class="list-group-item">
-					<div class="row">
-						<div class="col-sm-8">
-							<h4 class="list-group-item-heading">${i.event_Title }</h4>
-							<p class="list-group-item-text">${i.event_Content }	</p>
+				<c:forEach var="i" items="${list}" begin="1" end="10">
+					<a id="list-individual-item" href="#" class="list-group-item">
+						<div class="row">
+							<div class="col-sm-8">
+								<h4 class="list-group-item-heading">${i.event_Title }</h4>
+								<p class="list-group-item-text">${i.event_Content }</p>
+							</div>
+							<div class="col-sm-4">${i.location_ID }</div>
 						</div>
-						<div class="col-sm-4">${i.location_ID }</div>
-					</div>
-				</a> 
+					</a>
 				</c:forEach>
 			</div>
 		</div>
