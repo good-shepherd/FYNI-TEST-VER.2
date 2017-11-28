@@ -1,126 +1,117 @@
 /**
- * 
+ * 로그인 화면에서 ajax를 통한 login / signup 화면 교체 javascript
  */
 
+var loginform = 
+'<div class="row">'+
+'<div class="main">' + 
+'  <h3>Please Log In, or <a href="javascript:cngsignup()">Sign Up</a></h3>' +
+  '<div class="row">' + 
+    '<div class="col-xs-6 col-sm-6 col-md-6"> ' +
+      '<a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>' + 
+    '</div>' + 
+    '<div class="col-xs-6 col-sm-6 col-md-6">'+
+     ' <a href="#" class="btn btn-lg btn-info btn-block">Google</a>'+
+    '</div>'+
+  '</div>'+
+  '<div class="login-or">'+
+    '<hr class="hr-or">'+
+    '<span class="span-or">or</span>'+
+  '</div>'+
+'  <form role="form" id="f"  name="f" method="post" action="login.do">'+
+    '<div class="form-group">'+
+      '<label for="inputUsernameEmail">Email</label>'+
+      '<input type="text" class="form-control" id="inputUsernameEmail" name="user_ID">'+
+    '</div>'+
+    '<div class="form-group">'+
+      '<a class="pull-right" href="#">Forgot password?</a>'+
+      '<label for="inputPassword">Password</label>'+
+      ' <input type="password" class="form-control" id="inputPassword" name="user_PWD">'+
+    '</div>'+
+    '<div class="checkbox pull-right"> '+
+      '<label> '+
+        '<input type="checkbox"> '+
+        'Remember me </label> '+
+    '</div> '+
+    '<button type="button" class="btn btn-primary" id="loginbtn"> '+
+      'Log In ' +
+    '</button> ' +
+  '</form> '+
+'</div>' + 
+'</div>'
+
+var signupform = 
+	'<div class="col-md-4 col-md-offset-4"> '+
+	'<div class="row">' +
+	'<div class="main">' +
+	'  <h3>Sign Up for FYNI</h3>' +
+	'  <div class="row"> ' + 
+	'    <div class="col-xs-6 col-sm-6 col-md-6">'+
+	'<a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>' +
+	'</div>'+
+	'<div class="col-xs-6 col-sm-6 col-md-6">' + 
+	'<a href="#" class="btn btn-lg btn-info btn-block">Google</a>' +
+	'</div>'+
+	'</div>'+
+	'<div class="login-or">'+
+	'<hr class="hr-or">'+
+	'<span class="span-or">or</span>'+
+	'</div>'+
+	'<form role="form">'+
+	'<div class="form-group">'+
+	'<label for="signup-user-id">Email</label>'+
+	'<input type="text" class="form-control" id="signup-user-id"'+
+	'name="user_ID">'+
+	'</div>'+
+	'<div class="form-group">'+
+	'<label for="signup-user-pwd">Password</label>'+
+	'<input type="password" class="form-control" id="signup-user-pwd"'+
+	'name="user_PWD">'+
+	'</div>'+
+	'<div class="form-group">'+
+	'<label for="signup-user-nickname">Nickname</label>'+
+	' <input type="text" class="form-control" id="signup-user-nickname"'+
+	'name=""user_Nickname"">'+
+	'</div>'+
+	'<div class="form-group">'+
+	' <label for="inputPassword">Default Location</label><small> optional</small>'+
+	'<input type="text" style="border-radius:3px" id="signup-user-address"'+
+	'name="user_Address" disabled>'+
+	'<button class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn">Find address</button>'+
+	'</div>'+
+	'<div class="checkbox pull-right">'+
+	'<label><input type ="checkbox">프로필 공개</label>' + 
+	'</div>'+ 
+	'<button type="button" class="btn btn-primary" id="signupbtn">'+
+	'Sign Up ' + 
+	'  </button>' + 
+	'</form> '+
+	'</div>' +
+	'</div>' + 
+	'</div>';
+
+function cngsignup(){
+	$.ajax({
+		context : $('#here-to-change').html(signupform)
+	});
+}
+
+function cnglogin(){
+	$.ajax({
+		context : $('#here-to-change').html(loginform)
+	});
+}
 
 $(document).ready(function(){
-	$('#loginbtn').click(function(){
-		var userID = $('#user_ID_Modal').val();
-		var userPWD = $('#user_PWD').val();
-		$('#user_ID_Modal').attr({
-			autofocus : "autofocus"
-		}
-		);
-		$.ajax({
-			url : 'login.do',
-			type : 'POST',
-			data : {
-				'user_ID' : userID,
-				'user_PWD' : userPWD
-			},
-			success : function(a,b,c){
-				if(a == 'fail'){
-					alert("login failed!");
-					$('user_ID').val("");
-					$('user_PWD').val("");
-				}else{
-					$('#user_ID').val(a);
-					$('#myModal').modal('hide');
-					$('#login').addClass('invis');
-					$('#userinfo').removeClass('invis');
-					$('#eventwriting').html(
-							'<li class="nav-item"><a id="wane" href="#" data-toggle="modal"data-target="#eventModal">Write an Event</a></li>'+
-							'<li class="nav-item"><a href="#">Events</a></li>' +
-							'<li class="nav-item"><a href="#">Talk</a></li>' + 
-							'<li id="afterSearchbar" class="nav-item"></li>');
-					$("#showUserID").html('<li><a href="#" id="userinfo">' + userID + 
-										  '</a></li><li><a href="#">Sign Up</a></li>');
-				}
-			}
-		});
-	}); //로그인버튼 클릭시
+	$('#loginbtn').on('click',function(){
+		$('#f').submit();
+	});
 	
-	//
-	 $('#eventWritebtn').on('click', function () {
-		$.ajax({
-			url : "eventCreate.do",
-			enctype : 'multipart/form-data',
-			processData : false,
-			contentType : false,
-			data : $('#eventf').serialize,
-			type : 'POST',
-			success : function (a,b,c){
-				if(a == "fail"){
-					alert("생성에 실패했습니다.")	;
-				}else if(a == "success"){
-					$('#eventModal').modal('hide');
-					alert("이벤트가 생성되었습니다.");
-				}
-			}
-			});
-	}); 
-		
-	
-	 /*var searchAction = function (){
-			var category_name = $('#searchMain').val();		
-			$.ajax({
-				url : "eventReadByCategory.do",
-				data : {"category_name": category_name},
-				success : function(data){
-						// alert(data.toString());
-							var str = "";
-							$(data).each(function() {
-								str += "<li data-event_Id='" + this.event_ID + "' class='regular-search-result'>"
-									+ this.event_ID + ": " + this.event_Title + "</li>";
-							});
-							$("#resultList").html(str);
-				}
-			});
-		}*/
-	 var searchNavAction = function (){
-		 var category_name = $('#searchNav').val();
-		 $.ajax({
-			 url : "eventReadByCategory.do",
-			 data : {"category_name": category_name},
-			 success : function(data){
-//				  alert(data.toString());
-//				 var str = "";
-//				 $(data).each(function() {
-//					 str += 
-//						 "<li class='container-fluid'>" +
-//						 	"<div class='row'>" +
-//						 		"<div class='col-md-8' >" + this.event_Title.trim() + "</div>" +
-//						 	"<div class='col-md-4'>" + this.location_ID + "</div>" +
-//						 	"<div class='col-xs-12'>" + "코멘트들~~~~~" + "</div>" +
-//						 	"</div>" +
-//						 "</li>";
-//				 });
-				 $("#resultList").html(data);
-			 }
-		 });
-	 }
-	 
-	 var searchAction = function (){
-		 var category_name = $('#searchMain').val();
-		 var temp = '<input id="searchNav" type="text" class="search-query form-control" placeholder="Search" />'
-		 $.ajax({
-			 url : "eventReadByCategory.do",
-			 data : {"category_name": category_name},
-			 success : function(data){
-				 // alert(data.toString());
-				 /*var str = "";
-				 $(data).each(function() {
-					 str += "<li class='container-fluid'><div class='row'><div class='col-md-8' >" + this.event_Title.trim() + "</div><div class='col-md-4'>"
-					 + this.location_ID + "</div><div class='col-xs-12'>" + "코멘트들~~~~~" + "</div></div></li>";
-				 });*/
-				 $("#resultList").html(data);
-				 $('#afterSearchbar').html(temp);
-				 
-			 }
-		 });
-	 }
-	$('#searchbtn').on('click', searchAction);
-	$('#searchNav').on('click', searchNavAction);
-	$('#searchMain').keypress(function(e){if(e.which == 13){$('#searchbtn').click();}});
-        
+	$('#signupbtn').on('click',function(){
+		$('#f').serialize();
+		$('#f').submit();
+	});
 });
+
+
+

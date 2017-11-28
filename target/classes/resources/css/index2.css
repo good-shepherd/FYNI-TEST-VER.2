@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/* w3school's template */
+body {
+	font: 13px Montserrat, sans-serif;
+	line-height: 1.8;
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+p {
+	font-size: 16px;
+}
+
+.margin {
+	margin-bottom: 45px;
+}
+
+.bg-1 {
+	background-image: url('../img/nycbanner.png');
+	background-size: cover;
+	/* background-color: #1abc9c; Green */
+	color: #ffffff;
+	max-width : 100%;
+	height:auto;
+}
+
+.bg-2 {
+	background-color: #474e5d; /* Dark Blue */
+	color: #ffffff;
+}
+
+.bg-3 {
+	background-color: #ffffff; /* White */
+	color: #555555;
+}
+
+.bg-4 {
+	background-color: #2f2f2f; /* Black Gray */
+	color: #fff;
+}
+
+/* .container-fluid {
+	padding-top: 70px;
+	padding-bottom: 70px;
+} */
+
+.navbar {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	letter-spacing: 5px;
+}
+
+.navbar-nav  li a:hover {
+	color: #1abc9c !important;
+}
+
+/* search bar */
+#custom-search-input {
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+}
+
+#custom-search-input .search-query {
+	padding-right: 3px;
+	padding-right: 4px \9;
+	padding-left: 3px;
+	padding-left: 4px \9;
+	/* IE7-8 doesn't have border-radius, so don't indent the padding */
+	margin-bottom: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+}
+
+#custom-search-input button {
+	border: 0;
+	background: none;
+	/** belows styles are working good */
+	padding: 2px 5px;
+	margin-top: 2px;
+	position: relative;
+	left: -28px;
+	/* IE7-8 doesn't have border-radius, so don't indent the padding */
+	margin-bottom: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #D9230F;
+	z-index: 99;
+}
+
+.search-query:focus+button {
+	z-index: 3;
+}
+
+<!-- 안보이게 하기 -->
+.invis {
+	display : none;
+}
+
+.modal-text-color {
+	color : red;
+}
+
+.float-left{
+	float:left;
+	
+}
+
+#top-navbar {
+	background-color: #5a5050;
+	border: none;
+}
+
+#top-navbar a{
+	color: #e5eec1;
+}
+
+#bottom-navbar {
+	background-color: #5a5050;
+	height: 60px;
+	padding: 10px;
+}
+#bottom-navbar p{
+	
+	color: #e5eec1;
+	margin-top: 10px;
+}
+
+#list-individual-item {
+	border: none;
+}

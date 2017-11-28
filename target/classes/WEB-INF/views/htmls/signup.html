@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>template</title>
+  <link href="css/list.css" rel="stylesheet" type="text/css">
+  <link href="css/login.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">  
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+<nav id="top-navbar" class="navbar">
+      <div class="container-fluid">        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a class="navbar-brand" href="#">FYNI</a></div>        
+       
+          <ul class="nav navbar-nav">
+            <li><a href="#">Write an Event</a></li>
+            <li><a href="#">Talk</a></li>
+          </ul>
+         <ul class="nav navbar-nav navbar-right">		   
+           <li><a href="#">Log In</a></li>
+			  <li><a href="#">Sign Up</a></li>
+          </ul>
+             
+      </div>      
+    </nav>
+	  <!-- body -->
+<div class="container col-md-4 col-md-offset-4">
+  <div class="row">
+
+    <div class="main">
+
+      <h3>Sign Up for FYNI</h3>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+        </div>
+      </div>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
+
+      <form role="form">
+        <div class="form-group">
+          <label for="signup-user-id">Email</label>
+          <input type="text" class="form-control" id="signup-user-id"
+				 name="user_ID">
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="signup-user-pwd"
+				 name="user_PWD">
+        </div>
+		<div class="form-group">
+          <label for="inputPassword">Nickname</label>
+          <input type="password" class="form-control" id="signup-user-nickname"
+				 name="user_PWD">
+        </div>
+		<div class="form-group">
+          <label for="inputPassword">Default Location</label><small> optional</small>
+          <input type="text" style="border-radius:3px" id="signup-user-address"
+		  name="user_Address" disabled>
+		  <button class="btn-primary pull-right" style="border-radius:3px">Find address</button>
+        </div>
+		<div class="checkbox pull-right">
+          <label><input type ="checkbox">프로필 공개</label>
+        </div> 
+        <button type="submit" class="btn btn-primary">
+         Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+  <nav id="bottom-navbar" class="navbar navbar-inverse navbar-fixed-bottom">
+	   <div class="container-fluid">
+	   		<div class="nav navbar-nav">
+		   	<p>FYNI</p>
+			</div>
+	   </div>
+	  <!-- /.container-fluid -->
+  </nav>
+  </body>
+</html>

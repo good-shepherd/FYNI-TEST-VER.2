@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,65 +13,35 @@
 	rel="stylesheet">	
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <title>Landing Page</title>
-  </head>
-  <body>
-   <nav id="top-navbar" class="navbar">
+<title>JSPTemplate</title>
+</head>
+<body>
+<nav id="top-navbar" class="navbar">
       <div class="container-fluid">        
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           <a class="navbar-brand" href="#">FYNI</a></div>        
-       
           <ul class="nav navbar-nav">
-            <li><a href="writeanevent">Write an Event</a></li>
+            <li><a href="#">Write an Event</a></li>
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">		   
-           <li><a href="login">Log In</a></li>
-			  <li><a href="signup">Sign Up</a></li>
+           <li><a href="#">Log In</a></li>
+			  <li><a href="#">Sign Up</a></li>
           </ul>
              
       </div>      
-    </nav>
-	  
-	  
-<video autoplay loop poster class="bg" src="http://static.videezy.com/system/resources/previews/000/000/328/original/bokeh2.mp4">
-</video>
-<div class="bg-filter">
+</nav>
+<div id="search-result" class="container">
 </div>
-	  
-<center>
-<section class="section-max-width">
 
-<div id="main-top-section" class="row">
-<div id="landing-page-helloworld">
-	<br><br><h1>Hello, FYNI!</h1>
-</div>
-	
-<div id="main-search-bar" class="input-group">
-		
-	    <input id="main-search-input" type="text" class="form-control" placeholder="placeholder content" aria-describedby="contentaddon1">
-	    <span id="main-search-button" class="input-group-addon">Search</span>
-	    <!-- <span id="main-search-button" class="input-group-addon">Search</span> -->
-	    
-</div>
-</div>
-	
- 
-	  
-</section>
-</center>
-	  
-
-	  
-<nav id="bottom-navbar" class="navbar">
-  <div class="container-fluid">
+<nav id="bottom-navbar" class="navbar navbar-inverse">
+	   <div class="container-fluid">
 	   		<div class="nav navbar-nav">
 		   	<p>FYNI</p>
 			</div>
-  </div>
-	  <!-- /.container-fluid -->
+	   </div>
 </nav>
-  </body>
+
+</body>
 </html>
