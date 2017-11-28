@@ -31,8 +31,8 @@
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">		   
-           <li><a href="#">Log In</a></li>
-			  <li><a href="#">Sign Up</a></li>
+           <li><a href="login">Log In</a></li>
+			  <li><a href="signup">Sign Up</a></li>
           </ul>
              
       </div>      
