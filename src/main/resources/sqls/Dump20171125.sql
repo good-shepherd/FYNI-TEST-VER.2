@@ -191,7 +191,7 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,'판현백','\0\0\0\0\0\0\0QO�?�B@,�)\�_@'),(2,'멀캠','\0\0\0\0\0\0\0�0�*�B@�c���\�_@'),(3,'파주시청','\0\0\0\0\0\0\0\�\�B\�B@\�O\�\�_@');
+INSERT INTO `location` VALUES (1,'판현백','\0\0\0\0\0\0\0QO�?�B@,�)\�_@'),(2,'멀캠','\0\0\0\0\0\0\0�0�*�B@�c���\�_@'),(3,'파주시청','\0\0\0\0\0\0\0\�\�B\�B@\�O\�\�_@');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,3 +236,43 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-11-25 17:22:18
+
+select * from event;
+
+alter table event
+add event_WhenBegins datetime;
+alter table event
+add event_WhenEnds datetime;
+
+alter table event
+drop column event_when;
+
+UPDATE event SET event_whenbegins='2009-09-22 08:08:11' WHERE event_id = 3;
+UPDATE event SET event_whenends='2009-09-23 08:08:11' WHERE event_id = 3;
+UPDATE event SET event_whenbegins='2009-09-24 08:08:11' WHERE event_id = 4;category_IDlocation_IDuser_ID
+UPDATE event SET event_whenends='2009-09-25 08:08:11' WHERE event_id = 4;
+UPDATE event SET event_whenbegins='2009-09-26 08:08:11' WHERE event_id = 5;
+UPDATE event SET event_whenends='2009-09-27 08:08:11' WHERE event_id = 5;
+UPDATE event SET event_whenbegins='2009-09-28 08:08:11' WHERE event_id = 6;
+UPDATE event SET event_whenends='2009-09-29 08:08:11' WHERE event_id = 6;
+
+select * from location;
+select X(location_point), Y(location_point) from location;
+
+INSERT INTO `location` 
+VALUES (1, '판현백', Point(37.392587, 127.111995));
+
+INSERT INTO location (location_id, location_title, location_point) VALUES(1, '판현백', Point(37.392587, 127.111995));
+INSERT INTO location (location_id, location_title, location_point) VALUES(2, '멀캠', Point(37.501296, 127.039712));
+INSERT INTO location (location_id, location_title, location_point) VALUES(3, '파주시청', Point(37.759864, 126.779866));
+
+insert into event (event_Title, event_Content, event_WhenBegins, event_WhenEnds) values ('제목01', '내용01', '2009-09-28 08:08:11', '2009-09-29 08:08:11');
+
+
+SET GLOBAL time_zone = '+9:00';
+
+select * from event
+		where category_ID = 
+			(select category_ID
+	  		 from event_category
+			 where category_name = '사건');
