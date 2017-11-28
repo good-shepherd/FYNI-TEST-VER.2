@@ -4,11 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.fyni.mapper.eventMapper">
+
+<!-- 	<insert id="eventCreate">
+	insert into
+	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds, category_ID, location_ID, user_ID)
+	values (#{event_Title},#{event_Content},#{event_WhenBegins}, #{event_WhenEnds}, #{category_ID}, #{location_ID}, #{user_ID})
+	</insert> -->
+	
 	<insert id="eventCreate">
-		insert into
-	event(event_Title, event_Content, event_When, category_ID, location_ID, user_ID)
-	values (#{event_Title},#{event_Content},#{event_When},#{category_ID},#{location_ID},#{user_ID})
+	insert into
+	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds)
+	values (#{event_Title},#{event_Content},#{event_WhenBegins}, #{event_WhenEnds})
 	</insert>
+	
 	<update id="eventUpdate">
 		update event set
 		event_Title = #{event_Title},

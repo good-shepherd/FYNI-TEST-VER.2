@@ -73,6 +73,7 @@ body {
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+
 .bg-filter {
   z-index: -99;
   opacity: 0.2;

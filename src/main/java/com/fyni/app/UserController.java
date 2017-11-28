@@ -16,6 +16,7 @@ import com.fyni.persistence.UserDAO;
 
 @Controller
 public class UserController {
+	
 	@Autowired
 	DataSource ds;
 

@@ -15,9 +15,9 @@ $(document).ready(function(){
 			 {
 				 "event_Title" : $("#event_Title").val(),
 				 "event_Content" : $("#event_Content").val(),
-				 "event_When_s" : $("#stime").val(),
-				 "event_When_e" : $("#etime").val()
-				 
+				 "event_WhenBegins" : $("#stime").val(),
+				 "event_WhenEnds" : $("#etime").val(),
+				 // "event_Picture" : $("#eventfile").files()
 			 },
 			  success : function(data){
 				 alert(data);
