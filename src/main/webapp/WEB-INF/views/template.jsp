@@ -38,9 +38,10 @@
       </div>      
 </nav>
 
+<div id="search-result" class="container">
 
 
-
+</div>
 
 <nav id="bottom-navbar" class="navbar navbar-inverse">
 	   <div class="container-fluid">
