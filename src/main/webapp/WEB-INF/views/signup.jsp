@@ -15,6 +15,8 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/login.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf"></script>
 <title>Login/Signup</title>
 </head>
 <body>
@@ -66,10 +68,13 @@
           <input type="text" class="form-control" id="signup-user-nickname"
 				 name="user_Nickname">
         </div>
+		<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+			<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+		</div>
 		<div class="form-group">
           <label for="inputPassword">Default Location</label><small> optional</small>
-          <input type="text" style="border-radius:3px" id="signup-user-address"
-		  name="user_Address" disabled>
+          <input type="text" style="border-radius:3px" id="signup_user_address" disabled>
+          <input type="hidden" id="give_coord" name="user_Address">
 		  <input type="button" class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn" 
 		  data-toggle="modal" data-target="#mapModal" value="Find address">
         </div>
@@ -81,26 +86,6 @@
     </div>
   </div>
   </div>
-	<!-- The Modal -->
-	<div class="modal fade" id="mapModal">
-	  <div class="modal-dialog modal-lg">
-	    <div class="modal-content">
-	
-	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Select your Default Address</h4>
-	      </div>
-	      <!-- Modal body -->
-	      <div class="modal-body col-md-6">
-	      </div>
-	      <!-- Modal footer -->
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	      </div>
-	
-	    </div>
-	  </div>
-	</div>
 </div>
 
 <nav id="bottom-navbar" class="navbar navbar-inverse">
