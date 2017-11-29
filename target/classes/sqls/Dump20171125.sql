@@ -249,7 +249,7 @@ drop column event_when;
 
 UPDATE event SET event_whenbegins='2009-09-22 08:08:11' WHERE event_id = 3;
 UPDATE event SET event_whenends='2009-09-23 08:08:11' WHERE event_id = 3;
-UPDATE event SET event_whenbegins='2009-09-24 08:08:11' WHERE event_id = 4;category_IDlocation_IDuser_ID
+UPDATE event SET event_whenbegins='2009-09-24 08:08:11' WHERE event_id = 4;
 UPDATE event SET event_whenends='2009-09-25 08:08:11' WHERE event_id = 4;
 UPDATE event SET event_whenbegins='2009-09-26 08:08:11' WHERE event_id = 5;
 UPDATE event SET event_whenends='2009-09-27 08:08:11' WHERE event_id = 5;
