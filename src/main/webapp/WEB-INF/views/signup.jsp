@@ -16,7 +16,7 @@
   <script src="js/login.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
-<title>Login/Signup</title>
+<title>Sign Up</title>
 </head>
 <body>
 <nav id="top-navbar" class="navbar">
@@ -25,7 +25,7 @@
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           <a class="navbar-brand" href="/app">FYNI</a></div>        
           <ul class="nav navbar-nav">
-            <li><a href="#">Write an Event</a></li>
+            <li><a href="writeanevent">Write an Event</a></li>
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">		   

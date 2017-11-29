@@ -14,7 +14,7 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-  <title>Landing Page</title>
+  <title>Hello, FYNI</title>
   </head>
   <body>
    <nav id="top-navbar" class="navbar">

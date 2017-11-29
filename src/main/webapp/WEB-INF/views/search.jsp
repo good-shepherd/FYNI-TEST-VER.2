@@ -27,11 +27,11 @@
 						class="icon-bar"></span><span class="icon-bar"></span><span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">FYNI</a>
+				<a class="navbar-brand" href="/app">FYNI</a>
 			</div>
 
 			<ul class="nav navbar-nav">
-				<li><a href="#">Write an Event</a></li>
+				<li><a href="writeanevent">Write an Event</a></li>
 				<li><a href="#">Talk</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -43,8 +43,8 @@
 						<button type="submit" class="btn glyphicon-search"></button>
 					</form>
 				</li>
-				<li><a href="#">Log In</a></li>
-				<li><a href="#">Sign Up</a></li>
+				<li><a href="javascript:cnglogin()">Log In</a></li>
+				<li><a href="javascript:cngsignup()">Sign Up</a></li>
 			</ul>
 
 		</div>
