@@ -45,8 +45,18 @@ public class UserController {
 	
 	@RequestMapping("signup.do")
 	public String signUp(UserDTO user) {
+		int count = 0;
 		user.setLocation_ID(1);
-		int count = userDao.userCreate(user);
+		if("".equals(user.getUser_ID().trim())) {
+			count = -1;
+		}else if("".equals(user.getUser_PWD().trim())) {
+			count = -1;
+		}else if("".equals(user.getUser_Nickname().trim())) {
+			count = -1;
+		}
+		if(count == 0) {
+			count = userDao.userCreate(user);
+		}
 		if(count < 1) {
 			return "signup";
 		}else {

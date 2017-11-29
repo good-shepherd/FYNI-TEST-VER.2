@@ -10,13 +10,12 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet">	
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/login.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <title>Login/Signup</title>
 </head>
 <body>
@@ -52,7 +51,7 @@
         <hr class="hr-or">
         <span class="span-or">or</span>
       </div>
-      <form role="form" id = "f" name="f">
+      <form role="form" id = "f" name="f" action="signup.do" method="post">
         <div class="form-group">
           <label for="signup-user-id">Email</label>
           <input type="text" class="form-control" id="signup-user-id"
@@ -87,7 +86,6 @@
   </div>
   </div>
 </div>
-
 <nav id="bottom-navbar" class="navbar navbar-inverse">
 	   <div class="container-fluid">
 	   		<div class="nav navbar-nav">
@@ -95,7 +93,6 @@
 			</div>
 	   </div>
 </nav>
-
 
 </body>
 </html>
