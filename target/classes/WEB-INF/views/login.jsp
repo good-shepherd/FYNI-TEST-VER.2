@@ -16,6 +16,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/login.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <title>Login/Signup</title>
 </head>
 <body>
@@ -58,7 +59,7 @@
       <form role="form" id = "f" name="f" method="post" action="login.do">
         <div class="form-group">
           <label for="inputUsernameEmail">Email</label>
-          <input type="text" class="form-control" id="inputUsernameEmail" name="user_ID">
+          <input type="email" class="form-control" id="inputUsernameEmail" name="user_ID">
         </div>
         <div class="form-group">
           <a class="pull-right" href="#">Forgot password?</a>

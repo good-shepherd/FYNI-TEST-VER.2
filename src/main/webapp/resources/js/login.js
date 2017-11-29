@@ -114,9 +114,6 @@ $(document).ready(function(){
 		$('#f').method = "post";
 		$('#f').submit();
 	});
-	$('#signupbtn').on('click',function(){
-		$('#f').submit();
-	});
 	function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height

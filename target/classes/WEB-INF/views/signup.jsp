@@ -54,8 +54,9 @@
       <form role="form" id = "f" name="f" action="signup.do" method="post">
         <div class="form-group">
           <label for="signup-user-id">Email</label>
-          <input type="text" class="form-control" id="signup-user-id"
-				 name="user_ID">
+          <input type="email" class="form-control" id="signup-user-id" placeholder="abcde@email.com" 
+          pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
+		  name="user_ID">
         </div>
         <div class="form-group">
           <label for="signup-user-pwd">Password</label>
@@ -80,7 +81,7 @@
 		<div class="checkbox pull-right">
           <label><input type ="checkbox">프로필 공개</label>
         </div>
-        <input type="button" class="btn btn-primary" id="signupbtn" value="Sign Up">
+        <input type="submit" class="btn btn-primary" id="signupbtn" value="Sign Up">
       </form>
     </div>
   </div>
