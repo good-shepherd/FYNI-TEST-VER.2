@@ -71,10 +71,10 @@
 						type="datetime-local" name="endtime" id="etime"> 까지
 				</div>
 			</div>
-			<!-- <div class="form-group">
+			<div class="form-group">
 				<label for="event_Picture">Show your Event</label> <input
 					type="file" name="event-file" id="eventfile">
-			</div> -->
+			</div>
 			<button id="submitbtn" class="btn btn-primary">Write event</button>
 
 		</form>
