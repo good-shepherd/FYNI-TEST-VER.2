@@ -31,7 +31,7 @@ $(document).ready(function(){
     });
 	
 	
-	
+	// http://postcode.map.daum.net/guide
 	var element_layer = document.getElementById('layer');
 	
 	function initLayerPosition(){
