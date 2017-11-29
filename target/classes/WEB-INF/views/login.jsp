@@ -59,7 +59,7 @@
       <form role="form" id = "f" name="f" method="post" action="login.do">
         <div class="form-group">
           <label for="inputUsernameEmail">Email</label>
-          <input type="text" class="form-control" id="inputUsernameEmail" name="user_ID">
+          <input type="email" class="form-control" id="inputUsernameEmail" name="user_ID">
         </div>
         <div class="form-group">
           <a class="pull-right" href="#">Forgot password?</a>
