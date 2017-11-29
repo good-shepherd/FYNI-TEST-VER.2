@@ -106,7 +106,6 @@ function cnglogin(){
 		context : $('#here-to-change').html(loginform)
 	});
 }
-
 $(document).ready(function(){
 	var element_layer = document.getElementById('layer');
 	var geocoder = new daum.maps.services.Geocoder();
@@ -116,17 +115,12 @@ $(document).ready(function(){
 		$('#f').submit();
 	});
 	$('#signupbtn').on('click',function(){
-		$('#f').action = "signup.do";
-		$('#f').method = "post";
 		$('#f').submit();
 	});
-
-
 	function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height
         var borderWidth = 5; //샘플에서 사용하는 border의 두께
-
         // 위에서 선언한 값들을 실제 element에 넣는다.
         element_layer.style.width = width + 'px';
         element_layer.style.height = height + 'px';
@@ -172,10 +166,11 @@ $(document).ready(function(){
                         var result = results[0]; //첫번째 결과의 값을 활용
                         // 해당 주소에 대한 좌표를 받아서
                         var coords = new daum.maps.LatLng(result.y, result.x);
+                        
                     }
+                    document.getElementById('signup_user_address').value = fullAddr;
                 });
-                document.getElementById('signup_user_address').value = coords;
-                document.getElementById('give_coord').value = coords;
+//                document.getElementById('give_coord').value = coords;
                 // iframe을 넣은 element를 안보이게 한다.
                 // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
                 element_layer.style.display = 'none';
