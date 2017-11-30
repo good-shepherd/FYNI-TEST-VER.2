@@ -1,7 +1,5 @@
 package com.fyni.app;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
 
@@ -22,12 +21,13 @@ public class EventController {
 	@Autowired
 	private EventServiceImpl service;
 
-	@RequestMapping(value = "listAll.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "listAll.do", method = RequestMethod.GET)
+	@ResponseBody
 	public List<EventDTO> searchAll() throws Exception {
 		List<EventDTO> list = service.eventReadAll();
 		System.out.println(list);
 		return list;
-	}
+	}*/
 
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public String eventCreate(String event_Title, String event_Content, String event_WhenBegins, String event_WhenEnds,
