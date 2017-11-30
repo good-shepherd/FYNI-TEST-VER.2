@@ -78,10 +78,10 @@ $(document).ready(function(){
                         $('#give_coord').val(coords);
                         console.log($('#give_coord').val());
                     }
-                    document.getElementById('signup_user_address').value = fullAddr;
+                    document.getElementById('signup_user_address').value = data.addressEnglish;
                     document.getElementById('user_LocX').value = result.x;
-                    document.getElementById('user_LocY').value = result.y;
-                    document.getElementById('user_Addr').value = fullAddr;
+                    document.getElementById('user_LocY').value = result.y;	
+                    document.getElementById('user_Addr').value = data.addressEnglish;
                 });
 //                document.getElementById('give_coord').value = coords;
                 // iframe을 넣은 element를 안보이게 한다.

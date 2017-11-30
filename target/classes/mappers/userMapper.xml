@@ -11,8 +11,8 @@
 		#{user_ID},
 		#{user_PWD},
 		#{user_Nickname},
-		#(user_Address},
-		Point('#{user_LocationX}','#{user_LocationY}'),
+		#{user_Address},
+		Point(#{user_LocationX},#{user_LocationY}),
 		#{user_Profile})
 	</insert>
 
@@ -34,7 +34,7 @@
 		user_PWD=#{user_PWD},
 		user_Nickname=#{user_Nickname},
 		user_Address= #{user_Address},
-		user_Location = Point('#{user_LocationX}','#{user_LocationY}'),
+		user_Location = Point(#{user_LocationX},#{user_LocationY}),
 		user_EXP=#{user_EXP},
 		user_Profile=#{user_Profile},
 		user_Date=#{user_Date}
