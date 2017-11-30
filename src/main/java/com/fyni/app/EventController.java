@@ -21,25 +21,29 @@ public class EventController {
 	@Autowired
 	private EventServiceImpl service;
 
-	/*@RequestMapping(value = "listAll.do", method = RequestMethod.GET)
-	@ResponseBody
-	public List<EventDTO> searchAll() throws Exception {
-		List<EventDTO> list = service.eventReadAll();
-		System.out.println(list);
-		return list;
-	}*/
+	/*
+	 * @RequestMapping(value = "listAll.do", method = RequestMethod.GET)
+	 * 
+	 * @ResponseBody public List<EventDTO> searchAll() throws Exception {
+	 * List<EventDTO> list = service.eventReadAll(); System.out.println(list);
+	 * return list; }
+	 */
 
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public String eventCreate(String event_Title, String event_Content, String event_WhenBegins, String event_WhenEnds,
-			MultipartFile event_Picture, HttpSession session) throws Exception {
+			int category_ID, String event_Address, String event_LocX, String event_LocY, HttpSession session)
+			throws Exception {
 		System.out.println(event_Title);
 		System.out.println(event_Content);
 		System.out.println(event_WhenBegins);
 		System.out.println(event_WhenEnds);
+		System.out.println(category_ID);
+		System.out.println(event_Address);
+		System.out.println(event_LocX);
+		System.out.println(event_LocY);
 		System.out.println(session.getAttribute("user_ID"));
 		// System.out.println(event_Picture);
 		EventDTO dto = new EventDTO();
-
 		// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
 		StringBuffer sb = new StringBuffer();
 		sb.append(event_WhenBegins.substring(0, 10)).append(" ").append(event_WhenBegins.substring(11)).append(":00");
@@ -52,6 +56,11 @@ public class EventController {
 		dto.setEvent_Content(event_Content);
 		dto.setEvent_WhenBegins(begins);
 		dto.setEvent_WhenEnds(ends);
+		dto.setCategory_ID(category_ID);
+		dto.setEvent_Address(event_Address);
+		dto.setEvent_LocationX(event_LocX);
+		dto.setEvent_LocationY(event_LocY);
+		dto.setUser_ID(session.getAttribute("user_ID").toString());
 		int result = service.eventCreate(dto);
 		if (result < 1) {
 			return "fail";

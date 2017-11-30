@@ -15,7 +15,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/writeanevent.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac81df297f1dc0feb920924398032745&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9adfd866378fae45cd319d667002054e&libraries=services"></script>
 
 <title>Write an Event</title>
 </head>
@@ -98,6 +98,8 @@
     </select>
   </div>
 </div>
+<input type="hidden" id ="event_LocX" name="event_LocationX">
+<input type="hidden" id ="event_LocY" name="event_LocationY">
 
 <div class="form-group">
   <label class=" control-label" for="postcode">Find your place</label>

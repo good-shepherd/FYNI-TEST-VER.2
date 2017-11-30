@@ -11,8 +11,7 @@ $(document).ready(function(){
 
 	// submit form
 	$("#submitbtn").on("click", function(e) {
-		// e.preventDefault();
-		alert($("#event_Title").val());
+		e.preventDefault();
 		$.ajax({
 			 url : "eventCreate.do",
 			 type : 'post',
@@ -20,8 +19,12 @@ $(document).ready(function(){
 			 {
 				 "event_Title" : $("#event_Title").val(),
 				 "event_Content" : $("#event_Content").val(),
-				 "event_WhenBegins" : $("#stime").val(),
-				 "event_WhenEnds" : $("#etime").val(),
+				 "event_WhenBegins" : $("#event_WhenBegins").val(),
+				 "event_WhenEnds" : $("#event_WhenEnds").val(),
+				 "category_ID" : $("#category_ID").val(),
+				 "event_Address" : $("#address").val(),
+				 "event_LocX" : $("#event_LocX").val(),
+				 "event_LocY" : $("#event_LocY").val(),
 				 // "event_Picture" : $("#eventfile").files()
 			 },
 			  success : function(data){
@@ -33,7 +36,7 @@ $(document).ready(function(){
 	
 	// http://postcode.map.daum.net/guide
 	var element_layer = document.getElementById('layer');
-	
+	var geocoder = new daum.maps.services.Geocoder();
 	function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height
@@ -71,7 +74,19 @@ $(document).ready(function(){
                     // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
                     fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
                 }
-
+                
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+                        var result = results[0]; //첫번째 결과의 값을 활용
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        $('#give_coord').val(coords);
+                        console.log($('#give_coord').val());
+                    }
+                    document.getElementById('event_LocX').value = result.x;
+                    document.getElementById('event_LocY').value = result.y;
+                });
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
                 document.getElementById('address').value = fullAddr;
