@@ -15,7 +15,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/writeanevent.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9adfd866378fae45cd319d667002054e&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 
 <title>Write an Event</title>
 </head>
@@ -46,8 +46,14 @@
 						<button type="submit" class="btn glyphicon-search"></button>
 					</form>
 				</li>
-				<li><a href="login">Log In</a></li>
-				<li><a href="signup">Sign Up</a></li>
+		         <c:if test="${user_ID == null }">		   
+		           <li><a href="login">Log In</a></li>
+				   <li><a href="signup">Sign Up</a></li>
+				 </c:if>
+				 <c:if test="${user_ID != null }">
+				 	<li><a href="userinfo">${user_ID }</a>
+				 	<li><a href="logout">Log out</a>
+				 </c:if>
 			</ul>
 
 		</div>

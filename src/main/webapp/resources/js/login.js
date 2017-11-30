@@ -24,6 +24,14 @@ function cnglogin(){
 	});
 }
 $(document).ready(function(){
+    $("#f_signup").on('submit', function() {
+        if($('#profile').is(":checked") == true){
+        	$('#profile').val(1);
+        }else{
+        	$('#profile').val(0);
+        }
+    })
+	
 	var element_layer = document.getElementById('layer');
 	var geocoder = new daum.maps.services.Geocoder();
 	function initLayerPosition(){

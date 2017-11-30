@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fyni.domain.UserDTO;
 import com.fyni.persistence.UserDAO;
+import com.mysql.cj.api.Session;
 
 @Controller
 public class UserController {
@@ -61,6 +62,12 @@ public class UserController {
 		}else {
 			return "home";
 		}
+	}
+	
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user_ID");
+		return "home";
 	}
 	
 	@RequestMapping("login")

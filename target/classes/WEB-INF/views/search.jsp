@@ -43,8 +43,14 @@
 						<button type="submit" class="btn glyphicon-search"></button>
 					</form>
 				</li>
-				<li><a href="javascript:cnglogin()">Log In</a></li>
-				<li><a href="javascript:cngsignup()">Sign Up</a></li>
+				 <c:if test="${user_ID == null }">				   
+		           <li><a href="javascript:cnglogin()">Log In</a></li>
+					  <li><a href="javascript:cngsignup()">Sign Up</a></li>
+		         </c:if>
+				 <c:if test="${user_ID != null }">
+				 	<li><a href="userinfo">${user_ID }</a>
+				 	<li><a href="logout">Log out</a>
+				 </c:if>
 			</ul>
 
 		</div>

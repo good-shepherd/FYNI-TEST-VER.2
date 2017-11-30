@@ -27,9 +27,15 @@
             <li><a href="writeanevent">Write an Event</a></li>
             <li><a href="#">Talk</a></li>
           </ul>
-         <ul class="nav navbar-nav navbar-right">		   
+         <ul class="nav navbar-nav navbar-right">
+         <c:if test="${user_ID == null }">		   
            <li><a href="login">Log In</a></li>
-			  <li><a href="signup">Sign Up</a></li>
+		   <li><a href="signup">Sign Up</a></li>
+		 </c:if>
+		 <c:if test="${user_ID != null }">
+		 	<li><a href="userinfo">${user_ID }</a>
+		 	<li><a href="logout">Log out</a>
+		 </c:if>
           </ul>
              
       </div>      

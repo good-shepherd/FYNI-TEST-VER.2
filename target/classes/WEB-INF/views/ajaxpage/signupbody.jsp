@@ -59,4 +59,4 @@
   </div>
   <script src="js/login.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9adfd866378fae45cd319d667002054e&libraries=services"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
