@@ -14,17 +14,20 @@ public class EventDTO {
 	private Timestamp event_WrittenWhen;
 	private String event_Picture;
 	private int category_ID;
-	private int location_ID;
 	private String user_ID;
 	private int event_Hit;
-	
+	private String event_Address;
+	private String event_LocationX;
+	private String event_LocationY;
+
 	public EventDTO() {
 		super();
 	}
 
 	public EventDTO(int event_ID, String event_Title, String event_Content, int event_Up, int event_Down,
 			String event_WhenBegins, String event_WhenEnds, Timestamp event_WrittenWhen, String event_Picture,
-			int category_ID, int location_ID, String user_ID, int event_Hit) {
+			int category_ID, String user_ID, int event_Hit, String event_Address, String event_LocationX,
+			String event_LocationY) {
 		super();
 		this.event_ID = event_ID;
 		this.event_Title = event_Title;
@@ -36,9 +39,11 @@ public class EventDTO {
 		this.event_WrittenWhen = event_WrittenWhen;
 		this.event_Picture = event_Picture;
 		this.category_ID = category_ID;
-		this.location_ID = location_ID;
 		this.user_ID = user_ID;
 		this.event_Hit = event_Hit;
+		this.event_Address = event_Address;
+		this.event_LocationX = event_LocationX;
+		this.event_LocationY = event_LocationY;
 	}
 
 	public int getEvent_ID() {
@@ -121,14 +126,6 @@ public class EventDTO {
 		this.category_ID = category_ID;
 	}
 
-	public int getLocation_ID() {
-		return location_ID;
-	}
-
-	public void setLocation_ID(int location_ID) {
-		this.location_ID = location_ID;
-	}
-
 	public String getUser_ID() {
 		return user_ID;
 	}
@@ -145,6 +142,30 @@ public class EventDTO {
 		this.event_Hit = event_Hit;
 	}
 
+	public String getEvent_Address() {
+		return event_Address;
+	}
+
+	public void setEvent_Address(String event_Address) {
+		this.event_Address = event_Address;
+	}
+
+	public String getEvent_LocationX() {
+		return event_LocationX;
+	}
+
+	public void setEvent_LocationX(String event_LocationX) {
+		this.event_LocationX = event_LocationX;
+	}
+
+	public String getEvent_LocationY() {
+		return event_LocationY;
+	}
+
+	public void setEvent_LocationY(String event_LocationY) {
+		this.event_LocationY = event_LocationY;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -153,10 +174,10 @@ public class EventDTO {
 				.append(", event_Down=").append(event_Down).append(", event_WhenBegins=").append(event_WhenBegins)
 				.append(", event_WhenEnds=").append(event_WhenEnds).append(", event_WrittenWhen=")
 				.append(event_WrittenWhen).append(", event_Picture=").append(event_Picture).append(", category_ID=")
-				.append(category_ID).append(", location_ID=").append(location_ID).append(", user_ID=").append(user_ID)
-				.append(", event_Hit=").append(event_Hit).append("]");
+				.append(category_ID).append(", user_ID=").append(user_ID).append(", event_Hit=").append(event_Hit)
+				.append(", event_Address=").append(event_Address).append(", event_LocationX=").append(event_LocationX)
+				.append(", event_LocationY=").append(event_LocationY).append("]");
 		return builder.toString();
 	}
 
-	
 }

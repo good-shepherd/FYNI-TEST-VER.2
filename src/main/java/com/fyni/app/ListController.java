@@ -19,9 +19,9 @@ public class ListController {
 	@Autowired
 	private EventServiceImpl service;
 	
-	@RequestMapping(value = "eventRead.do", method = RequestMethod.GET)
+	@RequestMapping(value = "eventRead.do", method = RequestMethod.POST)
 	public ModelAndView eventReadOne(String event_ID) throws Exception {
-		ModelAndView mav = new ModelAndView("event");
+		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		EventDTO event = service.eventRead(Integer.parseInt(event_ID.trim()));
 		mav.addObject("event", event);
 		return mav;

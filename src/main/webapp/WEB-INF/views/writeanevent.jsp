@@ -15,6 +15,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/writeanevent.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac81df297f1dc0feb920924398032745&libraries=services"></script>
+
 <title>Write an Event</title>
 </head>
 <body>
