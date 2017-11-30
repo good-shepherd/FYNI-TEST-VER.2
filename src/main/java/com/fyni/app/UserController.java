@@ -26,9 +26,7 @@ public class UserController {
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
 			HttpSession session, Model model) {
-		System.out.println("user_ID : " + user_ID + "   user_PWD : " + user_PWD);
 		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
-		System.out.println(loginInfo);
 		if (loginInfo == null) {
 			model.addAttribute("msg", "failed");
 			return "login";
@@ -46,7 +44,6 @@ public class UserController {
 	@RequestMapping("signup.do")
 	public String signUp(UserDTO user, Model model) {
 		int count = 0;
-		user.setLocation_ID(1);
 		if("".equals(user.getUser_ID().trim())) {
 			count = -1;
 		}else if("".equals(user.getUser_PWD().trim())) {
@@ -77,12 +74,12 @@ public class UserController {
 	
 	@RequestMapping("signupreq")
 	public String signupreq() {
-		return "/ajaxpage/signupbody";		
+		return "ajaxpage/signupbody";		
 	}
 	
 	@RequestMapping("loginreq")
 	public String loginreq() {
-		return "/ajaxpage/loginbody";		
+		return "ajaxpage/loginbody";		
 	}
 	
 }

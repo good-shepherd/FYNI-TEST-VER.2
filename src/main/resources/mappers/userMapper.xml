@@ -6,22 +6,22 @@
 <mapper namespace="com.fyni.mapper.userMapper">
 	<insert id="userCreate">
 		insert into user (user_ID, user_PWD, user_Nickname,
-		location_ID,user_Profile)
+		user_Address,user_Location,user_Profile)
 		values(
 		#{user_ID},
 		#{user_PWD},
 		#{user_Nickname},
-		#{location_ID},
+		#(user_Address},
+		Point('#{user_LocationX}','#{user_LocationY}'),
 		#{user_Profile})
 	</insert>
 
 	<select id="userRead" resultType="com.fyni.domain.UserDTO">
-		select user_ID, user_PWD, user_Nickname, location_ID, user_EXP,
+		select user_ID, user_PWD, user_Nickname, user_Address, user_Location, user_EXP,
 		user_Profile, user_Date
 		from user
 		where user_ID = #{user_ID}
 	</select>
-
 	<select id="userSignIn" resultType="string">
 		select user_ID
 		from user
@@ -33,7 +33,8 @@
 		set user_ID=#{user_ID},
 		user_PWD=#{user_PWD},
 		user_Nickname=#{user_Nickname},
-		location_ID=#{location_ID},
+		user_Address= #{user_Address},
+		user_Location = Point('#{user_LocationX}','#{user_LocationY}'),
 		user_EXP=#{user_EXP},
 		user_Profile=#{user_Profile},
 		user_Date=#{user_Date}
@@ -46,11 +47,8 @@
 	</delete>
 
 	<select id="userReadAll" resultType="com.fyni.domain.UserDTO">
-	<![CDATA[
-	select user_ID, user_PWD, user_Nickname, location_ID, user_EXP, user_Profile, user_Date
-	from user
-	order by user_ID desc, user_Date desc
-	]]>
+		select user_ID, user_PWD, user_Nickname, user_Address,user_Location, user_EXP, user_Profile, user_Date
+		from user
+		order by user_ID desc, user_Date desc
 	</select>
-
 </mapper>
