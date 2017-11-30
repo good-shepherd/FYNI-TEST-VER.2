@@ -44,7 +44,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("signup.do")
-	public String signUp(UserDTO user) {
+	public String signUp(UserDTO user, Model model) {
 		int count = 0;
 		user.setLocation_ID(1);
 		if("".equals(user.getUser_ID().trim())) {
@@ -58,6 +58,7 @@ public class UserController {
 			count = userDao.userCreate(user);
 		}
 		if(count < 1) {
+			model.addAttribute("signupmsg","failed");
 			return "signup";
 		}else {
 			return "home";
@@ -72,6 +73,16 @@ public class UserController {
 	@RequestMapping("signup")
 	public String mainSignup() {
 		return "signup";
+	}
+	
+	@RequestMapping("signupreq")
+	public String signupreq() {
+		return "/ajaxpage/signupbody";		
+	}
+	
+	@RequestMapping("loginreq")
+	public String loginreq() {
+		return "/ajaxpage/loginbody";		
 	}
 	
 }

@@ -4,19 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet">	
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/login.js"></script>
-  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
 <!--   	ac81df297f1dc0feb920924398032745 -->
 <title>Log In</title>
 </head>
@@ -36,12 +30,12 @@
           </ul>
       </div>      	
 </nav>
-<c:if test="${msg eq 'failed'}">
-  <script>
-	alert("check your Email or Password");
-  </script>
-</c:if>	
 <div class="container" id="here-to-change">
+	<c:if test="${msg eq 'failed'}">
+	  <script>
+		alert("check your Email or Password");
+	  </script>
+	</c:if>	
   <div class="row">
     <div class="main">
       <h3>Please Log In, or <a href="javascript:cngsignup()">Sign Up</a></h3>
@@ -87,6 +81,10 @@
 			</div>
 	   </div>
 </nav>
-
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/login.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 </body>
 </html>

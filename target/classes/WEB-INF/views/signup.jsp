@@ -11,11 +11,7 @@
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/login.js"></script>
-  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
+  
 <title>Sign Up</title>
 </head>
 <body>
@@ -35,6 +31,11 @@
       </div>      
 </nav>
 <div class="container" id="here-to-change">
+	<c:if test="${signupmsg eq 'failed'}">
+	  <script>
+		alert("check your Email or Password");
+	  </script>
+	</c:if>	
  <div class= " col-md-4 col-md-offset-4">
   <div class="row" >
     <div class="main">
@@ -55,18 +56,18 @@
         <div class="form-group">
           <label for="signup-user-id">Email</label>
           <input type="email" class="form-control" id="signup-user-id" placeholder="abcde@email.com" 
-          pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
+          pattern = "/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$/"
 		  name="user_ID">
         </div>
         <div class="form-group">
           <label for="signup-user-pwd">Password</label>
           <input type="password" class="form-control" id="signup-user-pwd"
-				 name="user_PWD">
+				 name="user_PWD" pattern="/^[^ \t\r\n\v\f]$/">
         </div>
 		<div class="form-group">
           <label for="signup-user-nickname">Nickname</label>
           <input type="text" class="form-control" id="signup-user-nickname"
-				 name="user_Nickname">
+				 name="user_Nickname" pattern="/^[A-Za-z0-9_]$/">
         </div>
 		<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 			<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
@@ -94,6 +95,10 @@
 			</div>
 	   </div>
 </nav>
-
+<script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/login.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 </body>
 </html>
