@@ -24,6 +24,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int userCreate(UserDTO user) {
+		System.out.println(user);
 		return session.insert(namespace + ".userCreate", user);
 	}
 

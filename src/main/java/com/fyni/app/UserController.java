@@ -44,6 +44,7 @@ public class UserController {
 	@RequestMapping("signup.do")
 	public String signUp(UserDTO user, Model model) {
 		int count = 0;
+		System.out.println(user);
 		if("".equals(user.getUser_ID().trim())) {
 			count = -1;
 		}else if("".equals(user.getUser_PWD().trim())) {
