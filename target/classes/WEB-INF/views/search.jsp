@@ -60,7 +60,7 @@
 								<h4 class="list-group-item-heading">${i.event_Title}</h4>
 								<p class="list-group-item-text">${i.event_Content}</p>
 							</div>
-							<div class="col-sm-4">${i.location_ID}</div>
+							<div class="col-sm-4">${i.event_Address}</div>
 						</div>
 					</a>
 				</c:forEach>
