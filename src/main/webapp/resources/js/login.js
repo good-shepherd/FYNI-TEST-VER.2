@@ -26,11 +26,6 @@ function cnglogin(){
 $(document).ready(function(){
 	var element_layer = document.getElementById('layer');
 	var geocoder = new daum.maps.services.Geocoder();
-	$('#loginbtn').on('click',function(){
-		$('#f').action = "login.do";
-		$('#f').method = "post";
-		$('#f').submit();
-	});
 	function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height
@@ -80,9 +75,13 @@ $(document).ready(function(){
                         var result = results[0]; //첫번째 결과의 값을 활용
                         // 해당 주소에 대한 좌표를 받아서
                         var coords = new daum.maps.LatLng(result.y, result.x);
-                        
+                        $('#give_coord').val(coords);
+                        console.log($('#give_coord').val());
                     }
                     document.getElementById('signup_user_address').value = fullAddr;
+                    document.getElementById('user_LocX').value = result.x;
+                    document.getElementById('user_LocY').value = result.y;
+                    document.getElementById('user_Addr').value = fullAddr;
                 });
 //                document.getElementById('give_coord').value = coords;
                 // iframe을 넣은 element를 안보이게 한다.

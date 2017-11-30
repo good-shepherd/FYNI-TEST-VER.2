@@ -54,7 +54,8 @@
       <form role="form" id = "f" name="f" method="post" action="login.do">
         <div class="form-group">
           <label for="inputUsernameEmail">Email</label>
-          <input type="email" class="form-control" id="inputUsernameEmail" name="user_ID">
+          <input type="text" class="form-control" id="inputUsernameEmail" name="user_ID"
+          pattern = "^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$">
         </div>
         <div class="form-group">
           <a class="pull-right" href="#">Forgot password?</a>
@@ -66,9 +67,7 @@
             <input type="checkbox">
             Remember me </label>
         </div>
-        <button type="button" class="btn btn-primary" id="loginbtn">
-          	Log In
-        </button>
+        <input type="submit" class="btn btn-primary" id="loginbtn" value="Log in">
       </form>
     </div>
   </div>

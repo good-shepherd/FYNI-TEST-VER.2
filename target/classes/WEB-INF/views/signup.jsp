@@ -55,19 +55,18 @@
       <form role="form" id = "f" name="f" action="signup.do" method="post">
         <div class="form-group">
           <label for="signup-user-id">Email</label>
-          <input type="email" class="form-control" id="signup-user-id" placeholder="abcde@email.com" 
-          pattern = "/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$/"
-		  name="user_ID">
+          <input type="text" class="form-control" id="signup-user-id" placeholder="fyni@email.com" 
+          pattern = "^[A-Za-z0-9._]+@[A-Za-z0-9.-]+.[a-z]{2,4}$" title="아이디" name="user_ID">
         </div>
         <div class="form-group">
           <label for="signup-user-pwd">Password</label>
           <input type="password" class="form-control" id="signup-user-pwd"
-				 name="user_PWD" pattern="/^[^ \t\r\n\v\f]$/">
+				 name="user_PWD">
         </div>
 		<div class="form-group">
           <label for="signup-user-nickname">Nickname</label>
           <input type="text" class="form-control" id="signup-user-nickname"
-				 name="user_Nickname" pattern="/^[A-Za-z0-9_]$/">
+				 name="user_Nickname">
         </div>
 		<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 			<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
@@ -75,9 +74,10 @@
 		<div class="form-group">
           <label for="inputPassword">Default Location</label><small> optional</small>
           <input type="text" style="border-radius:3px" id="signup_user_address" disabled>
-          <input type="hidden" id="give_coord" name="user_Address">
-		  <input type="button" class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn" 
-		  data-toggle="modal" data-target="#mapModal" value="Find address">
+          <input type="hidden" id="user_Addr" name="user_Address">
+          <input type="hidden" id ="user_LocX" name="user_LocationX">
+          <input type="hidden" id ="user_LocY" name="user_LocationY">
+		  <input type="button" class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn" value="Find address">
         </div>
 		<div class="checkbox pull-right">
           <label><input type ="checkbox">프로필 공개</label>
@@ -94,8 +94,8 @@
 		   	<p>FYNI</p>
 			</div>
 	   </div>
-</nav>
-<script src="js/jquery-3.2.1.min.js"></script>
+</nav> 
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/login.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

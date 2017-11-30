@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-<c:if test="${signupmsg eq 'failed'}">
-  <script>
-	alert("check your signup form");
-  </script>
-</c:if>	   
-    
+	<c:if test="${signupmsg eq 'failed'}">
+	  <script>
+		alert("check your Email or Password");
+	  </script>
+	</c:if>	
  <div class= " col-md-4 col-md-offset-4">
   <div class="row" >
     <div class="main">
@@ -26,9 +25,8 @@
       <form role="form" id = "f" name="f" action="signup.do" method="post">
         <div class="form-group">
           <label for="signup-user-id">Email</label>
-          <input type="email" class="form-control" id="signup-user-id" placeholder="abcde@email.com" 
-          pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
-		  name="user_ID">
+          <input type="text" class="form-control" id="signup-user-id" placeholder="fyni@email.com" 
+          pattern = "^[A-Za-z0-9._]+@[A-Za-z0-9.-]+.[a-z]{2,4}$" title="아이디" name="user_ID">
         </div>
         <div class="form-group">
           <label for="signup-user-pwd">Password</label>
@@ -46,9 +44,10 @@
 		<div class="form-group">
           <label for="inputPassword">Default Location</label><small> optional</small>
           <input type="text" style="border-radius:3px" id="signup_user_address" disabled>
-          <input type="hidden" id="give_coord" name="user_Address">
-		  <input type="button" class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn" 
-		  data-toggle="modal" data-target="#mapModal" value="Find address">
+          <input type="hidden" id="user_Addr" name="user_Address">
+          <input type="hidden" id ="user_LocX" name="user_LocationX">
+          <input type="hidden" id ="user_LocY" name="user_LocationY">
+		  <input type="button" class="btn-primary pull-right" style="border-radius:3px" id="findaddressbtn" value="Find address">
         </div>
 		<div class="checkbox pull-right">
           <label><input type ="checkbox">프로필 공개</label>
@@ -58,3 +57,6 @@
     </div>
   </div>
   </div>
+  <script src="js/login.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
