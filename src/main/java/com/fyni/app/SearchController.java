@@ -17,7 +17,7 @@ import com.fyni.service.EventServiceImpl;
 @Controller
 public class SearchController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
 	@Autowired
 	private EventServiceImpl service;
@@ -30,4 +30,7 @@ public class SearchController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	// @RequestMapping(value = "")
+
 }

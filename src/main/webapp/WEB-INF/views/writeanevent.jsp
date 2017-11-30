@@ -121,51 +121,7 @@
 <img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
 
-
-	<!-- <div class="container-fluid section-max-width">
-		<h4>Event Occured!</h4>
-		<form id="form1" name="form1" method="post">
-			<div class="form-group">
-				<label for="event_Title">Write the title of your event</label> <input
-					type="text" class="form-control" name="write-event-title" id="event_Title" placeholder="Title">
-			</div>
-			<div class="form-group">
-				<label for="event_Content">Write the content of your event</label>
-				<textarea class="form-control" name="write-event-content"
-					id="event_Content" style="resize: none;" rows="7"
-					placeholder="content"></textarea>
-			</div>
-			<div class="form-group">
-				<label for="input1">시간 : </label>
-				<div class="input-group">
-					<input type="datetime-local" name="starttime" id="stime"> 부터 <input
-						type="datetime-local" name="endtime" id="etime"> 까지
-				</div>
-				<label for="category_ID">카테고리 : </label>
-				<div class="input-group">
-					<select name="job" id="category_ID">
-   					   <option value="">카테고리</option>
-   					   <option value="1">사건사고</option>
-   					   <option value="2">쇼핑정보</option>
- 					   <option value="3">문화예술</option>
- 					   <option value="4">키덜트</option>
- 					   <option value="5">애기덜</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="event_Picture">Show your Event</label> <input
-					type="file" name="event-file" id="eventfile">
-			</div>
-			<button id="submitbtn" class="btn btn-primary">Write event</button>
-		</form>
-	</div>
-			<input type="text" id="sample6_postcode" placeholder="우편번호">
-			<input type="button" id="addressbtn" value="우편번호 찾기"><br>
-			<input type="text" id="sample6_address" placeholder="주소">
-			<input type="text" id="sample6_address2" placeholder="상세주소"> -->
-
-	<nav id="bottom-navbar" class="navbar navbar-inverse">
+<nav id="bottom-navbar" class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="nav navbar-nav">
 				<p>FYNI</p>
