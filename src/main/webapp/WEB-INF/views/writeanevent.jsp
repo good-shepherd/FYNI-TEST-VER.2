@@ -59,7 +59,7 @@
 		</div>
 	</nav>
 
-<div class="container-fluid section-max-width">
+<div id="main-div" class="container-fluid section-max-width">
 <form id="form1" name="form1" method="post">
 <fieldset>
 
@@ -68,7 +68,7 @@
 <div class="form-group">
   <label class=" control-label" for="event_Title">Title</label>  
   <div class="">
-  <input id="event_Title" name="event_Title" type="text" placeholder="Title" class="form-control input-md">
+  <input id="event_Title" name="event_Title" type="text" placeholder="Title" class="form-control input-md" maxlength="15">
     
   </div>
 </div>
@@ -76,7 +76,7 @@
 <div class="form-group">
   <label class=" control-label" for="event_Content">Description</label>
   <div class="">                     
-    <textarea class="form-control" id="event_Content" rows="7" name="event_Content"></textarea>
+    <textarea class="form-control" id="event_Content" rows="7" name="event_Content" maxlength="200"></textarea>
   </div>
 </div>
 

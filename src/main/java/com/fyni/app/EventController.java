@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
@@ -30,20 +31,10 @@ public class EventController {
 	 */
 
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
-	public String eventCreate(String event_Title, String event_Content, String event_WhenBegins, String event_WhenEnds,
-			int category_ID, String event_Address, String event_LocX, String event_LocY, HttpSession session)
-			throws Exception {
-		System.out.println(event_Title);
-		System.out.println(event_Content);
-		System.out.println(event_WhenBegins);
-		System.out.println(event_WhenEnds);
-		System.out.println(category_ID);
-		System.out.println(event_Address);
-		System.out.println(event_LocX);
-		System.out.println(event_LocY);
-		System.out.println(session.getAttribute("user_ID"));
-		// System.out.println(event_Picture);
-		EventDTO dto = new EventDTO();
+	public ModelAndView eventCreate(String event_Title, String event_Content, String event_WhenBegins,
+			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
+			HttpSession session) throws Exception {
+		Object userid = session.getAttribute("user_ID");
 		// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
 		StringBuffer sb = new StringBuffer();
 		sb.append(event_WhenBegins.substring(0, 10)).append(" ").append(event_WhenBegins.substring(11)).append(":00");
@@ -51,7 +42,7 @@ public class EventController {
 		sb = new StringBuffer();
 		sb.append(event_WhenEnds.substring(0, 10)).append(" ").append(event_WhenEnds.substring(11)).append(":00");
 		String ends = sb.toString();
-
+		EventDTO dto = new EventDTO();
 		dto.setEvent_Title(event_Title);
 		dto.setEvent_Content(event_Content);
 		dto.setEvent_WhenBegins(begins);
@@ -60,19 +51,31 @@ public class EventController {
 		dto.setEvent_Address(event_Address);
 		dto.setEvent_LocationX(event_LocX);
 		dto.setEvent_LocationY(event_LocY);
-		dto.setUser_ID(session.getAttribute("user_ID").toString());
-		int result = service.eventCreate(dto);
-		if (result < 1) {
-			return "fail";
-		} else {
-			return "success";
-		}
+		dto.setUser_ID(userid.toString());
+		service.eventCreate(dto);
+		ModelAndView mav;
+		mav = new ModelAndView("ajaxpage/eventbody");
+		mav.addObject("event_ID", userid.toString());
+		return mav;
 
 	}
 
 	@RequestMapping(value = "writeanevent", method = RequestMethod.GET)
-	public String writeAnEvent() {
+	public String writeAnEvent(HttpSession session) {
+		Object userid = session.getAttribute("user_ID");
+		if (userid == null) {
+			System.out.println(userid);
+			return "login";
+		}
 		return "writeanevent";
+	}
+
+	@RequestMapping(value = "eventRead.do", method = RequestMethod.POST)
+	public ModelAndView eventReadOne(String event_ID) throws Exception {
+		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
+		EventDTO event = service.eventRead(Integer.parseInt(event_ID.trim()));
+		mav.addObject("event", event);
+		return mav;
 	}
 
 }
