@@ -51,4 +51,9 @@ public class UserServiceImpl implements UserService {
 		return dao.userEventWritten(user_ID);
 	}
 
+	@Override
+	public int userPwdChange(String user_PWD, String user_ID) {
+		return dao.userPwdChange(user_PWD, user_ID);
+	}
+
 }

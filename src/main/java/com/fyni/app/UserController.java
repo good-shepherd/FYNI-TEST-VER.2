@@ -24,9 +24,12 @@ public class UserController {
 	@Autowired
 	EventService eservice;
 	
+	@Autowired
+	HttpSession session;
+	
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
-			HttpSession session, Model model) {
+		Model model) {
 		String loginInfo = service.userSignIn(user_ID.trim(), user_PWD.trim());
 		if (loginInfo == null) {
 			model.addAttribute("msg", "failed");
@@ -66,7 +69,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	public String logout() {
 		session.removeAttribute("user_ID");
 		return "home";
 	}
@@ -92,7 +95,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("userinfo")
-	public String userinfo(HttpSession session, Model model) {
+	public String userinfo(Model model) {
 		String user_ID = (String)session.getAttribute("user_ID");
 		if(user_ID == null) {
 			return "login";
@@ -104,7 +107,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("userlist")
-	public String userlist(HttpSession session, Model model) {
+	public String userlist(Model model) {
 		List<EventDTO> list = service.userEventWritten((String)session.getAttribute("user_ID"));
 		model.addAttribute("list", list);
 		model.addAttribute("listlen", list.size());
@@ -115,6 +118,12 @@ public class UserController {
 		return "ajaxpage/userinfosetting";
 	}
 	
+	@RequestMapping("cngingpwd")
+	public String cngingpwd(String user_PWD) {
+		String user_ID = (String)session.getAttribute("user_ID");
+		service.userPwdChange(user_PWD, user_ID);
+		return "home";
+	}
 	
 	
 }

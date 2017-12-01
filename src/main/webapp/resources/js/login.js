@@ -16,6 +16,7 @@ function cngsignup(){
 		}
 	});
 }
+
 function cnglogin(){
 	$.ajax({
 		url : "loginreq",

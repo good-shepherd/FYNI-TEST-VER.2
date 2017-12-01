@@ -63,4 +63,12 @@ public class UserDAOImpl implements UserDAO {
 		return session.selectList(namespace + ".userEventWritten", user_ID);
 	}
 
+	@Override
+	public int userPwdChange(String user_PWD, String user_ID) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_PWD", user_PWD);
+		map.put("user_ID", user_ID);
+		return session.update(namespace + ".userPwdChange", map);
+	}
+
 }

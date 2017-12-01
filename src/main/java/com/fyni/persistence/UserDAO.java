@@ -20,4 +20,6 @@ public interface UserDAO {
 	public String userSignIn(String user_ID, String user_PWD);
 	
 	public List<EventDTO> userEventWritten(String user_ID);
+	
+	public int userPwdChange(String user_PWD, String user_ID);
 }

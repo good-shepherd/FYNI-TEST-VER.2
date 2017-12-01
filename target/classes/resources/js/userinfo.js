@@ -19,3 +19,7 @@ function cnguserlist(){
 		}
 	})
 }
+
+function cngingpwd(){
+	$('#sign_up_form').submit();
+}
