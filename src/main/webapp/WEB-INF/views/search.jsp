@@ -14,6 +14,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <title>Search Events ${category_name }</title>
 </head>
 <body>
@@ -59,7 +60,7 @@
 	<div id="main-div" class="container-fluid section-max-width">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
-				<c:forEach var="i" items="${list}" begin="1" end="10">
+				<c:forEach var="i" items="${list}" begin="0" end="10">
 					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">
 						<div class="row">
 							<div class="col-sm-8">

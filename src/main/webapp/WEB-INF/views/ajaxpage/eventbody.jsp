@@ -5,29 +5,28 @@
 	<div class="row">
 		<div class="col-sm-8">
 			<div class="col-sm-4">
-				<h4>Event Title</h4>
+				<h4>${event.event_Title}</h4>
 			</div>
 			<div class="col-sm-4">
-				<a href="">누구누구가씀 </a>
-				<p>조회수, 별점, 코멘트수</p>
+				<a href="">${event.user_ID} </a>
+				<p>조회수 ${event.event_Hit }, 추천수 ${event.event_Up }, 코멘트수</p>
 			</div>
-			<div class="col-sm-4">카테고리리</div>
+			<div class="col-sm-4">카테고리 ${event.category_ID }</div>
 			<div class="col-sm-12">
 				<img class="img-responsive max" src="images/colors.png" alt="" />
 			</div>
 			<div class="col-sm-6">
 				<label class="control-label" for="event_WhenBegins">Start
 					Date</label>
-				<p id="event_WhenBegins">31975913879</p>
+				<p id="event_WhenBegins">${event.event_WhenBegins}</p>
 			</div>
 			<div class="col-sm-6">
 				<label class="control-label" for="event_WhenEnds">End Date</label>
-				<p id="event_WhenEnds">093580918530</p>
+				<p id="event_WhenEnds">${event.event_WhenEnds}</p>
 			</div>
 			<div class="col-sm-12">
-				<p>주소: ㅣ;ㅏㅁㅁㅈ디ㅏ러;ㅣㅈㅁ다러;ㅣㅈ마덜;ㅣㅏ젇ㄹ;ㅣㅏㅓㅈㅈ리ㅏ</p>
-				<p>내용 리맞덜;ㅣㅏㅈㅁ덜;ㅣㅏㅓ;ㅣㅏㅓ;ㅣㅏㅓ;ㅣ자ㅓㄷㄹ;ㅣㅏㅓ짐ㄷ러;ㅏㅣㅈㄷㄹ
-					밎다ㅓㄹ;미ㅏㅈ덜;ㅣ맞덜;ㅣ자덜;ㅣ잠덜;ㅣㅏㅈ;ㅁㅈ디ㅏ러;ㅁ지다러;ㅣㅈㅁ다ㅓㄹ;ㅣ잗멀;ㅣㅁ자덜;ㅣㅁ자덜;ㅣㅏㅈㅁ덜;ㅣㅏㅈㅁ덜;ㅣㅏㅓ;ㅣㅏㅓ;ㅣㅏㅓㅁㅈㄷㅣㅣㅏㅓㅈㅈㅣ다러;ㅣㅏㅓ;ㅣㅏㅈㅁ더ㅣ;ㅏㅓㄹ;ㅣㅏㅓㅣㅏㅓㅏ;ㅣ라ㅓㅁ;ㅣ자ㅓ</p>
+				<p>주소: ${event.event_Address}</p>
+				<p>내용: ${event.event_Content}</p>
 			</div>
 			<div class="col-sm-12">
 				<hr>
@@ -62,6 +61,6 @@
 			</div>
 
 		</div>
-		<div class="col-sm-4">지도</div>
+		<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
 	</div>
 </div>
