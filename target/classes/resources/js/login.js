@@ -6,6 +6,8 @@ function closeDaumPostcode() {
     // iframe을 넣은 element를 안보이게 한다.
 	document.getElementById('layer').style.display = 'none';
 }
+
+
 function cngsignup(){
 	$.ajax({
 		url : "signupreq",

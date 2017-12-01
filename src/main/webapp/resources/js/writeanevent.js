@@ -7,30 +7,63 @@ function closeDaumPostcode() {
 	document.getElementById('layer').style.display = 'none';
 }
 
+function writeResult() {
+	
+}
+
+
+
+
 $(document).ready(function(){
 
+	
 	// submit form
 	$("#submitbtn").on("click", function(e) {
 		e.preventDefault();
+		var event_Title = $("#event_Title").val();
+		var titleValidation = event_Title.trim();
+		var event_Content = $("#event_Content").val();
+		var contentValidation = event_Content.trim();
+		var event_WhenBegins = $("#event_WhenBegins").val();
+		var event_WhenEnds = $("#event_WhenEnds").val();
+		var category_ID = $("#category_ID").val();
+		var event_Address = $("#address").val();
+		var event_LocX = $("#event_LocX").val();
+		var event_LocY = $("#event_LocY").val();
+		
+		if ("" == event_WhenBegins || "" == event_WhenEnds) {
+			alert("날짜 다시 입력 ㄱㄱ");
+		} else if (0 == event_LocX && 0 == event_LocY) {
+			alert("주소입력하세용");
+		} else if ("" == category_ID) {
+			alert("카테고리입력하세용");
+		} else if("" == titleValidation || "" == contentValidation) {
+			alert("제목이나 내용을 입력하세용ㅎㅎ")
+		} else {
 		$.ajax({
 			 url : "eventCreate.do",
 			 type : 'post',
 			 data : 
 			 {
-				 "event_Title" : $("#event_Title").val(),
-				 "event_Content" : $("#event_Content").val(),
-				 "event_WhenBegins" : $("#event_WhenBegins").val(),
-				 "event_WhenEnds" : $("#event_WhenEnds").val(),
-				 "category_ID" : $("#category_ID").val(),
-				 "event_Address" : $("#address").val(),
-				 "event_LocX" : $("#event_LocX").val(),
-				 "event_LocY" : $("#event_LocY").val(),
+				 "event_Title" : event_Title,
+				 "event_Content" : event_Content,
+				 "event_WhenBegins" : event_WhenBegins,
+				 "event_WhenEnds" : event_WhenEnds,
+				 "category_ID" : category_ID,
+				 "event_Address" : event_Address,
+				 "event_LocX" : event_LocX,
+				 "event_LocY" : event_LocY
 				 // "event_Picture" : $("#eventfile").files()
 			 },
 			  success : function(data){
 				 alert(data);
+				 $("#main-div").replaceWith(data);
+			 },
+			 error : function(){
+				 alert("failed");
 			 }
 		 });
+		}//else
     });
 	
 	

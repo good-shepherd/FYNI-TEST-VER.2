@@ -1,7 +1,8 @@
 package com.fyni.app;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,30 +10,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fyni.domain.EventDTO;
 import com.fyni.domain.UserDTO;
-import com.fyni.persistence.UserDAO;
-import com.mysql.cj.api.Session;
+import com.fyni.service.EventService;
+import com.fyni.service.UserService;
 
 @Controller
 public class UserController {
 	
 	@Autowired
-	DataSource ds;
-
+	UserService service;
 	@Autowired
-	UserDAO userDao;
+	EventService eservice;
+	
+	@Autowired
+	HttpSession session;
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
-			HttpSession session, Model model) {
-		String loginInfo = userDao.userSignIn(user_ID.trim(), user_PWD.trim());
+		Model model) {
+		String loginInfo = service.userSignIn(user_ID.trim(), user_PWD.trim());
 		if (loginInfo == null) {
 			model.addAttribute("msg", "failed");
 			return "login";
 		} else {
 			session.setAttribute("user_ID", user_ID);
+			session.setAttribute("user_Nickname", service.userRead(user_ID).getUser_Nickname());
 			return "home";
 		}
 	}
@@ -54,7 +58,7 @@ public class UserController {
 			count = -1;
 		}
 		if(count == 0) {
-			count = userDao.userCreate(user);
+			count = service.userCreate(user);
 		}
 		if(count < 1) {
 			model.addAttribute("signupmsg","failed");
@@ -65,7 +69,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	public String logout() {
 		session.removeAttribute("user_ID");
 		return "home";
 	}
@@ -89,5 +93,37 @@ public class UserController {
 	public String loginreq() {
 		return "ajaxpage/loginbody";		
 	}
+	
+	@RequestMapping("userinfo")
+	public String userinfo(Model model) {
+		String user_ID = (String)session.getAttribute("user_ID");
+		if(user_ID == null) {
+			return "login";
+		}
+		List<EventDTO> list = service.userEventWritten(user_ID);
+		model.addAttribute("list", list);
+		model.addAttribute("listlen", list.size());
+		return "userinfo";
+	}
+	
+	@RequestMapping("userlist")
+	public String userlist(Model model) {
+		List<EventDTO> list = service.userEventWritten((String)session.getAttribute("user_ID"));
+		model.addAttribute("list", list);
+		model.addAttribute("listlen", list.size());
+		return "ajaxpage/userinfolist";
+	}
+	@RequestMapping("cngpwd")
+	public String cngpwd() {
+		return "ajaxpage/userinfosetting";
+	}
+	
+	@RequestMapping("cngingpwd")
+	public String cngingpwd(String user_PWD) {
+		String user_ID = (String)session.getAttribute("user_ID");
+		service.userPwdChange(user_PWD, user_ID);
+		return "home";
+	}
+	
 	
 }
