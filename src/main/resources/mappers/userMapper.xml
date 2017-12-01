@@ -35,7 +35,7 @@
 	<select id="userSignIn" resultType="string">
 		select user_ID
 		from user
-		where user_ID = #{user_ID} and #{user_PWD}
+		where user_ID = #{user_ID} and user_PWD = #{user_PWD}
 	</select>
 
 	<update id="userUpdate">
