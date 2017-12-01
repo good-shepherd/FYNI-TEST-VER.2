@@ -16,6 +16,10 @@
 		#{user_Profile})
 	</insert>
 
+	<select id="userEventWritten" resultType="com.fyni.domain.EventDTO">
+		select * from event where user_ID = #{user_ID}
+	</select>
+	
 	<select id="userRead" resultType="com.fyni.domain.UserDTO">
 		select user_ID, user_PWD, user_Nickname, user_Address, user_Location, user_EXP,
 		user_Profile, user_Date

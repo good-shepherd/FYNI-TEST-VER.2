@@ -2,7 +2,7 @@ package com.fyni.service;
 
 import java.util.List;
 
-import com.fyni.domain.LoginDTO;
+import com.fyni.domain.EventDTO;
 import com.fyni.domain.UserDTO;
 
 public interface UserService {
@@ -17,4 +17,6 @@ public interface UserService {
 	public List<UserDTO> userReadAll();
 
 	public String userSignIn(String User_ID, String User_PWD);
+	
+	public List<EventDTO> userEventWritten(String user_ID);
 }
