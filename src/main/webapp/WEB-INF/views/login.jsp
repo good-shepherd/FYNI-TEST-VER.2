@@ -78,7 +78,6 @@
     </div>
   </div>
 </div>
-
 <nav id="bottom-navbar" class="navbar navbar-inverse">
 	   <div class="container-fluid">
 	   		<div class="nav navbar-nav">

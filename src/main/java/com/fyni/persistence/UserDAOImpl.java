@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.fyni.domain.LoginDTO;
+import com.fyni.domain.EventDTO;
 import com.fyni.domain.UserDTO;
 
 @Repository("userDao")
@@ -22,6 +22,8 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private static String namespace = "com.fyni.mapper.userMapper";
 
+	
+	
 	@Override
 	public int userCreate(UserDTO user) {
 		System.out.println(user);
@@ -54,6 +56,11 @@ public class UserDAOImpl implements UserDAO {
 		map.put("user_ID",user_ID);
 		map.put("user_PWD", user_PWD);
 		return session.selectOne(namespace + ".userSignIn", map);
+	}
+
+	@Override
+	public List<EventDTO> userEventWritten(String user_ID) {
+		return session.selectList(namespace + ".userEventWritten", user_ID);
 	}
 
 }
