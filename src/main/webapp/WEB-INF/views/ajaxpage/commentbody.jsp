@@ -2,18 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:if test="${list != null }">
 <div class="col-sm-12">
-<c:forEach var="i" items = "${list } " begin="0" end="${listlen }">
-	console.log(${list });
+<c:forEach var="i" items = "${list} " begin="0" end="${listlen}">
 	<div class="row">
 	<hr>
 		<div class="col-sm-2">
-			<a href="">${i.user_ID }</a>
+			<a href="">${i.user_ID}</a>
 		</div>
 		<div class="col-sm-8">
-			<p>${i.comment_When }</p>
-			<p>${i.coment_Content }</p>
+			<p>${i.comment_When}</p>
+			<p>${i.coment_Content}</p>
 			<div class="row">
 			</div>
 			</div>
@@ -21,7 +19,6 @@
 	</div>
 </c:forEach>
 </div>
-</c:if>
 
 
 <!-- 		<div class="row"> -->

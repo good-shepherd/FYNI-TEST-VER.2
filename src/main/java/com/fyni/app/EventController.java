@@ -82,9 +82,11 @@ public class EventController {
 		int eventid = Integer.parseInt(event_ID.trim());
 		EventDTO event = service.eventRead(eventid);
 		List<CommentDTO> list = cservice.commentEventOwn(eventid);
+		System.out.println(list);
 		System.out.println(event.toString());
 		mav.addObject("event", event);
 		mav.addObject("list", list);
+		mav.addObject("listlen",list.size());
 		return mav;
 	}
 	
@@ -101,6 +103,7 @@ public class EventController {
 		count = cservice.commentCreate(dto);
 		List<CommentDTO> list = cservice.commentEventOwn(eventid);
 		model.addAttribute("list", list);
+		model.addAttribute("listlen",list.size());
 		if(count < 1) {
 			return "home";
 		}else {

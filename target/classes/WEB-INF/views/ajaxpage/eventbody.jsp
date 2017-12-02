@@ -49,13 +49,13 @@
 				<div class="col-sm-12">
 					<hr>
 					<div class="row">
-						<c:forEach var="i" items = "${list } " begin="0" end="${listlen }">
+						<c:forEach var="i" items = "${list} " begin="0" end="${listlen}">
 								<div class="col-sm-2">
-									<a href="">${i.user_ID }</a>
+									<a href="">${i.user_ID}</a>
 								</div>
 								<div class="col-sm-8">
-									<p>${i.comment_When }</p>
-									<p>${i.coment_Content }</p>
+									<p>${i.comment_When}</p>
+									<p>${i.coment_Content}</p>
 									<div class="row">
 									</div>
 									</div>
