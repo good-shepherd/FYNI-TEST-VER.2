@@ -60,7 +60,7 @@
 					<ul class="nav">
 						<li class="active"><a href="javascript:cnguserlist()" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                     	<li><a href="javascript:cngpwd()" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
-                    	<li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+                    	<li><a href="javascript:deldel()" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> withdrawal</a></li>
                     	<li><a href="logout" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
 					</ul>
 				</div>
