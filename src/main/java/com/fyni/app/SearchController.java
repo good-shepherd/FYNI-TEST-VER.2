@@ -23,14 +23,20 @@ public class SearchController {
 	private EventServiceImpl service;
 
 	@RequestMapping(value = "search", method = RequestMethod.GET)
-	public ModelAndView eventReadByCategory(@RequestParam(value = "category_name", required = false) String category_name)
-			throws Exception {
+	public ModelAndView eventReadByCategory(
+			@RequestParam(value = "category_name", required = false) String category_name) throws Exception {
 		ModelAndView mav = new ModelAndView("search");
-		List<EventDTO> list = service.eventReadByCategory(category_name);
+		List<EventDTO> list;
+		if ("".equals(category_name.trim())) {
+			list = service.eventReadAll();
+		} else {
+			list = service.eventReadByCategory(category_name);
+		}
+		System.out.println("listsize: " + list.size());
 		mav.addObject("list", list);
 		return mav;
 	}
-	
+
 	// @RequestMapping(value = "")
 
 }

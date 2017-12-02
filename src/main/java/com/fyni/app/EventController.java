@@ -53,9 +53,8 @@ public class EventController {
 		dto.setEvent_LocationY(event_LocY);
 		dto.setUser_ID(userid.toString());
 		service.eventCreate(dto);
-		ModelAndView mav;
-		mav = new ModelAndView("ajaxpage/eventbody");
-		mav.addObject("event_ID", userid.toString());
+		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
+		mav.addObject("event", dto);
 		return mav;
 
 	}
@@ -64,7 +63,6 @@ public class EventController {
 	public String writeAnEvent(HttpSession session) {
 		Object userid = session.getAttribute("user_ID");
 		if (userid == null) {
-			System.out.println(userid);
 			return "login";
 		}
 		return "writeanevent";

@@ -7,13 +7,6 @@ function closeDaumPostcode() {
 	document.getElementById('layer').style.display = 'none';
 }
 
-function writeResult() {
-	
-}
-
-
-
-
 $(document).ready(function(){
 
 	
