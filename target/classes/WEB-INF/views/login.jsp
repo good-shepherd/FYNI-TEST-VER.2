@@ -11,7 +11,7 @@
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <script src="js/navsearch.js"></script>
+  
 <!--   	ac81df297f1dc0feb920924398032745 -->
 <title>Log In</title>
 </head>
@@ -99,5 +99,6 @@
 <script src="js/login.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
+<script src="js/navsearch.js"></script>
 </body>
 </html>
