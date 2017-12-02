@@ -3,15 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="col-sm-12">
-<c:forEach var="i" items = "${list} " begin="0" end="${listlen}">
+<c:forEach var="i" items = "${list}" begin="0" end="${listlen}">
 	<div class="row">
 	<hr>
 		<div class="col-sm-2">
 			<a href="">${i.user_ID}</a>
 		</div>
 		<div class="col-sm-8">
-			<p>${i.comment_When}</p>
-			<p>${i.coment_Content}</p>
+			<p>${i.comment_WrittenWhen}</p>
+			<p>${i.comment_Content}</p>
 			<div class="row">
 			</div>
 			</div>
