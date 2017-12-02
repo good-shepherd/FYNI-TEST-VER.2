@@ -27,6 +27,8 @@
 			<div class="col-sm-12">
 				<p>주소: ${event.event_Address}</p>
 				<p>내용: ${event.event_Content}</p>
+				<p hidden id="locX">${event.event_LocationX}</p>
+				<p hidden id="locY">${event.event_LocationY}</p>
 			</div>
 			<div class="col-sm-12">
 				<hr>

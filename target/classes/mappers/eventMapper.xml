@@ -33,8 +33,9 @@
 		where event_ID = #{event_ID}
 	</update>
 	<select id="eventRead" resultType="com.fyni.domain.EventDTO">
-		select * from event where
-		event_ID = #{event_ID}
+		select event_ID, event_Title, event_Content, event_Up, event_Down, event_WrittenWhen, event_Picture, category_ID, user_ID, event_Hit, event_WhenBegins, event_WhenEnds, event_Address, X(event_Location) as `event_LocationX`, Y(event_Location) as `event_LocationY`
+		from event
+		where event_ID = #{event_ID}
 	</select>
 	<select id="eventReadAll" resultType="com.fyni.domain.EventDTO">
 		select * from event

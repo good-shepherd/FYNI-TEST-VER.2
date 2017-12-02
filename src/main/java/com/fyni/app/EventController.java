@@ -72,6 +72,7 @@ public class EventController {
 	public ModelAndView eventReadOne(String event_ID) throws Exception {
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		EventDTO event = service.eventRead(Integer.parseInt(event_ID.trim()));
+		System.out.println(event.toString());
 		mav.addObject("event", event);
 		return mav;
 	}
