@@ -11,7 +11,7 @@
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
-  
+  <script src="js/navsearch.js"></script>
 <title>Sign Up</title>
 </head>
 <body>
@@ -24,16 +24,24 @@
             <li><a href="writeanevent">Write an Event</a></li>
             <li><a href="#">Talk</a></li>
           </ul>
-         <ul class="nav navbar-nav navbar-right">		   
-            <c:if test="${user_ID == null }">				   
-           <li><a href="javascript:cnglogin()">Log In</a></li>
-			  <li><a href="javascript:cngsignup()">Sign Up</a></li>
-         </c:if>
-		 <c:if test="${user_ID != null }">
+         <ul class="nav navbar-nav navbar-right">
+         <li>
+		 	<form class="navbar-form" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+				</div>
+				<button type="submit" class="btn glyphicon-search" id="nav-search-btn"></button>
+			</form>
+		</li>   
+        <c:if test="${user_ID == null }">				   
+        	<li><a href="javascript:cnglogin()">Log In</a></li>
+			<li><a href="javascript:cngsignup()">Sign Up</a></li>	
+        </c:if>
+		<c:if test="${user_ID != null }">
 		 	<li><a href="userinfo">${user_ID }</a>
 		 	<li><a href="logout">Log out</a>
-		 </c:if>
-          </ul>
+		</c:if>
+        </ul>
       </div>      
 </nav>
 <div class="container" id="here-to-change">
