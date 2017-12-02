@@ -16,7 +16,7 @@
 <script src="js/writeanevent.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
-
+<script src="js/navsearch.js"></script>
 <title>Write an Event</title>
 </head>
 <body>
@@ -32,7 +32,6 @@
 				</button>
 				<a class="navbar-brand" href="/app">FYNI</a>
 			</div>
-
 			<ul class="nav navbar-nav">
 				<li><a href="writeanevent">Write an Event</a></li>
 				<li><a href="#">Talk</a></li>
@@ -41,9 +40,9 @@
 				<li>
 					<form class="navbar-form" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+							<span id="nav-search-btn" class="btn glyphicon-search"></span>
 						</div>
-						<button type="submit" class="btn glyphicon-search"></button>
 					</form>
 				</li>
 		         <c:if test="${user_ID == null }">		   
