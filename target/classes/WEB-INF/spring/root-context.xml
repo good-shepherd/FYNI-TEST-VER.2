@@ -10,11 +10,7 @@
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="dataSource">
 		<property value="com.mysql.jdbc.Driver" name="driverClassName" />
-<<<<<<< HEAD
-		<property value="jdbc:mysql://192.168.15.10:3306/fyni?serverTimezone=UTC" name="url" />
-=======
 		<property value="jdbc:mysql://localhost:3306/fyni" name="url" />
->>>>>>> 7b6370652314b2eee79728d722ae9cd94a1c8688
 		<property value="fyni" name="username" />
 		<property value="1234" name="password" />
 	</bean>
