@@ -30,6 +30,22 @@
 				<p hidden id="locX">${event.event_LocationX}</p>
 				<p hidden id="locY">${event.event_LocationY}</p>
 			</div>
+			<c:if test="${user_id != null }">
+				
+				<input type="hidden" value="${event.event_ID }" id="eventid_forcomment">
+				<div class="col-sm-12">
+					<hr>
+					<div class="row">
+						<h4>코멘트 작성하기</h4>
+						<div class="input-group">
+							<textarea placeholder="내용을 작성하세요" id="comment_content" cols="87"rows="3" style="resize:none;display:block;"></textarea>
+						</div>
+						<button type="button" class="btn btn-primary pull-right" id="write-comment">코멘트 작성</button>
+					</div>
+				</div>
+			</c:if>
+			<!-- 코멘트 부분 -->
+			<div id ="comment-body">
 			<div class="col-sm-12">
 				<hr>
 				<div class="row">
@@ -53,16 +69,16 @@
 									src="images/Carousel_Placeholder.png" alt="" />
 							</div>
 						</div>
-
-
 					</div>
 					<div class="col-sm-2">추천 or 비추천 (도움? or 안도)</div>
 				</div>
 				<hr>
 
 			</div>
-
+			</div>
 		</div>
 		<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
 	</div>
 </div>
+
+

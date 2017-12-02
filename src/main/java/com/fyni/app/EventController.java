@@ -6,12 +6,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fyni.domain.CommentDTO;
 import com.fyni.domain.EventDTO;
+import com.fyni.service.CommentService;
 import com.fyni.service.EventServiceImpl;
 
 @Controller
@@ -22,6 +26,9 @@ public class EventController {
 	@Autowired
 	private EventServiceImpl service;
 
+	@Autowired
+	CommentService cservice;
+	
 	/*
 	 * @RequestMapping(value = "listAll.do", method = RequestMethod.GET)
 	 * 
@@ -75,6 +82,24 @@ public class EventController {
 		System.out.println(event.toString());
 		mav.addObject("event", event);
 		return mav;
+	}
+	
+	@RequestMapping("write-comment")
+	public String write_comment(@RequestParam("event_ID") int event_ID, 
+			@RequestParam("comment_Content") String comment_Content, Model model, HttpSession session) {
+		String user_ID = (String)session.getAttribute("user_ID");
+		CommentDTO dto = new CommentDTO();
+		dto.setComment_Content(comment_Content);
+		dto.setEvent_ID(event_ID);
+		dto.setUser_ID(user_ID);
+		int count = 0;
+		count = cservice.commentCreate(dto);
+		if(count < 1) {
+			return "home";
+		}else {
+			return "commentbody";
+		}
+		
 	}
 
 }

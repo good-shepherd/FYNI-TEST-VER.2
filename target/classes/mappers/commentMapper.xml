@@ -5,24 +5,18 @@
 
 <mapper namespace="com.fyni.mapper.commentMapper">
 	<insert id="commentCreate">
-	insert into comment (comment_ID, comment_Content, comment_Up, comment_Down, comment_WrittenWhen, event_ID, user_ID) 
+	insert into comment (comment_Content, event_ID, user_ID) 
 	values(
-	#{comment_ID},
 	#{comment_Content},
-	#{comment_Up},
-	#{comment_Down},
-	#{comment_WrittenWhen},
 	#{event_ID},
 	#{user_ID})
 	</insert>
 
 	<select id="commentEventOwn" resultType="com.fyni.domain.CommentDTO">
-	<![CDATA[
 	select *
 	from comment
 	where event_ID = #{event_ID}
 	order by comment_WrittenWhen desc
-	]]>
 	</select>
 
 	<update id="commentUpdate">
@@ -44,12 +38,10 @@
 	</delete>
 
 	<select id="commentUserOwn" resultType="com.fyni.domain.CommentDTO">
-	<![CDATA[
 	select *
 	from comment
 	where user_ID = #{user_ID}
 	order by comment_WrittenWhen desc
-	]]>
 	</select>
 
 </mapper>
