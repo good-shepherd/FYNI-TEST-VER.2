@@ -27,6 +27,10 @@
 			<div class="col-sm-12">
 				<p>주소: ${event.event_Address}</p>
 				<p>내용: ${event.event_Content}</p>
+				<c:if test="${user_ID == event.user_ID}">				   
+					<input type="button" value="삭제" id="eventDelete" onclick="javascript:deleteEvent(${event.event_ID})">
+					<input type="button" value="수정" id="eventUpdate" onclick="javascript:updateEvent(${event.event_ID})">
+	     	    </c:if>
 				<p hidden id="locX">${event.event_LocationX}</p>
 				<p hidden id="locY">${event.event_LocationY}</p>
 			</div>

@@ -26,12 +26,12 @@
           </ul>
          <ul class="nav navbar-nav navbar-right">
          <li>
-		 	<form class="navbar-form" role="search">
+		 	<div class="navbar-form" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
 					<span id="nav-search-btn" class="btn glyphicon-search"></span>
 				</div>
-			</form>
+			</div>
 		</li>   
         <c:if test="${user_ID == null }">				   
         	<li><a href="javascript:cnglogin()">Log In</a></li>

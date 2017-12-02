@@ -5,12 +5,6 @@
 
 <mapper namespace="com.fyni.mapper.eventMapper">
 
-<!-- 	<insert id="eventCreate">
-	insert into
-	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds, category_ID, location_ID, user_ID)
-	values (#{event_Title},#{event_Content},#{event_WhenBegins}, #{event_WhenEnds}, #{category_ID}, #{location_ID}, #{user_ID})
-	</insert> -->
-	
 	<insert id="eventCreate">
 	insert into
 	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds, category_ID, user_ID, event_Address, event_Location)
@@ -27,9 +21,7 @@
 		event_Picture = #{event_Picture},
 		category_ID = #{catetory_ID},
 		location_ID = #{location_ID},
-		user_ID = #{user_ID},
-		event_Hit =
-		#{event_Hit}
+		user_ID = #{user_ID}
 		where event_ID = #{event_ID}
 	</update>
 	<select id="eventRead" resultType="com.fyni.domain.EventDTO">
@@ -71,10 +63,5 @@
 		event_Up = #{event_Up},
 		event_Down =
 		#{event_Down}
-	</update>
-	<update id="eventHit">
-		update event
-		set event_Hit = event_Hit + 1
-		where event_ID = #{event_ID}
 	</update>
 </mapper>

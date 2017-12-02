@@ -17,6 +17,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/userinfo.js"></script>
   <script src="js/navsearch.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
   <title>My Information</title>
 </head>
 <body>
@@ -32,13 +33,12 @@
           </ul>
          <ul class="nav navbar-nav navbar-right">
          <li>
-			 <form class="navbar-form" role="search">
+			 <div class="navbar-form" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
-					<span id="nav-search-btn" class="input-group-addon">Search</span>
+					<span id="nav-search-btn" class="btn glyphicon-search"></span>
 				</div>
-<!-- 				<button type="submit" class="btn glyphicon-search" id="nav-search-btn"></button> -->
-			</form>
+			</div>
 		</li>
          <c:if test="${user_ID == null }">		   
            <li><a href="login">Log In</a></li>
@@ -51,7 +51,7 @@
           </ul>
       </div>      
     </nav>
-<div class="container-fluid">
+<div id="main-div" class="container-fluid section-max-width">
     <div class="row profile">
 		<div class="col-md-3 pull-left">
 			<div class="profile-sidebar">
