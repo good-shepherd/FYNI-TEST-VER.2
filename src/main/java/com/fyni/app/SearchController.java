@@ -1,6 +1,9 @@
 package com.fyni.app;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +35,24 @@ public class SearchController {
 		} else {
 			list = service.eventReadByCategory(category_name);
 		}
-		System.out.println("listsize: " + list.size());
+		List<String> coord = new ArrayList<String>();
+		for (EventDTO dto : list) {
+			String tmp = dto.getEvent_Address();
+			if (tmp != null) {
+				coord.add(dto.getEvent_LocationX().concat(" ").concat(dto.getEvent_LocationY()));
+				Matcher m = Pattern.compile("\\(([^)]+)\\)").matcher(tmp);
+				while (m.find()) {
+					dto.setEvent_Address(m.group(1));
+				}
+			}
+		}
+		int listSize = list.size();
+		int coordListSize = coord.size();
+		System.out.println(coordListSize);
 		mav.addObject("list", list);
+		mav.addObject("coordlist", coord);
+		mav.addObject("coordlistsize", coordListSize);
+		mav.addObject("listsize", listSize);
 		return mav;
 	}
 

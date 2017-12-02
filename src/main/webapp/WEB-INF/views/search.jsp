@@ -60,23 +60,24 @@
 	<div id="main-div" class="container-fluid section-max-width">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
-				<c:forEach var="i" items="${list}" begin="0" end="10">
+				<c:forEach var="i" items="${list}" begin="0" end="${listsize}">
 					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">
 						<div class="row">
 							<div class="col-sm-8">
 								<h4 class="list-group-item-heading">${i.event_Title}</h4>
-								<p class="list-group-item-text">${i.event_Content}</p>
+								<p class="list-group-item-text">${i.event_WhenBegins} - ${i.event_WhenEnds}</p>
 							</div>
 							<div class="col-sm-4">${i.event_Address}</div>
 						</div>
 					</a>
 				</c:forEach>
+				<p hidden id="coordlistsize">${coordlistsize}</p>
+				<c:forEach var="k" items="${coordlist}" begin="0" end="${coordlistsize}" varStatus="loop">
+					<p hidden id="coord${loop.index}">${k}</p>
+				</c:forEach>
 			</div>
 		</div>
-		<div id="search-result-map" class="col-sm-4">
-			<img src="images/placeholdermap.jpg" class="img-responsive"
-				alt="Placeholder image">
-		</div>
+			<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
 	</div>
 
 
