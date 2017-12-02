@@ -25,6 +25,24 @@ function searchResult(event_ID) {
 	 });
 }
 
+function deleteEvent(event_ID){
+	var cnfmdel = confirm("진짜 삭제할거?????");
+	if (cnfmdel == true) {
+		$.ajax({
+			 url : "eventDelete.do",
+			 type : 'post',
+			 data : {"event_ID": event_ID},
+			 success : function(data){
+				 alert(data);
+				 location.href = "/app";
+			 }
+		});
+	}
+}
+
+
+
+
 $(document).ready(function(){
 
 var index = document.querySelector('#coordlistsize').innerHTML;

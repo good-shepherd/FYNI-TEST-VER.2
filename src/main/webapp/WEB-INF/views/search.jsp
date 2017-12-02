@@ -14,7 +14,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
-
+<script src="js/navsearch.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <title>Search Events ${category_name }</title>
 </head>
@@ -38,12 +38,12 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<form class="navbar-form" role="search">
+					<div class="navbar-form" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+							<span id="nav-search-btn" class="btn glyphicon-search"></span>
 						</div>
-						<button type="submit" class="btn glyphicon-search"></button>
-					</form>
+					</div>
 				</li>
 				 <c:if test="${user_ID == null }">				   
 		           <li><a href="login">Log In</a></li>

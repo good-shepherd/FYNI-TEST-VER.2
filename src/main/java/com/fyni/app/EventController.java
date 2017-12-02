@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fyni.domain.CommentDTO;
@@ -38,6 +39,10 @@ public class EventController {
 	 * return list; }
 	 */
 
+
+	
+
+	// event view after creating
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public ModelAndView eventCreate(String event_Title, String event_Content, String event_WhenBegins,
 			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
@@ -74,6 +79,14 @@ public class EventController {
 			return "login";
 		}
 		return "writeanevent";
+	}
+	
+	@RequestMapping(value = "eventDelete.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String eventDelete(String event_ID) throws NumberFormatException, Exception {
+		int result = service.eventDelete(Integer.parseInt(event_ID));
+		System.out.println(result);
+		if (result > 0) return "success"; else return "failed";
 	}
 
 	@RequestMapping(value = "eventRead.do", method = RequestMethod.POST)

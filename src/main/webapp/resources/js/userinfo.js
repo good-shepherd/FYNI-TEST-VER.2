@@ -31,3 +31,45 @@ function deldel(){
 		location.href = "delaccount";
 	}
 }
+
+function searchResult(event_ID) {
+	$.ajax({
+		 url : "eventRead.do",
+		 type : 'post',
+		 data : {"event_ID": event_ID},
+		 success : function(result,status,xhr){
+			$("#main-div").replaceWith(result);
+			var container = document.getElementById('map');
+			var y = parseFloat($("#locX").text());
+			var x = parseFloat($("#locY").text());
+			var options = {
+				center: new daum.maps.LatLng(x, y),
+				level: 3
+			};
+			var map = new daum.maps.Map(container, options);
+			
+			var markerPosition  = new daum.maps.LatLng(x, y); 
+
+			var marker = new daum.maps.Marker({
+			    position: markerPosition
+			});
+
+			marker.setMap(map);
+		 }
+	 });
+}
+
+function deleteEvent(event_ID){
+	var cnfmdel = confirm("진짜 삭제할거?????");
+	if (cnfmdel == true) {
+		$.ajax({
+			 url : "eventDelete.do",
+			 type : 'post',
+			 data : {"event_ID": event_ID},
+			 success : function(data){
+				 alert(data);
+				 location.href = "/app";
+			 }
+		});
+	}
+}
