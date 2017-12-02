@@ -122,7 +122,6 @@ $(document).ready(function(){
 			 }
 		 });
 	 }*/
-	 
 	var searchAction = function () {
 		var category_name = $('#main-search-input').val();
 		var searchurl = "search?category_name=" + category_name;

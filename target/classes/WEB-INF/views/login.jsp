@@ -11,7 +11,6 @@
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  
 <!--   	ac81df297f1dc0feb920924398032745 -->
 <title>Log In</title>
 </head>
@@ -30,8 +29,8 @@
 			<form class="navbar-form" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+					<span id="nav-search-btn" class="btn glyphicon-search"></span>
 				</div>
-				<button type="submit" class="btn glyphicon-search" id="nav-search-btn"></button>
 			</form>
 		</li>
          <c:if test="${user_ID == null }">				   
