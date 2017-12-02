@@ -38,6 +38,7 @@ public class SearchController {
 		List<String> coord = new ArrayList<String>();
 		for (EventDTO dto : list) {
 			String tmp = dto.getEvent_Address();
+			System.out.println(tmp);
 			if (tmp != null) {
 				coord.add(dto.getEvent_LocationX().concat(" ").concat(dto.getEvent_LocationY()));
 				Matcher m = Pattern.compile("\\(([^)]+)\\)").matcher(tmp);
