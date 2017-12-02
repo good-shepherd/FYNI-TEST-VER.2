@@ -10,7 +10,8 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/index.css" rel="stylesheet" type="text/css">
   <link href="css/login.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="js/navsearch.js"></script>
 <!--   	ac81df297f1dc0feb920924398032745 -->
 <title>Log In</title>
 </head>
@@ -25,6 +26,14 @@
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
+         <li>
+			<form class="navbar-form" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+				</div>
+				<button type="submit" class="btn glyphicon-search" id="nav-search-btn"></button>
+			</form>
+		</li>
          <c:if test="${user_ID == null }">				   
            <li><a href="javascript:cnglogin()">Log In</a></li>
 			  <li><a href="javascript:cngsignup()">Sign Up</a></li>

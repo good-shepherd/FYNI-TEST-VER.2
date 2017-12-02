@@ -27,6 +27,7 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
+	
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(@RequestParam("user_ID") String user_ID, @RequestParam("user_PWD") String user_PWD,
 		Model model) {
@@ -125,5 +126,17 @@ public class UserController {
 		return "home";
 	}
 	
-	
+	@RequestMapping("delaccount")
+	public String delaccount() {
+		int count = 0;
+		String user = (String)session.getAttribute("user_ID");
+		count = service.userDelete(user);
+		if(count < 1) {
+			return "userinfo";
+		}else {
+			session.removeAttribute("user_ID");
+			return "home";
+		}
+		
+	}
 }

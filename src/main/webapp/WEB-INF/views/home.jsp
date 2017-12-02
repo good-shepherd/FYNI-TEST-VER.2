@@ -52,20 +52,20 @@
 
 <div id="main-top-section" class="row">
 <div id="landing-page-helloworld">
-	<br><br><h1>Hello, FYNI!</h1>
+<br><br><h1>Hello, FYNI!</h1>
 </div>
-	
+
 <div id="main-search-bar" class="input-group">
-		
-	    <input id="main-search-input" type="text" class="form-control" placeholder="placeholder content" aria-describedby="contentaddon1">
-	    <span id="main-search-button" class="input-group-addon">Search</span>
-	    <!-- <span id="main-search-button" class="input-group-addon">Search</span> -->
-	    
+
+    <input id="main-search-input" type="text" class="form-control" placeholder="placeholder content" aria-describedby="contentaddon1">
+    <span id="main-search-button" class="input-group-addon">Search</span>
+    <!-- <span id="main-search-button" class="input-group-addon">Search</span> -->
+    
 </div>
 </div>
-	
+
  
-	  
+  
 </section>
 </center>
 	  

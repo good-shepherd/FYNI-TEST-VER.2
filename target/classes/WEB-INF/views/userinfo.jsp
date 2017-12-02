@@ -16,6 +16,7 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/userinfo.js"></script>
+  <script src="js/navsearch.js"></script>
   <title>My Information</title>
 </head>
 <body>
@@ -30,6 +31,14 @@
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
+         <li>
+			 <form class="navbar-form" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+				</div>
+				<button type="submit" class="btn glyphicon-search" id="nav-search-btn"></button>
+			</form>
+		</li>
          <c:if test="${user_ID == null }">		   
            <li><a href="login">Log In</a></li>
 		   <li><a href="signup">Sign Up</a></li>
@@ -60,7 +69,7 @@
 					<ul class="nav">
 						<li class="active"><a href="javascript:cnguserlist()" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                     	<li><a href="javascript:cngpwd()" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
-                    	<li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+                    	<li><a href="javascript:deldel()" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> withdrawal</a></li>
                     	<li><a href="logout" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
 					</ul>
 				</div>

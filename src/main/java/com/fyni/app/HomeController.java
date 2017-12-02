@@ -35,4 +35,19 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping("/error/404")
+	public String error404(Model model) {
+		model.addAttribute("msg", "404");
+		return "errorpage/error";
+	}
+	@RequestMapping("/error/400")
+	public String error400(Model model) {
+		model.addAttribute("msg", "400");
+		return "errorpage/error";
+	}
+	@RequestMapping("/error/500")
+	public String error500(Model model) {
+		model.addAttribute("msg", "500");
+		return "errorpage/error";
+	}
 }

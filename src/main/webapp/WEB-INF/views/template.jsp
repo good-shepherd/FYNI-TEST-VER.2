@@ -26,6 +26,14 @@
             <li><a href="#">Talk</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
+         <li>
+			<form class="navbar-form" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn glyphicon-search"></button>
+			</form>
+		</li>
          <c:if test="${user_ID == null }">		   
            <li><a href="login">Log In</a></li>
 		   <li><a href="signup">Sign Up</a></li>
