@@ -1,5 +1,7 @@
 package com.fyni.app;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fyni.domain.CommentDTO;
@@ -78,22 +79,28 @@ public class EventController {
 	@RequestMapping(value = "eventRead.do", method = RequestMethod.POST)
 	public ModelAndView eventReadOne(String event_ID) throws Exception {
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
-		EventDTO event = service.eventRead(Integer.parseInt(event_ID.trim()));
+		int eventid = Integer.parseInt(event_ID.trim());
+		EventDTO event = service.eventRead(eventid);
+		List<CommentDTO> list = cservice.commentEventOwn(eventid);
 		System.out.println(event.toString());
 		mav.addObject("event", event);
+		mav.addObject("list", list);
 		return mav;
 	}
 	
 	@RequestMapping("write-comment")
-	public String write_comment(@RequestParam("event_ID") int event_ID, 
+	public String write_comment(@RequestParam("event_ID") String event_ID, 
 			@RequestParam("comment_Content") String comment_Content, Model model, HttpSession session) {
 		String user_ID = (String)session.getAttribute("user_ID");
 		CommentDTO dto = new CommentDTO();
 		dto.setComment_Content(comment_Content);
-		dto.setEvent_ID(event_ID);
+		int eventid = Integer.parseInt(event_ID);
+		dto.setEvent_ID(eventid);
 		dto.setUser_ID(user_ID);
 		int count = 0;
 		count = cservice.commentCreate(dto);
+		List<CommentDTO> list = cservice.commentEventOwn(eventid);
+		model.addAttribute("list", list);
 		if(count < 1) {
 			return "home";
 		}else {

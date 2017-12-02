@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<c:if test="${list != null }">
 <div class="col-sm-12">
-	<hr>
-	<div class="row">
 <c:forEach var="i" items = "${list } " begin="0" end="${listlen }">
+	console.log(${list });
+	<div class="row">
+	<hr>
 		<div class="col-sm-2">
 			<a href="">${i.user_ID }</a>
 		</div>
@@ -16,6 +18,22 @@
 			</div>
 			</div>
 			<div class="col-sm-2">추천 or 비추천 (도움? or 안도)</div>
-</c:forEach>
 	</div>
+</c:forEach>
 </div>
+</c:if>
+
+
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-sm-4">								<img class="img-responsive" -->
+<!-- 						src="images/Carousel_Placeholder.png" alt="" /> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-4"> -->
+<!-- 								<img class="img-responsive" -->
+<!-- 									src="images/Carousel_Placeholder.png" alt="" /> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-4"> -->
+<!-- 								<img class="img-responsive" -->
+<!-- 									src="images/Carousel_Placeholder.png" alt="" /> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
