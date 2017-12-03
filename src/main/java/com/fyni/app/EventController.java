@@ -102,8 +102,8 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "eventUpdate.go", method = RequestMethod.POST)
-	public ModelAndView eventUpdateGo(String event_Title, String event_Content, String event_WhenBegins,
-			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
+	public ModelAndView eventUpdateGo(String event_ID, String event_Title, String event_Content, String event_WhenBegins,
+			String event_WhenEnds, String category_ID, String event_Address, String event_LocX, String event_LocY,
 			HttpSession session) throws Exception {
 		Object userid = session.getAttribute("user_ID");
 		String begins = htmlToMysqlDate(event_WhenBegins);
@@ -113,12 +113,14 @@ public class EventController {
 		dto.setEvent_Content(event_Content);
 		dto.setEvent_WhenBegins(begins);
 		dto.setEvent_WhenEnds(ends);
-		dto.setCategory_ID(category_ID);
+		dto.setCategory_ID(Integer.parseInt(category_ID));
 		dto.setEvent_Address(event_Address);
 		dto.setEvent_LocationX(event_LocX);
 		dto.setEvent_LocationY(event_LocY);
 		dto.setUser_ID(userid.toString());
-		service.eventCreate(dto);
+		dto.setEvent_ID(Integer.parseInt(event_ID));
+		System.out.println(dto);
+		service.eventUpdate(dto);
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		mav.addObject("event", dto);
 		return mav;
@@ -152,8 +154,8 @@ public class EventController {
 		List<CommentDTO> list = cservice.commentEventOwn(eventid);
 		System.out.println("list : " + list);
 		System.out.println("listlen : " + list.size());
-		model.addAttribute("list", list);
-		model.addAttribute("listlen",list.size());
+		model.addAttribute("clist", list);
+		model.addAttribute("clistlen",list.size());
 		if(count < 1) {
 			return "home";
 		} else {

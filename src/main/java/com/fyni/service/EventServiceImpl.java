@@ -20,11 +20,7 @@ public class EventServiceImpl implements EventService {
 		return dao.eventCreate(event);
 	}
 
-	@Override
-	public int eventUpdate(EventDTO event) throws Exception {
-		return dao.eventUpdate(event);
-	}
-
+	
 	@Override
 	public EventDTO eventRead(int event_ID) throws Exception {
 		return dao.eventRead(event_ID);
@@ -64,6 +60,13 @@ public class EventServiceImpl implements EventService {
 	public int eventHit(int event_ID) throws Exception {
 		return dao.eventHit(event_ID);
 	}
+
+
+	@Override
+	public int eventUpdate(EventDTO event) throws Exception {
+		return dao.eventUpdate(event);
+	}
+	
 
 
 }
