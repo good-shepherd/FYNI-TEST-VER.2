@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>\
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:forEach var="i" items="${list}" begin="0" end="${listlen }">
 	<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">
