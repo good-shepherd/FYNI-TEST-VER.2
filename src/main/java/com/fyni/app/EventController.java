@@ -120,12 +120,14 @@ public class EventController {
 		int count = 0;
 		count = cservice.commentCreate(dto);
 		List<CommentDTO> list = cservice.commentEventOwn(eventid);
+		System.out.println("list : " + list);
+		System.out.println("listlen : " + list.size());
 		model.addAttribute("list", list);
 		model.addAttribute("listlen",list.size());
 		if(count < 1) {
 			return "home";
 		}else {
-			return "commentbody";
+			return "ajaxpage/commentbody";
 		}
 		
 	}

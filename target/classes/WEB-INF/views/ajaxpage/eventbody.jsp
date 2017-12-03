@@ -34,8 +34,7 @@
 				<p hidden id="locX">${event.event_LocationX}</p>
 				<p hidden id="locY">${event.event_LocationY}</p>
 			</div>
-			<c:if test="${user_id != null }">
-				
+			<c:if test="${user_ID != null }">
 				<input type="hidden" value="${event.event_ID }" id="eventid_forcomment">
 				<div class="col-sm-12">
 					<hr>
@@ -44,7 +43,7 @@
 						<div class="input-group">
 							<textarea placeholder="내용을 작성하세요" id="comment_content" cols="87"rows="3" style="resize:none;display:block;"></textarea>
 						</div>
-						<button type="button" class="btn btn-primary pull-right" id="write-comment">코멘트 작성</button>
+						<button type="button" onclick="write_event()"class="btn btn-primary pull-right" id="write-comment">코멘트 작성</button>
 					</div>
 				</div>
 			</c:if>
@@ -58,8 +57,8 @@
 									<a href="">${i.user_ID}</a>
 								</div>
 								<div class="col-sm-8">
-									<p>${i.comment_When}</p>
-									<p>${i.coment_Content}</p>
+									<p>${i.comment_WrittenWhen}</p>
+									<p>${i.comment_Content}</p>
 									<div class="row">
 									</div>
 									</div>

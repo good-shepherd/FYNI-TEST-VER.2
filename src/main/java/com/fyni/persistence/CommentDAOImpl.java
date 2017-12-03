@@ -1,6 +1,8 @@
 package com.fyni.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -33,12 +35,12 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public List<CommentDTO> commentEventOwn(int event_ID) {
-		return session.selectList(namespace + ".commentEventOwn");
+		return session.selectList(namespace + ".commentEventOwn", event_ID);
 	}
 
 	@Override
 	public List<CommentDTO> commentUserOwn(String user_ID) {
-		return session.selectList(namespace + ".commentUserOwn");
+		return session.selectList(namespace + ".commentUserOwn", user_ID);
 	}
 
 }
