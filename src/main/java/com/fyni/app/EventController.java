@@ -35,7 +35,7 @@ public class EventController {
 
 	@Autowired
 	CommentService cservice;
-	
+
 	/*
 	 * @RequestMapping(value = "listAll.do", method = RequestMethod.GET)
 	 * 
@@ -43,9 +43,6 @@ public class EventController {
 	 * List<EventDTO> list = service.eventReadAll(); System.out.println(list);
 	 * return list; }
 	 */
-
-
-	
 
 	// event view after creating
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
@@ -79,15 +76,18 @@ public class EventController {
 		}
 		return "writeanevent";
 	}
-	
+
 	@RequestMapping(value = "eventDelete.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String eventDelete(String event_ID) throws NumberFormatException, Exception {
 		int result = service.eventDelete(Integer.parseInt(event_ID));
 		System.out.println(result);
-		if (result > 0) return "success"; else return "failed";
+		if (result > 0)
+			return "success";
+		else
+			return "failed";
 	}
-	
+
 	@RequestMapping(value = "eventUpdate.do", method = RequestMethod.POST)
 	public ModelAndView eventUpdate(String event_ID) throws Exception {
 		ModelAndView mav = new ModelAndView("ajaxpage/eventupdatebody");
@@ -100,11 +100,11 @@ public class EventController {
 		mav.addObject("event", event);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "eventUpdate.go", method = RequestMethod.POST)
-	public ModelAndView eventUpdateGo(String event_Title, String event_Content, String event_WhenBegins,
-			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
-			HttpSession session) throws Exception {
+	public ModelAndView eventUpdateGo(String event_ID, String event_Title, String event_Content,
+			String event_WhenBegins, String event_WhenEnds, int category_ID, String event_Address, String event_LocX,
+			String event_LocY, HttpSession session) throws Exception {
 		Object userid = session.getAttribute("user_ID");
 		String begins = htmlToMysqlDate(event_WhenBegins);
 		String ends = htmlToMysqlDate(event_WhenEnds);
@@ -118,7 +118,9 @@ public class EventController {
 		dto.setEvent_LocationX(event_LocX);
 		dto.setEvent_LocationY(event_LocY);
 		dto.setUser_ID(userid.toString());
-		service.eventCreate(dto);
+		dto.setEvent_ID(Integer.parseInt(event_ID));
+		System.out.println(dto);
+		service.eventUpdate(dto);
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		mav.addObject("event", dto);
 		return mav;
@@ -134,14 +136,14 @@ public class EventController {
 		System.out.println(event.toString());
 		mav.addObject("event", event);
 		mav.addObject("list", list);
-		mav.addObject("listlen",list.size());
+		mav.addObject("listlen", list.size());
 		return mav;
 	}
-	
+
 	@RequestMapping("write-comment")
-	public String write_comment(@RequestParam("event_ID") String event_ID, 
+	public String write_comment(@RequestParam("event_ID") String event_ID,
 			@RequestParam("comment_Content") String comment_Content, Model model, HttpSession session) {
-		String user_ID = (String)session.getAttribute("user_ID");
+		String user_ID = (String) session.getAttribute("user_ID");
 		CommentDTO dto = new CommentDTO();
 		dto.setComment_Content(comment_Content);
 		int eventid = Integer.parseInt(event_ID);
@@ -152,20 +154,19 @@ public class EventController {
 		List<CommentDTO> list = cservice.commentEventOwn(eventid);
 		System.out.println("list : " + list);
 		System.out.println("listlen : " + list.size());
-		model.addAttribute("list", list);
-		model.addAttribute("listlen",list.size());
-		if(count < 1) {
+		model.addAttribute("clist", list);
+		model.addAttribute("clistlen", list.size());
+		if (count < 1) {
 			return "home";
 		} else {
 			return "ajaxpage/commentbody";
 		}
-		
+
 	}
 
-	
-	@Resource(name="uploadPath")
+	@Resource(name = "uploadPath")
 	private String uploadPath;
-	
+
 	private String uploadFile(String originalName, byte[] fileData) throws IOException {
 		UUID uid = UUID.randomUUID();
 		String savedName = uid.toString() + "_" + originalName;
@@ -173,26 +174,34 @@ public class EventController {
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 901d1f1cf01d08a15fdbf000490b2b79476a5190
 	// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
 	private String htmlToMysqlDate(String htmldate) {
 		StringBuffer sb = new StringBuffer();
 		sb.append(htmldate.substring(0, 10)).append(" ").append(htmldate.substring(11)).append(":00");
 		return sb.toString();
 	}
-	
+
 	// YYYY-MM-DD HH:MM:SS -> 2017-01-01T01:00
 	private String mysqlToHtmldate(String mysqldate) {
 		StringBuffer sb = new StringBuffer();
 		sb.append(mysqldate.substring(0, 10)).append("T").append(mysqldate.substring(11, 16));
 		return sb.toString();
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 901d1f1cf01d08a15fdbf000490b2b79476a5190
 	@RequestMapping("cngcomment")
 	public String cngcomment(HttpSession session, Model model) {
-		String userid = (String)session.getAttribute("user_ID");
+		String userid = (String) session.getAttribute("user_ID");
 		List<CommentDTO> clist = cservice.commentUserOwn(userid);
-		model.addAttribute("clist",clist);
+		model.addAttribute("clist", clist);
 		model.addAttribute("clistlen", clist.size());
 		return "ajaxpage/userinfocomment";
 	}

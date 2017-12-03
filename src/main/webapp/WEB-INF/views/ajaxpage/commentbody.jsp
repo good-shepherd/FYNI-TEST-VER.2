@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="col-sm-12">
-<c:forEach var="i" items = "${list}" begin="0" end="${listlen}">
+<c:forEach var="i" items = "${clist}" begin="0" end="${clistlen}">
 	<div class="row">
 	<hr>
 		<div class="col-sm-2">

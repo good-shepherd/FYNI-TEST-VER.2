@@ -36,7 +36,7 @@
 <div class="form-group">
   <label class=" control-label" for="category_ID">Categories</label>
   <div class="">
-    <select id="category_ID" name="category_ID" class="form-control" selected="${event.category_ID }">
+    <select id="category_ID" name="category_ID" class="form-control">
       <option value="">카테고리</option>
 	  <option value="1">사건사고</option>
    	  <option value="2">쇼핑정보</option>
@@ -46,8 +46,9 @@
     </select>
   </div>
 </div>
-<input type="hidden" id ="event_LocX" name="event_LocationX" value="">
-<input type="hidden" id ="event_LocY" name="event_LocationY" value="">
+<input type="hidden" id ="event_ID" name="event_ID" value="${event.event_ID }">
+<input type="hidden" id ="event_LocX" name="event_LocationX">
+<input type="hidden" id ="event_LocY" name="event_LocationY">
 
 <div class="form-group">
   <label class=" control-label" for="postcode">Find your place</label>
@@ -73,4 +74,8 @@
 <img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
 </div>
+<<<<<<< HEAD
 <script src="js/search.js"></script>
+=======
+<script type="text/javascript" src="js/search.js"></script>
+>>>>>>> 901d1f1cf01d08a15fdbf000490b2b79476a5190

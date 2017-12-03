@@ -31,7 +31,7 @@ function closeDaumPostcode() {
 }
 
 function deleteEvent(event_ID){
-	var cnfmdel = confirm("진짜 삭제할거?????");
+	var cnfmdel = confirm("삭제합니다");
 	if (cnfmdel == true) {
 		$.ajax({
 			 url : "eventDelete.do",
@@ -92,6 +92,7 @@ $(document).ready(function(){
 			 type : 'post',
 			 data : 
 			 {
+				 "event_ID" : $("#event_ID").val(),
 				 "event_Title" : event_Title,
 				 "event_Content" : event_Content,
 				 "event_WhenBegins" : event_WhenBegins,
@@ -116,9 +117,7 @@ $(document).ready(function(){
 	
 	// http://postcode.map.daum.net/guide
 	var element_layer = document.getElementById('layer');
-	console.log(element_layer);
 	var geocoder = new daum.maps.services.Geocoder();
-	console.log(geocoder);
 	function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height
