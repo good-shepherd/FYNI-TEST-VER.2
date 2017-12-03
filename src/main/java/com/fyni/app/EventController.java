@@ -1,7 +1,11 @@
 package com.fyni.app;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -9,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -125,4 +130,25 @@ public class EventController {
 		
 	}
 
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
+	
+	private String uploadFile(String originalName, byte[] fileData) throws IOException {
+		UUID uid = UUID.randomUUID();
+		String savedName = uid.toString() + "_" + originalName;
+		File target = new File(uploadPath, savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

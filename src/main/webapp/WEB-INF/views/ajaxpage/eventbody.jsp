@@ -53,7 +53,7 @@
 				<div class="col-sm-12">
 					<hr>
 					<div class="row">
-						<c:forEach var="i" items = "${list} " begin="0" end="${listlen}">
+						<c:forEach var="i" items = "${list}" begin="0" end="${listlen}">
 								<div class="col-sm-2">
 									<a href="">${i.user_ID}</a>
 								</div>
