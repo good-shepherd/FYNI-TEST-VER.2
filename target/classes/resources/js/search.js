@@ -65,7 +65,7 @@ function updateEvent(event_ID){
 $(document).ready(function(){
 	
 	
-	$("#submitbtn").on("click", function(e) {
+	$('#submitbtn').on("click", function(e) {
 		e.preventDefault();
 		var event_Title = $("#event_Title").val();
 		var titleValidation = event_Title.trim();
@@ -86,7 +86,7 @@ $(document).ready(function(){
 			alert("카테고리입력하세용");
 		} else if("" == titleValidation || "" == contentValidation) {
 			alert("제목이나 내용을 입력하세용ㅎㅎ")
-		} else {
+		} 
 		$.ajax({
 			 url : "eventUpdate.go",
 			 type : 'post',
@@ -110,7 +110,7 @@ $(document).ready(function(){
 				 alert("failed");
 			 }
 		 });
-		}//else
+		//else
     });
 	
 	
