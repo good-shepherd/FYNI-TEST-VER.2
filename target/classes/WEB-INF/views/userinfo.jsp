@@ -17,11 +17,9 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/userinfo.js"></script>
   <script src="js/navsearch.js"></script>
-<<<<<<< HEAD
   <script src="js/sample.js"></script>
-=======
   <script src="js/comment.js"></script>
->>>>>>> e55450a65c1ead8cb8d81c58cba6fa31c2870a5b
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
   <title>My Information</title>
 </head>

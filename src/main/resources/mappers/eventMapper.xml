@@ -11,13 +11,13 @@
 	values (#{event_Title}, #{event_Content}, #{event_WhenBegins}, #{event_WhenEnds}, #{category_ID}, #{user_ID}, #{event_Address}, Point(#{event_LocationX}, #{event_LocationY}))
 	</insert>
 	
-	<update id="eventUpdate">
+	<update id="eventUpdate" parameterType="com.fyni.domain.EventDTO">
 		update event set
 		event_Title = #{event_Title},
 		event_Content = #{event_Content},
 		event_WhenBegins = #{event_WhenBegins},
 		event_WhenEnds = #{event_WhenEnds},
-		category_ID = #{catetory_ID},
+		category_ID = #{category_ID},
 		event_Address = #{event_Address},
 		event_Location = Point(#{event_LocationX}, #{event_LocationY})
 		where event_ID = #{event_ID}
