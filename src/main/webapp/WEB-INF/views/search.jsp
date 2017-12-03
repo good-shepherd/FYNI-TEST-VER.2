@@ -18,8 +18,12 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <script src="js/comment.js"></script>
+<<<<<<< HEAD
 <script src="js/index.js"></script>
 <title>Search Events ${category_name }</title>
+=======
+<title>Search Events</title>
+>>>>>>> aeb1bac0b7a830fb0ac124f5eb83caf8f72ecbc9
 </head>
 <body>
 	<nav id="top-navbar" class="navbar">
@@ -63,11 +67,11 @@
 	<div id="main-div" class="container-fluid section-max-width">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
-				<c:forEach var="i" items="${list}" begin="0" end="${listsize}">
+				<c:forEach var="i" items="${list}" begin="0" end="${listsize}" varStatus="loop">
 					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">
 						<div class="row">
 							<div class="col-sm-8">
-								<h4 class="list-group-item-heading">${i.event_Title}</h4>
+								<h4 class="list-group-item-heading" id="search-event-title${loop.index}">${i.event_Title}</h4>
 								<p class="list-group-item-text">${i.event_WhenBegins} - ${i.event_WhenEnds}</p>
 							</div>
 							<div class="col-sm-4">${i.event_Address}</div>

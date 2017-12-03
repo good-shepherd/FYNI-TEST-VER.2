@@ -195,18 +195,18 @@ $(document).ready(function(){
 var index = document.querySelector('#coordlistsize').innerHTML;
 var positions = [];
 for (i = 0; i < index; i++) {
-	var tmp = '#coord' + i;
-	var coordtmp = document.querySelector(tmp).innerHTML;
+	var tmp1 = '#coord' + i;
+	var tmp2 = '#search-event-title' + i;
+	var coordtmp = document.querySelector(tmp1).innerHTML;
 	var ll = coordtmp.split(" ");
 	var y = parseFloat(ll[0]);
 	var x = parseFloat(ll[1]);
 	positions[i] = 
 	{ 
-	  title: '음음' + i,
+	  title: document.querySelector(tmp2).innerHTML + i,
 	  latlng: new daum.maps.LatLng(x, y)
 	}
 }
-console.log(positions);
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
