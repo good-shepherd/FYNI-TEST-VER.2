@@ -44,7 +44,6 @@ public class EventController {
 	 * List<EventDTO> list = service.eventReadAll(); System.out.println(list);
 	 * return list; }
 	 */
-
 	// event view after creating
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public ModelAndView eventCreate(String event_Title, String event_Content, String event_WhenBegins,
@@ -183,8 +182,12 @@ public class EventController {
 		System.out.println(target);
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
+<<<<<<< HEAD
 	}
 	
+=======
+	} 
+>>>>>>> 49dc76894ce52a7f3d1d88600dea07d88b341d5b
 	// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
 	private String htmlToMysqlDate(String htmldate) {
 		StringBuffer sb = new StringBuffer();
@@ -198,7 +201,10 @@ public class EventController {
 		sb.append(mysqldate.substring(0, 10)).append("T").append(mysqldate.substring(11, 16));
 		return sb.toString();
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 49dc76894ce52a7f3d1d88600dea07d88b341d5b
 	@RequestMapping("cngcomment")
 	public String cngcomment(HttpSession session, Model model) {
 		String userid = (String) session.getAttribute("user_ID");
