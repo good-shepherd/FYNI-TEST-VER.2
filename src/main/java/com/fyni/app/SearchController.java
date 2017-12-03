@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fyni.domain.Criteria;
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
 
@@ -24,21 +25,25 @@ public class SearchController {
 
 	@Autowired
 	private EventServiceImpl service;
-
+	
+	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public ModelAndView eventReadByCategory(
-			@RequestParam(value = "category_name", required = false) String category_name) throws Exception {
+			@RequestParam(value = "category_name", required = false) String category_name,int page) throws Exception {
+		
+		Criteria cri = new Criteria();
+		cri.setPage(page);
+		cri.setPagePerNum(10);
 		ModelAndView mav = new ModelAndView("search");
 		List<EventDTO> list;
 		if ("".equals(category_name.trim())) {
-			list = service.eventReadAll();
+			list = service.eventReadAll(cri.getPage(), cri.getPagepernum());
 		} else {
 			list = service.eventReadByCategory(category_name);
 		}
 		List<String> coord = new ArrayList<String>();
 		for (EventDTO dto : list) {
 			String tmp = dto.getEvent_Address();
-			System.out.println(tmp);
 			if (tmp != null) {
 				coord.add(dto.getEvent_LocationX().concat(" ").concat(dto.getEvent_LocationY()));
 				Matcher m = Pattern.compile("\\(([^)]+)\\)").matcher(tmp);
@@ -56,7 +61,5 @@ public class SearchController {
 		mav.addObject("listsize", listSize);
 		return mav;
 	}
-
 	// @RequestMapping(value = "")
-
 }

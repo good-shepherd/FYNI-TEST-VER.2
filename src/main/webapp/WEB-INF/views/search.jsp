@@ -18,6 +18,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
 <script src="js/comment.js"></script>
+<script src="js/index.js"></script>
 <title>Search Events ${category_name }</title>
 </head>
 <body>
@@ -59,7 +60,6 @@
 
 		</div>
 	</nav>
-	
 	<div id="main-div" class="container-fluid section-max-width">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
@@ -79,11 +79,19 @@
 					<p hidden id="coord${loop.index}">${k}</p>
 				</c:forEach>
 			</div>
+			<div>
+				<div class="container">
+				<ul class="pagination">
+	              <li class="active"><a href="javascript:searchbypage('1')">1<span class="sr-only">(current)</span></a></li>
+					<c:forEach var="j" begin="2" end = "${listsize}">
+		              <li><a href="javascript:searchbypage('2')"><c:out value="${j}"/></a></li>
+		            </c:forEach>
+	            </ul>
+				</div>
+			</div>
 		</div>
-			<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
+		<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
 	</div>
-
-
 	<nav id="bottom-navbar" class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="nav navbar-nav">
@@ -91,6 +99,5 @@
 			</div>
 		</div>
 	</nav>
-
 </body>
 </html>

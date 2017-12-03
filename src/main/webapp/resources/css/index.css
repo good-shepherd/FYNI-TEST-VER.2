@@ -82,3 +82,5 @@ body {
   background: -o-linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
   background: linear-gradient(rgba(49, 224, 247, 1) 0%, rgba(90, 77, 184, 1) 100%);
 }
+
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
