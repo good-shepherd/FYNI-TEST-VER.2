@@ -79,6 +79,8 @@
 			</div>
 		</div>
 		<div class="col-md-9">
+            <a href="javascript:cnguserlist()" class="btn-lg btn-primary">내가 쓴 이벤트</a>
+            <a href="javascript:cngusercomment()" class="btn-lg btn-primary">내가 쓴 코멘트</a>
             <div class="profile-content" id="content_to_change">
             	<c:forEach var="i" items="${list}" begin="0" end="${listlen }">
 					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">

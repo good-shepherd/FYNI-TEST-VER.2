@@ -188,11 +188,12 @@ public class EventController {
 		return sb.toString();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("cngcomment")
+	public String cngcomment(HttpSession session, Model model) {
+		String userid = (String)session.getAttribute("user_ID");
+		List<CommentDTO> clist = cservice.commentUserOwn(userid);
+		model.addAttribute("clist",clist);
+		model.addAttribute("clistlen", clist.size());
+		return "ajaxpage/commentbody";
+	}
 }

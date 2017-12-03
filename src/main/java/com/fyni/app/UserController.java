@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fyni.domain.CommentDTO;
 import com.fyni.domain.EventDTO;
 import com.fyni.domain.UserDTO;
+import com.fyni.service.CommentService;
 import com.fyni.service.EventService;
 import com.fyni.service.UserService;
 
@@ -23,7 +25,8 @@ public class UserController {
 	UserService service;
 	@Autowired
 	EventService eservice;
-	
+	@Autowired
+	CommentService cservice;
 	@Autowired
 	HttpSession session;
 	
@@ -109,9 +112,12 @@ public class UserController {
 	
 	@RequestMapping("userlist")
 	public String userlist(Model model) {
-		List<EventDTO> list = service.userEventWritten((String)session.getAttribute("user_ID"));
+		String userid = (String)session.getAttribute("user_ID");
+		List<EventDTO> list = service.userEventWritten(userid);
+
 		model.addAttribute("list", list);
 		model.addAttribute("listlen", list.size());
+
 		return "ajaxpage/userinfolist";
 	}
 	@RequestMapping("cngpwd")

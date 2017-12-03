@@ -3,6 +3,7 @@
  */
 
 
+
 function cngpwd(){
 	$.ajax({
 		url : "cngpwd",
@@ -11,6 +12,17 @@ function cngpwd(){
 		}
 	})
 }
+
+
+function cngusercomment(){
+	$.ajax({
+		url : "cngcomment",
+		success : function(data){
+			$('#content_to_change').html(data);
+		}
+	})
+}	
+
 
 function cnguserlist(){
 	$.ajax({
