@@ -7,8 +7,8 @@
 
 	<insert id="eventCreate">
 	insert into
-	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds, category_ID, user_ID, event_Address, event_Location)
-	values (#{event_Title}, #{event_Content}, #{event_WhenBegins}, #{event_WhenEnds}, #{category_ID}, #{user_ID}, #{event_Address}, Point(#{event_LocationX}, #{event_LocationY}))
+	event(event_Title, event_Content, event_WhenBegins, event_WhenEnds, category_ID, user_ID, event_Address, event_Picture, event_Location)
+	values (#{event_Title}, #{event_Content}, #{event_WhenBegins}, #{event_WhenEnds}, #{category_ID}, #{user_ID}, #{event_Address}, #{event_Picture}, Point(#{event_LocationX}, #{event_LocationY}))
 	</insert>
 	
 	<update id="eventUpdate" parameterType="com.fyni.domain.EventDTO">

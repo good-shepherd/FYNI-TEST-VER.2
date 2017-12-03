@@ -152,7 +152,7 @@ $(document).ready(function(){
 		}//else
     });
 	
-	
+/*	
 	// http://postcode.map.daum.net/guide
 	var element_layer = document.getElementById('layer');
 	var geocoder = new daum.maps.services.Geocoder();
@@ -227,10 +227,10 @@ $(document).ready(function(){
         initLayerPosition();
     });
 	
-	
+	*/
 	
 
-var index = document.querySelector('#coordlistsize').innerHTML;
+/*var index = document.querySelector('#coordlistsize').innerHTML;
 var positions = [];
 for (i = 0; i < index; i++) {
 	var tmp = '#coord' + i;
@@ -244,9 +244,9 @@ for (i = 0; i < index; i++) {
 	  latlng: new daum.maps.LatLng(x, y)
 	}
 }
-console.log(positions);
+console.log(positions);*/
 
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+/*var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
     center: new daum.maps.LatLng(37.38367502882813, 127.11225525089476), // 지도의 중심좌표
     level: 6 // 지도의 확대 레벨
@@ -271,6 +271,6 @@ for (var i = 0; i < positions.length; i ++) {
         title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         image : markerImage // 마커 이미지 
     });
-}
+}*/
 	
 });

@@ -13,7 +13,7 @@
 			</div>
 			<div class="col-sm-4">카테고리 ${event.category_ID }</div>
 			<div class="col-sm-12">
-				<img class="img-responsive max" src="images/colors.png" alt="" />
+				<img class="img-responsive max" src="images/useruploads/${event.event_Picture}" alt="" />
 			</div>
 			<div class="col-sm-6">
 				<label class="control-label" for="event_WhenBegins">Start

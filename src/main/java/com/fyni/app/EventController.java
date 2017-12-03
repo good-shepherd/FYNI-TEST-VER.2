@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fyni.domain.CommentDTO;
@@ -28,7 +29,7 @@ import com.fyni.service.EventServiceImpl;
 @Controller
 public class EventController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(EventController.class);
 
 	@Autowired
 	private EventServiceImpl service;
@@ -47,24 +48,31 @@ public class EventController {
 	// event view after creating
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public ModelAndView eventCreate(String event_Title, String event_Content, String event_WhenBegins,
-			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
+			String event_WhenEnds, int category_ID, String event_Address, String event_LocationX, String event_LocationY, MultipartFile event_Picture,
 			HttpSession session) throws Exception {
-		Object userid = session.getAttribute("user_ID");
+		String title = new String(event_Title.getBytes("8859_1"),"utf-8");
+		String content = new String(event_Content.getBytes("8859_1"),"utf-8");
+		String address = new String(event_Address.getBytes("8859_1"),"utf-8");
+		String userid = session.getAttribute("user_ID").toString();
 		String begins = htmlToMysqlDate(event_WhenBegins);
 		String ends = htmlToMysqlDate(event_WhenEnds);
 		EventDTO dto = new EventDTO();
-		dto.setEvent_Title(event_Title);
-		dto.setEvent_Content(event_Content);
+		dto.setEvent_Title(title);
+		dto.setEvent_Content(content);
 		dto.setEvent_WhenBegins(begins);
 		dto.setEvent_WhenEnds(ends);
 		dto.setCategory_ID(category_ID);
-		dto.setEvent_Address(event_Address);
-		dto.setEvent_LocationX(event_LocX);
-		dto.setEvent_LocationY(event_LocY);
-		dto.setUser_ID(userid.toString());
+		dto.setEvent_Address(address);
+		dto.setEvent_LocationX(event_LocationX);
+		dto.setEvent_LocationY(event_LocationY);
+		dto.setUser_ID(userid);
+		String filepath = uploadFile(event_Picture.getOriginalFilename(), event_Picture.getBytes());
+		dto.setEvent_Picture(filepath);
 		service.eventCreate(dto);
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		mav.addObject("event", dto);
+		System.out.println(dto);
+		System.out.println(mav);
 		return mav;
 	}
 
@@ -103,7 +111,7 @@ public class EventController {
 
 	@RequestMapping(value = "eventUpdate.go", method = RequestMethod.POST)
 	public ModelAndView eventUpdateGo(String event_ID, String event_Title, String event_Content,
-			String event_WhenBegins, String event_WhenEnds, int category_ID, String event_Address, String event_LocX,
+			String event_WhenBegins, String event_WhenEnds, String category_ID, String event_Address, String event_LocX,
 			String event_LocY, HttpSession session) throws Exception {
 		Object userid = session.getAttribute("user_ID");
 		String begins = htmlToMysqlDate(event_WhenBegins);
@@ -113,13 +121,12 @@ public class EventController {
 		dto.setEvent_Content(event_Content);
 		dto.setEvent_WhenBegins(begins);
 		dto.setEvent_WhenEnds(ends);
-		dto.setCategory_ID(category_ID);
+		dto.setCategory_ID(Integer.parseInt(category_ID));
 		dto.setEvent_Address(event_Address);
 		dto.setEvent_LocationX(event_LocX);
 		dto.setEvent_LocationY(event_LocY);
 		dto.setUser_ID(userid.toString());
 		dto.setEvent_ID(Integer.parseInt(event_ID));
-		System.out.println(dto);
 		service.eventUpdate(dto);
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		mav.addObject("event", dto);
@@ -170,7 +177,10 @@ public class EventController {
 	private String uploadFile(String originalName, byte[] fileData) throws IOException {
 		UUID uid = UUID.randomUUID();
 		String savedName = uid.toString() + "_" + originalName;
+		System.out.println(uploadPath);
+		System.out.println(fileData);
 		File target = new File(uploadPath, savedName);
+		System.out.println(target);
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
