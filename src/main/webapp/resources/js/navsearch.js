@@ -8,6 +8,8 @@ function navbarSearch() {
 	location.href = searchurl;
 }
 
+
+
 $(document).ready(function(){
 	$('#nav-search-btn').on('click', navbarSearch);
 	$('#nav-search-bar').keypress(function(e){if(e.which == 13){$('#nav-search-btn').click();}});
