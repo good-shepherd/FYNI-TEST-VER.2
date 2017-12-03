@@ -143,13 +143,12 @@ public class EventController {
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
-	
 	@RequestMapping("cngcomment")
 	public String cngcomment(HttpSession session, Model model) {
 		String userid = (String)session.getAttribute("user_ID");
 		List<CommentDTO> clist = cservice.commentUserOwn(userid);
 		model.addAttribute("clist",clist);
 		model.addAttribute("clistlen", clist.size());
-		return "ajaxpage/commentbody";
+		return "ajaxpage/userinfocomment";
 	}
 }
