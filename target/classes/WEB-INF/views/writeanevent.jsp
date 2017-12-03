@@ -59,7 +59,7 @@
 	</nav>
 
 <div id="main-div" class="container-fluid section-max-width">
-<form id="form1" name="form1" method="post">
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 <fieldset>
 
 <h4 align="center">Event Occured!</h4>
@@ -111,7 +111,7 @@
   <div class="">
 	<input type="text" id="postcode" placeholder="우편번호">
 	<input type="button" id="addressbtn" value="찾기">
-	<input type="text" id="address" placeholder="주소">
+	<input type="text" id="address" placeholder="주소" name="event_Address">
 	<input type="text" id="address2" placeholder="상세주소">
   </div>  
 </div>

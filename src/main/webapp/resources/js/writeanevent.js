@@ -23,7 +23,9 @@ $(document).ready(function(){
 		var event_Address = $("#address").val();
 		var event_LocX = $("#event_LocX").val();
 		var event_LocY = $("#event_LocY").val();
-		
+		var form = $('#form1')[0];
+		var data = new FormData(form);
+		console.log(data);
 		if ("" == event_WhenBegins || "" == event_WhenEnds) {
 			alert("날짜 다시 입력 ㄱㄱ");
 		} else if (0 == event_LocX && 0 == event_LocY) {
@@ -36,19 +38,12 @@ $(document).ready(function(){
 		$.ajax({
 			 url : "eventCreate.do",
 			 type : 'post',
-			 data : 
-			 {
-				 "event_Title" : event_Title,
-				 "event_Content" : event_Content,
-				 "event_WhenBegins" : event_WhenBegins,
-				 "event_WhenEnds" : event_WhenEnds,
-				 "category_ID" : category_ID,
-				 "event_Address" : event_Address,
-				 "event_LocX" : event_LocX,
-				 "event_LocY" : event_LocY
-				 // "event_Picture" : $("#eventfile").files()
-			 },
-			  success : function(data){
+			 data : data,
+			 cache: false,
+			 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			 processData: false,
+		     contentType: false,
+			 success : function(data){
 				 alert(data);
 				 $("#main-div").replaceWith(data);
 			 },
