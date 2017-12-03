@@ -9,7 +9,7 @@ public interface EventDAO {
 	public int eventUpdate(EventDTO event);
 	public EventDTO eventRead(int event_ID);
 	public List<EventDTO> eventReadByCategory(String category_name);
-	public List<EventDTO> eventReadAll();
+	public List<EventDTO> eventReadAll(int page, int pagepernum);
 	public List<EventDTO> eventUserOwn(String user_ID);
 	public List<EventDTO> eventInCircle(String lon, String lat);
 	public int eventDelete(int event_ID);

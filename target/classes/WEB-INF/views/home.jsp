@@ -37,11 +37,8 @@
 		 	<li><a href="logout">Log out</a>
 		 </c:if>
           </ul>
-             
       </div>      
     </nav>
-	  
-	  
 <video autoplay loop poster class="bg" src="http://static.videezy.com/system/resources/previews/000/000/328/original/bokeh2.mp4">
 </video>
 <div class="bg-filter">

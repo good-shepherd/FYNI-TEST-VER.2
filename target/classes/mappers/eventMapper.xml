@@ -30,6 +30,7 @@
 	</select>
 	<select id="eventReadAll" resultType="com.fyni.domain.EventDTO">
 		select event_ID, event_Title, event_Content, event_Up, event_Down, event_WrittenWhen, event_Picture, category_ID, user_ID, event_Hit, event_WhenBegins, event_WhenEnds, event_Address, X(event_Location) as `event_LocationX`, Y(event_Location) as `event_LocationY` from event
+		limit #{page}, #{pagepernum}
 	</select>
 	<select id="eventReadByCategory" resultType="com.fyni.domain.EventDTO">
 		select event_ID, event_Title, event_Content, event_Up, event_Down, event_WrittenWhen, event_Picture, category_ID, user_ID, event_Hit, event_WhenBegins, event_WhenEnds, event_Address, X(event_Location) as `event_LocationX`, Y(event_Location) as `event_LocationY` from event

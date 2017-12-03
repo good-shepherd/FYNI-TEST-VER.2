@@ -32,8 +32,8 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public List<EventDTO> eventReadAll() throws Exception {
-		return dao.eventReadAll();
+	public List<EventDTO> eventReadAll(int page, int pagepernum) throws Exception {
+		return dao.eventReadAll(page,pagepernum);
 	}
 
 	@Override
