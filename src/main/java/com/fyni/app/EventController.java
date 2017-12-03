@@ -53,13 +53,8 @@ public class EventController {
 			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
 			HttpSession session) throws Exception {
 		Object userid = session.getAttribute("user_ID");
-		// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
-		StringBuffer sb = new StringBuffer();
-		sb.append(event_WhenBegins.substring(0, 10)).append(" ").append(event_WhenBegins.substring(11)).append(":00");
-		String begins = sb.toString();
-		sb = new StringBuffer();
-		sb.append(event_WhenEnds.substring(0, 10)).append(" ").append(event_WhenEnds.substring(11)).append(":00");
-		String ends = sb.toString();
+		String begins = htmlToMysqlDate(event_WhenBegins);
+		String ends = htmlToMysqlDate(event_WhenEnds);
 		EventDTO dto = new EventDTO();
 		dto.setEvent_Title(event_Title);
 		dto.setEvent_Content(event_Content);
@@ -74,7 +69,6 @@ public class EventController {
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
 		mav.addObject("event", dto);
 		return mav;
-
 	}
 
 	@RequestMapping(value = "writeanevent", method = RequestMethod.GET)
@@ -92,6 +86,42 @@ public class EventController {
 		int result = service.eventDelete(Integer.parseInt(event_ID));
 		System.out.println(result);
 		if (result > 0) return "success"; else return "failed";
+	}
+	
+	@RequestMapping(value = "eventUpdate.do", method = RequestMethod.POST)
+	public ModelAndView eventUpdate(String event_ID) throws Exception {
+		ModelAndView mav = new ModelAndView("ajaxpage/eventupdatebody");
+		int eventid = Integer.parseInt(event_ID.trim());
+		EventDTO event = service.eventRead(eventid);
+		String begins = mysqlToHtmldate(event.getEvent_WhenBegins());
+		String ends = mysqlToHtmldate(event.getEvent_WhenEnds());
+		event.setEvent_WhenBegins(begins);
+		event.setEvent_WhenEnds(ends);
+		mav.addObject("event", event);
+		return mav;
+	}
+	
+	@RequestMapping(value = "eventUpdate.go", method = RequestMethod.POST)
+	public ModelAndView eventUpdateGo(String event_Title, String event_Content, String event_WhenBegins,
+			String event_WhenEnds, int category_ID, String event_Address, String event_LocX, String event_LocY,
+			HttpSession session) throws Exception {
+		Object userid = session.getAttribute("user_ID");
+		String begins = htmlToMysqlDate(event_WhenBegins);
+		String ends = htmlToMysqlDate(event_WhenEnds);
+		EventDTO dto = new EventDTO();
+		dto.setEvent_Title(event_Title);
+		dto.setEvent_Content(event_Content);
+		dto.setEvent_WhenBegins(begins);
+		dto.setEvent_WhenEnds(ends);
+		dto.setCategory_ID(category_ID);
+		dto.setEvent_Address(event_Address);
+		dto.setEvent_LocationX(event_LocX);
+		dto.setEvent_LocationY(event_LocY);
+		dto.setUser_ID(userid.toString());
+		service.eventCreate(dto);
+		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
+		mav.addObject("event", dto);
+		return mav;
 	}
 
 	@RequestMapping(value = "eventRead.do", method = RequestMethod.POST)
@@ -126,7 +156,7 @@ public class EventController {
 		model.addAttribute("listlen",list.size());
 		if(count < 1) {
 			return "home";
-		}else {
+		} else {
 			return "ajaxpage/commentbody";
 		}
 		
@@ -144,7 +174,19 @@ public class EventController {
 		return savedName;
 	}
 	
+	// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
+	private String htmlToMysqlDate(String htmldate) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(htmldate.substring(0, 10)).append(" ").append(htmldate.substring(11)).append(":00");
+		return sb.toString();
+	}
 	
+	// YYYY-MM-DD HH:MM:SS -> 2017-01-01T01:00
+	private String mysqlToHtmldate(String mysqldate) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(mysqldate.substring(0, 10)).append("T").append(mysqldate.substring(11, 16));
+		return sb.toString();
+	}
 	
 	
 	

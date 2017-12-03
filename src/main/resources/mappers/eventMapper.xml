@@ -15,13 +15,11 @@
 		update event set
 		event_Title = #{event_Title},
 		event_Content = #{event_Content},
-		event_Up = #{event_Up},
-		event_Down = #{event_Down},
-		event_When = #{event_When},
-		event_Picture = #{event_Picture},
+		event_WhenBegins = #{event_WhenBegins},
+		event_WhenEnds = #{event_WhenEnds},
 		category_ID = #{catetory_ID},
-		location_ID = #{location_ID},
-		user_ID = #{user_ID}
+		event_Address = #{event_Address},
+		event_Location = Point(#{event_LocationX}, #{event_LocationY})
 		where event_ID = #{event_ID}
 	</update>
 	<select id="eventRead" resultType="com.fyni.domain.EventDTO">
@@ -56,7 +54,8 @@
 <!-- 		0,300 -->
 <!-- 	</select> -->
 	<delete id="eventDelete">
-		delete from event where event_ID = #{event_ID}
+		delete from comment where event_ID = #{event_ID};
+		delete from event where event_ID = #{event_ID};
 	</delete>
 	<update id="eventUpDown">
 		update event set

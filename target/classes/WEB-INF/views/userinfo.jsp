@@ -17,6 +17,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/userinfo.js"></script>
   <script src="js/navsearch.js"></script>
+  <script src="js/comment.js"></script>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f397917cb5ef99cfb9f9547f560e0bbf&libraries=services"></script>
   <title>My Information</title>
 </head>
