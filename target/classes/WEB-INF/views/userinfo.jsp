@@ -15,7 +15,6 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">	
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/userinfo.js"></script>
   <script src="js/navsearch.js"></script>
   <script src="js/sample.js"></script>
   <script src="js/comment.js"></script>

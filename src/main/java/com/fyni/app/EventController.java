@@ -184,11 +184,7 @@ public class EventController {
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 901d1f1cf01d08a15fdbf000490b2b79476a5190
 	// 2017-01-01T01:00 -> YYYY-MM-DD HH:MM:SS
 	private String htmlToMysqlDate(String htmldate) {
 		StringBuffer sb = new StringBuffer();
@@ -202,11 +198,7 @@ public class EventController {
 		sb.append(mysqldate.substring(0, 10)).append("T").append(mysqldate.substring(11, 16));
 		return sb.toString();
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 901d1f1cf01d08a15fdbf000490b2b79476a5190
 	@RequestMapping("cngcomment")
 	public String cngcomment(HttpSession session, Model model) {
 		String userid = (String) session.getAttribute("user_ID");
