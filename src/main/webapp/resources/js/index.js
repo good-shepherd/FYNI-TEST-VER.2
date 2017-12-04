@@ -122,17 +122,21 @@ $(document).ready(function(){
 			 }
 		 });
 	 }*/
-	 
-	 
-	var searchAction = function searchbypage(e) {
+	
+	var searchAction = function searchbypage() {
 		var category_name = $('#main-search-input').val();
-		var searchurl = "search?category_name=" + category_name + "&page=" + e;
+		var searchurl = "search?category_name=" + category_name + "&page=1";
 		location.href = searchurl;
 	}
 	 
-	$('#main-search-button').on('click', searchAction('1'));
-	$('#searchNav').on('click', searchNavAction());
+	$('#main-search-button').on('click', searchAction);
+	$('#searchNav').on('click', searchNavAction);
 	$('#main-search-input').keypress(function(e){if(e.which == 13){$('#main-search-button').click();}});
 	
         
 });
+
+function searchbypp(e) {
+	var searchurl = "search?category_name=" + "&page=" + e;
+	location.href = searchurl;
+}

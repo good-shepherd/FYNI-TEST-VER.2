@@ -27,13 +27,13 @@ public class EventServiceImpl implements EventService {
 	}
 	
 	@Override
-	public List<EventDTO> eventReadByCategory(String category_name) throws Exception {
-		return dao.eventReadByCategory(category_name);
+	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum) throws Exception {
+		return dao.eventReadByCategory(category_name, page, pagepernum);
 	}
 
 	@Override
-	public List<EventDTO> eventReadAll() throws Exception {
-		return dao.eventReadAll();
+	public List<EventDTO> eventReadAll(int page, int pagepernum) throws Exception {
+		return dao.eventReadAll(page, pagepernum);
 	}
 
 	@Override
