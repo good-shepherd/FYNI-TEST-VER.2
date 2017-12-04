@@ -44,7 +44,7 @@ $(document).ready(function(){
 			 processData: false,
 		     contentType: false,
 			 success : function(data){
-				 alert(data);
+				 // alert(data);
 				 $("#main-div").replaceWith(data);
 			 },
 			 error : function(){

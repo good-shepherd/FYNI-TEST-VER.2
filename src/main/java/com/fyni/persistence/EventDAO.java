@@ -9,6 +9,8 @@ public interface EventDAO {
 	public int eventUpdate(EventDTO event);
 	public EventDTO eventRead(int event_ID);
 	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum);
+	public List<EventDTO> eventReadByCategoryLen(String category_name);
+	public List<EventDTO> eventReadAllLen();
 	public List<EventDTO> eventReadAll(int page, int pagepernum);
 	public List<EventDTO> eventUserOwn(String user_ID);
 	public List<EventDTO> eventInCircle(String lon, String lat);

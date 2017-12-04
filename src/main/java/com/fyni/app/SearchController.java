@@ -30,7 +30,7 @@ public class SearchController {
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public ModelAndView eventReadByCategory(
 			@RequestParam(value = "category_name", required = false) String category_name,int page) throws Exception {
-		
+		int listLen = 0;
 		Criteria cri = new Criteria();
 		cri.setPage(page);
 		cri.setPagePerNum(10);
@@ -38,8 +38,10 @@ public class SearchController {
 		List<EventDTO> list;
 		if ("".equals(category_name.trim())) {
 			list = service.eventReadAll(cri.getPage(), cri.getPagepernum());
+			listLen = service.eventReadAllLen().size();
 		} else {
 			list = service.eventReadByCategory(category_name, cri.getPage(), cri.getPagepernum());
+			listLen = service.eventReadByCategoryLen(category_name).size();
 		}
 		List<String> coord = new ArrayList<String>();
 		for (EventDTO dto : list) {
@@ -54,11 +56,13 @@ public class SearchController {
 		}
 		int listSize = list.size();
 		int coordListSize = coord.size();
-		System.out.println(coordListSize);
+		System.out.println("coordslistsize : " + coordListSize);
+		System.out.println("listsize : " + listSize);
 		mav.addObject("list", list);
 		mav.addObject("coordlist", coord);
 		mav.addObject("coordlistsize", coordListSize);
 		mav.addObject("listsize", listSize);
+		mav.addObject("listLen", listLen);
 		return mav;
 	}
 	// @RequestMapping(value = "")

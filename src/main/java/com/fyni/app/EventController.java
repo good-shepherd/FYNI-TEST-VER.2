@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -37,13 +38,6 @@ public class EventController {
 	@Autowired
 	CommentService cservice;
 
-	/*
-	 * @RequestMapping(value = "listAll.do", method = RequestMethod.GET)
-	 * 
-	 * @ResponseBody public List<EventDTO> searchAll() throws Exception {
-	 * List<EventDTO> list = service.eventReadAll(); System.out.println(list);
-	 * return list; }
-	 */
 	// event view after creating
 	@RequestMapping(value = "eventCreate.do", method = RequestMethod.POST)
 	public ModelAndView eventCreate(String event_Title, String event_Content, String event_WhenBegins,
@@ -67,7 +61,7 @@ public class EventController {
 		dto.setUser_ID(userid);
 		System.out.println(event_Picture.getOriginalFilename());
 		System.out.println(event_Picture.getSize());
-		String filepath = uploadFile(event_Picture.getOriginalFilename(), event_Picture.getBytes());
+		String filepath = uploadFile(session, event_Picture.getOriginalFilename(), event_Picture.getBytes());
 		dto.setEvent_Picture(filepath);
 		service.eventCreate(dto);
 		ModelAndView mav = new ModelAndView("ajaxpage/eventbody");
@@ -172,10 +166,8 @@ public class EventController {
 
 	}
 
-	@Resource(name = "uploadPath")
-	private String uploadPath;
-
-	private String uploadFile(String originalName, byte[] fileData) throws IOException {
+	private String uploadFile(HttpSession session,  String originalName, byte[] fileData) throws IOException {
+		String uploadPath = session.getServletContext().getRealPath("resources/images/useruploads");
 		UUID uid = UUID.randomUUID();
 		String savedName = uid.toString() + "_" + originalName;
 		System.out.println(uploadPath);

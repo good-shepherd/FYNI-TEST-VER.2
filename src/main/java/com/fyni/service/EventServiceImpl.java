@@ -30,7 +30,15 @@ public class EventServiceImpl implements EventService {
 	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum) throws Exception {
 		return dao.eventReadByCategory(category_name, page, pagepernum);
 	}
+	@Override
+	public List<EventDTO> eventReadByCategoryLen(String category_name) throws Exception {
+		return dao.eventReadByCategoryLen(category_name);
+	}
 
+	@Override
+	public List<EventDTO> eventReadAllLen() throws Exception {
+		return dao.eventReadAllLen();
+	}
 	@Override
 	public List<EventDTO> eventReadAll(int page, int pagepernum) throws Exception {
 		return dao.eventReadAll(page, pagepernum);

@@ -15,7 +15,7 @@
 			<div class="row">
 			</div>
 			</div>
-			<div class="col-sm-2">추천 or 비추천 (도움? or 안도)</div>
+			<!-- <div class="col-sm-2">추천 or 비추천 (도움? or 안도)</div> -->
 	</div>
 </c:forEach>
 </div>

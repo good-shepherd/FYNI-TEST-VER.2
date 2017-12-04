@@ -36,18 +36,34 @@ public class EventDAOImpl implements EventDAO {
 	@Override
 	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum) {
 		Map<String, Object> map = new HashMap<String,Object>();
+		if(page <= 0) {
+			page = 1;
+		}
+		page = (page - 1 ) * 10;
 		map.put("page", page);
 		map.put("pagepernum", pagepernum);
 		map.put("category_name", category_name);
-		return session.selectList(namespace + ".eventReadByCategory", category_name);
+		return session.selectList(namespace + ".eventReadByCategory", map);
+	}
+	@Override
+	public List<EventDTO> eventReadByCategoryLen(String category_name) {
+		return session.selectList(namespace + ".eventReadByCategoryLen", category_name);
 	}
 
 	@Override
 	public List<EventDTO> eventReadAll(int page, int pagepernum) {
 		Map<String, Integer> map = new HashMap<String,Integer>();
+		if(page <= 0) {
+			page = 1;
+		}
+		page = (page - 1 ) * 10;
 		map.put("page", page);
 		map.put("pagepernum", pagepernum);
 		return session.selectList(namespace + ".eventReadAll", map);
+	}
+	@Override
+	public List<EventDTO> eventReadAllLen() {
+		return session.selectList(namespace + ".eventReadAllLen");
 	}
 
 	@Override

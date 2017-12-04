@@ -22,7 +22,7 @@
 		<property name="maxUploadSize" value="10485760"/>
 	</bean>
 	<bean id="uploadPath" class="java.lang.String">
-		<constructor-arg value="C:\workspace_sts\FYNI-TEST-VER.2\src\main\webapp\resources\images\useruploads"/>
+		<constructor-arg value="resources\images\useruploads"/>
 	</bean>
 	<context:component-scan base-package="com.fyni" />
 	<bean id="LoginInterceptor" class="com.fyni.interceptor.LoginInterceptor"></bean>

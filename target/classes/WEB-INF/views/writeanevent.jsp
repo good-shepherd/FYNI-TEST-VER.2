@@ -75,7 +75,7 @@
 <div class="form-group">
   <label class=" control-label" for="event_Content">Description</label>
   <div class="">                     
-    <textarea class="form-control" id="event_Content" rows="7" name="event_Content" maxlength="200"></textarea>
+    <textarea class="form-control" id="event_Content" rows="7" name="event_Content" maxlength="330"></textarea>
   </div>
 </div>
 
