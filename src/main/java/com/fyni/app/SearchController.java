@@ -39,7 +39,7 @@ public class SearchController {
 		if ("".equals(category_name.trim())) {
 			list = service.eventReadAll(cri.getPage(), cri.getPagepernum());
 		} else {
-			list = service.eventReadByCategory(category_name);
+			list = service.eventReadByCategory(category_name, cri.getPage(), cri.getPagepernum());
 		}
 		List<String> coord = new ArrayList<String>();
 		for (EventDTO dto : list) {
