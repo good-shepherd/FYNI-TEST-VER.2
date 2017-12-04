@@ -83,7 +83,7 @@ $(document).ready(function(){
 		 var category_name = $('#searchNav').val();
 		 $.ajax({
 			 url : "eventReadByCategory.do",
-			 data : {"category_name": category_name, "page" : 1},
+			 data : {"category_name": category_name, "page" : "1"},
 			 success : function(data){
 //				  alert(data.toString());
 //				 var str = "";
