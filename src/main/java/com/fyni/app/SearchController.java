@@ -56,7 +56,8 @@ public class SearchController {
 		}
 		int listSize = list.size();
 		int coordListSize = coord.size();
-		System.out.println(coordListSize);
+		System.out.println("coordslistsize : " + coordListSize);
+		System.out.println("listsize : " + listSize);
 		mav.addObject("list", list);
 		mav.addObject("coordlist", coord);
 		mav.addObject("coordlistsize", coordListSize);

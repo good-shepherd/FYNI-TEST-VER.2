@@ -62,8 +62,8 @@
 	<div id="main-div" class="container-fluid section-max-width">
 		<div id="search-result-list" class="col-sm-8">
 			<div id="resultList" class="list-group">
-				<c:forEach var="i" items="${list}" begin="0" end="${listsize}">
-					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item">
+				<c:forEach var="i" items="${list}" begin="0" end="${listsize}"  varStatus="loop">
+					<a id="list-individual-item" href="javascript:searchResult(${i.event_ID})" class="list-group-item" >
 						<div class="row">
 							<div class="col-sm-8">
 								<h4 class="list-group-item-heading" id="search-event-title${loop.index}">${i.event_Title}</h4>
@@ -74,7 +74,7 @@
 					</a>
 				</c:forEach>
 				<p hidden id="coordlistsize">${coordlistsize}</p>
-				<c:forEach var="k" items="${coordlist}" begin="0" end="${coordlistsize}">
+				<c:forEach var="k" items="${coordlist}" begin="0" end="${coordlistsize}"  varStatus="loop">
 					<p hidden id="coord${loop.index}">${k}</p>
 				</c:forEach>
 			</div>
@@ -98,5 +98,6 @@
 			</div>
 		</div>
 	</nav>
+	<script src= "js/search.js"></script>
 </body>
 </html>
