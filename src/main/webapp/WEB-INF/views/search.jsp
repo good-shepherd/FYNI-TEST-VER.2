@@ -81,9 +81,9 @@
 			<div>
 				<div class="container">
 				<ul class="pagination">
-	              <li class="active"><a href="javascript:searchbypage('1')">1<span class="sr-only">(current)</span></a></li>
-					<c:forEach var="j" begin="2" end = "${listsize div 10}">
-		              <li><a href="javascript:searchbypage('${j}')"><c:out value="${j}"/></a></li>
+	              <li class="active"><a href="javascript:searchbypp('1')">1<span class="sr-only">(current)</span></a></li>
+					<c:forEach var="j" begin="2" end = "${listLen div 10 + 1}">
+		              <li><a href="javascript:searchbypp('${j}')"><c:out value="${j}"/></a></li>
 		            </c:forEach>
 	            </ul>
 				</div>

@@ -155,7 +155,6 @@ $(document).ready(function(){
                     // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
                     fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
                 }
-                
                 geocoder.addressSearch(data.address, function(results, status) {
                     // 정상적으로 검색이 완료됐으면
                     if (status === daum.maps.services.Status.OK) {
@@ -189,9 +188,6 @@ $(document).ready(function(){
         initLayerPosition();
     });
 	
-	
-	
-
 var index = document.querySelector('#coordlistsize').innerHTML;
 var positions = [];
 for (i = 0; i < index; i++) {
