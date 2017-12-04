@@ -4,7 +4,7 @@
 
 function navbarSearch() {
 	var category_name = $('#nav-search-bar').val();
-	var searchurl = "search?category_name=" + category_name;
+	var searchurl = "search?category_name=" + category_name + "&page=1";
 	location.href = searchurl;
 }
 

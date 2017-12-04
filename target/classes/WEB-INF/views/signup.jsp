@@ -50,6 +50,11 @@
 		alert("check your Email or Password");
 	  </script>
 	</c:if>	
+	<c:if test="${signupmsg eq 'exist'}">
+	  <script>
+		alert("email already exist, plz try other email");
+	  </script>
+	</c:if>	
  <div class= "col-md-4 col-md-offset-4">
   <div class="row" >
     <div class="main">

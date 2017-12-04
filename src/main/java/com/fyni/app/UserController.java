@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fyni.domain.CommentDTO;
 import com.fyni.domain.EventDTO;
 import com.fyni.domain.UserDTO;
 import com.fyni.service.CommentService;
@@ -53,7 +52,6 @@ public class UserController {
 	@RequestMapping("signup.do")
 	public String signUp(UserDTO user, Model model) {
 		int count = 0;
-		System.out.println(user);
 		if("".equals(user.getUser_ID().trim())) {
 			count = -1;
 		}else if("".equals(user.getUser_PWD().trim())) {
@@ -61,13 +59,22 @@ public class UserController {
 		}else if("".equals(user.getUser_Nickname().trim())) {
 			count = -1;
 		}
+		
+		UserDTO usr = service.userRead(user.getUser_ID());
+		if(usr != null) {
+			count = 2; 
+		}
 		if(count == 0) {
 			count = service.userCreate(user);
 		}
 		if(count < 1) {
 			model.addAttribute("signupmsg","failed");
 			return "signup";
-		}else {
+		}else if(count == 2){
+			model.addAttribute("signupmsg", "exist");
+			return "signup";
+		}
+		else {
 			return "home";
 		}
 	}
