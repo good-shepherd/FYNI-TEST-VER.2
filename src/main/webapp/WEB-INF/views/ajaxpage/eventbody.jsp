@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-sm-4">
 				<a href="">${event.user_ID} </a>
-				<p>조회수 ${event.event_Hit }, 추천수 ${event.event_Up }, 코멘트수</p>
+				<p>조회수 ${event.event_Hit }, 추천수 ${event.event_Up }</p>
 			</div>
 			<div class="col-sm-4">카테고리 ${event.category_ID }</div>
 			<div class="col-sm-12">
@@ -68,6 +68,7 @@
 				</div>
 			</div>
 		</div>
+		<br><br>
 		<div id="map" class="col-sm-4" style="min-height: 400px;"></div>
 	</div>
 </div>

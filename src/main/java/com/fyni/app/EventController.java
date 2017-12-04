@@ -65,6 +65,8 @@ public class EventController {
 		dto.setEvent_LocationX(event_LocationX);
 		dto.setEvent_LocationY(event_LocationY);
 		dto.setUser_ID(userid);
+		System.out.println(event_Picture.getOriginalFilename());
+		System.out.println(event_Picture.getSize());
 		String filepath = uploadFile(event_Picture.getOriginalFilename(), event_Picture.getBytes());
 		dto.setEvent_Picture(filepath);
 		service.eventCreate(dto);
