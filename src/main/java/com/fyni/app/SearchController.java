@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.openkoreantext.processor.OpenKoreanTextProcessorJava;
+import org.openkoreantext.processor.phrase_extractor.KoreanPhraseExtractor;
+import org.openkoreantext.processor.tokenizer.KoreanTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ import com.fyni.domain.Criteria;
 import com.fyni.domain.EventDTO;
 import com.fyni.service.EventServiceImpl;
 
+import scala.collection.Seq;
+
 @Controller
 public class SearchController {
 
@@ -25,11 +30,10 @@ public class SearchController {
 
 	@Autowired
 	private EventServiceImpl service;
-	
-	
+
 	@RequestMapping(value = "search", method = RequestMethod.GET)
-	public ModelAndView eventReadByCategory(
-			@RequestParam(value = "category_name", required = false) String category_name,int page) throws Exception {
+	public ModelAndView eventReadByCategory1(
+			@RequestParam(value = "category_name", required = false) String category_name, int page) throws Exception {
 		int listLen = 0;
 		Criteria cri = new Criteria();
 		cri.setPage(page);
@@ -65,5 +69,19 @@ public class SearchController {
 		mav.addObject("listLen", listLen);
 		return mav;
 	}
-	// @RequestMapping(value = "")
+
+	/*
+	 * @RequestMapping(value = "search", method = RequestMethod.GET) public
+	 * ModelAndView eventReadByCategory(
+	 * 
+	 * @RequestParam(value = "category_name", required = false) String
+	 * category_name) throws Exception { CharSequence normalized =
+	 * OpenKoreanTextProcessorJava.normalize(category_name);
+	 * Seq<KoreanTokenizer.KoreanToken> tokens =
+	 * OpenKoreanTextProcessorJava.tokenize(normalized);
+	 * List<KoreanPhraseExtractor.KoreanPhrase> phrases =
+	 * OpenKoreanTextProcessorJava.extractPhrases(tokens, true, true);
+	 * System.out.println(phrases); return null; }
+	 */
+
 }

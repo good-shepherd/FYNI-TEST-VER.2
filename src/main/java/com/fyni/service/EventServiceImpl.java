@@ -26,6 +26,10 @@ public class EventServiceImpl implements EventService {
 		return dao.eventRead(event_ID);
 	}
 	
+	public List<EventDTO> eventReadBySearch(List<String> search_keyword) throws Exception {
+		return dao.eventReadBySearch(search_keyword);
+	}
+	
 	@Override
 	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum) throws Exception {
 		return dao.eventReadByCategory(category_name, page, pagepernum);

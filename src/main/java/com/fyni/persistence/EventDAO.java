@@ -17,4 +17,5 @@ public interface EventDAO {
 	public int eventDelete(int event_ID);
 	public int eventUpDown(int event_Up, int event_Down);
 	public int eventHit(int event_ID);
+	public List<EventDTO> eventReadBySearch(List<String> search_keyword);
 }

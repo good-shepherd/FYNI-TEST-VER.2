@@ -33,6 +33,11 @@ public class EventDAOImpl implements EventDAO {
 		return session.selectOne(namespace + ".eventRead", event_ID);
 	}
 
+	public List<EventDTO> eventReadBySearch(List<String> search_keyword) {
+		return session.selectList(namespace + ".eventReadBySearch", search_keyword);
+	}
+	
+	
 	@Override
 	public List<EventDTO> eventReadByCategory(String category_name, int page, int pagepernum) {
 		Map<String, Object> map = new HashMap<String,Object>();

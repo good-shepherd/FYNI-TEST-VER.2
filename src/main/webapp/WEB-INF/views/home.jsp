@@ -45,7 +45,7 @@
 </div>
 	  
 <center>
-	<section class="section-max-width">
+	<section class="section-max-width section-min-height">
 	
 	<div id="main-top-section" class="row">
 	<div id="landing-page-helloworld">

@@ -17,4 +17,5 @@ public interface EventService {
 	public int eventDelete(int event_ID) throws Exception;
 	public int eventUpDown(int event_Up, int event_Down) throws Exception;
 	public int eventHit(int event_ID) throws Exception;
+	public List<EventDTO> eventReadBySearch(List<String> search_keyword) throws Exception;
 }

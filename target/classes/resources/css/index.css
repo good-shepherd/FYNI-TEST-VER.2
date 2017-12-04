@@ -62,6 +62,10 @@ body {
   max-width:1000px; 
 }
 
+.section-min-height {
+  min-height:750px; 
+}
+
 .bg, .bg-filter {
   position: absolute;
   left: 50%;
