@@ -23,13 +23,6 @@
 	<nav id="top-navbar" class="navbar">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#topFixedNavbar1"
-					aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span><span
-						class="icon-bar"></span><span class="icon-bar"></span><span
-						class="icon-bar"></span>
-				</button>
 				<a class="navbar-brand" href="/app">FYNI</a>
 			</div>
 			<ul class="nav navbar-nav">

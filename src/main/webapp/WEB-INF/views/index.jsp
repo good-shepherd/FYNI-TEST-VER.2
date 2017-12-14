@@ -22,13 +22,21 @@ rel="stylesheet">
 <nav id="top-navbar" class="navbar">
 	<div class="container-fluid">        
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">FYNI</a>
+			<a class="navbar-brand" href="/app">FYNI</a>
 		</div>        
 		<ul class="nav navbar-nav">
 			<li><a href="writeanevent">Write an Event</a></li>
 			<li><a href="#">Talk</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<form class="navbar-form" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search" id="nav-search-bar">
+						<span id="nav-search-btn" class="btn glyphicon-search"></span>
+					</div>
+				</form>
+			</li>
 			<c:if test="${user_ID == null }">		   
 				<li><a href="login">Log In</a></li>
 				<li><a href="signup">Sign Up</a></li>
@@ -42,7 +50,17 @@ rel="stylesheet">
 </nav>
 
 <div id="main-div" class="container-fluid section-max-width">
-
+<script>
+$("#nav-search-bar").hide();
+$("#nav-search-btn").hide();
+$.ajax({
+	 url : "home.go",
+	 type : 'post',
+	 success : function(data){
+		 $("#main-div").replaceWith(data);
+	 }
+});
+</script>
 </div>
 
 <nav id="bottom-navbar" class="navbar">
@@ -52,6 +70,5 @@ rel="stylesheet">
 		</div>
 	</div>
 </nav>
-
 </body>
 </html>
